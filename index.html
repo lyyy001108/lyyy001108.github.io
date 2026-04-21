@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>李颖 · 商务数据分析</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #e6f0e8 0%, #fdf0ec 100%);
+            color: #2c4a3a;
+            line-height: 1.45;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* 头部卡片 */
+        .hero {
+            background: rgba(255, 255, 245, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(160, 190, 140, 0.4);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+        }
+
+        .name {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #3a6b50;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.3rem;
+        }
+
+        .school {
+            font-size: 0.95rem;
+            color: #7a8e7a;
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .school i {
+            color: #d49484;
+        }
+
+        .bio {
+            max-width: 70%;
+            background: rgba(245, 240, 235, 0.6);
+            padding: 0.7rem 1.2rem;
+            border-radius: 1.5rem;
+            font-size: 0.9rem;
+            color: #5a7a64;
+            margin-top: 1rem;
+            border-left: 3px solid #dbaa9a;
+        }
+
+        /* 统计卡片 */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 2.5rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 252, 245, 0.8);
+            backdrop-filter: blur(4px);
+            flex: 1;
+            min-width: 120px;
+            border-radius: 1.8rem;
+            padding: 1.2rem 0.5rem;
+            text-align: center;
+            transition: all 0.25s;
+            border: 1px solid rgba(170, 190, 150, 0.3);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            background: #ffffff;
+            border-color: #d4b0a4;
+        }
+
+        .stat-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #558b6e;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #b27a8a;
+            letter-spacing: 0.5px;
+            margin-top: 0.3rem;
+        }
+
+        /* 课程网格 */
+        .section-header {
+            margin: 2rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 650;
+            color: #468066;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 1.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 250, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 1.6rem;
+            padding: 1.3rem 1.4rem;
+            transition: all 0.3s ease;
+            border: 1px solid #e8dcd4;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            border-color: #ddc2b8;
+            box-shadow: 0 14px 24px -10px rgba(100, 80, 70, 0.1);
+        }
+
+        .card-icon {
+            font-size: 1.9rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .course-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #4a7862;
+            margin: 0.3rem 0 0.4rem;
+        }
+
+        .course-desc {
+            font-size: 0.8rem;
+            color: #7a9080;
+            line-height: 1.45;
+            margin-bottom: 0.8rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .tag {
+            background: #f5eae6;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #b87a6a;
+            font-weight: 500;
+        }
+
+        /* 学习路径 */
+        .pathway {
+            background: rgba(250, 248, 240, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 1.8rem;
+            padding: 1.5rem 1.8rem;
+            margin: 2rem 0 1.5rem;
+            border: 1px solid #e2d4cc;
+        }
+
+        .pathway-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #558064;
+            margin-bottom: 1.2rem;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .step {
+            flex: 1;
+            background: white;
+            border-radius: 1.3rem;
+            padding: 0.9rem 0.8rem;
+            text-align: center;
+            border-bottom: 3px solid #d4a598;
+        }
+
+        .step-number {
+            background: #edddd6;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #9c6e60;
+            margin-bottom: 0.5rem;
+        }
+
+        .step h4 {
+            font-size: 0.9rem;
+            color: #4a6e5a;
+        }
+
+        /* 联系方式 */
+        .contact {
+            background: rgba(255, 250, 240, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 1.6rem;
+            padding: 1rem 1.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #658d74;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+        }
+
+        .contact-links a:hover {
+            color: #bc7e6e;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #8aa696;
+        }
+
+        @media (max-width: 760px) {
+            .container { padding: 1rem; }
+            .name { font-size: 2rem; }
+            .bio { max-width: 100%; }
+            .steps { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <div class="name">李颖</div>
+        <div class="school">
+            <i class="fas fa-graduation-cap"></i> 广东科学技术职业学院 · 商务数据分析与应用专业
+        </div>
+        <div class="bio">
+            欢迎访问我的个人课程页面！这里展示了我学习的主要课程信息。<br>
+            作为商务数据分析与应用专业的学生，我致力于掌握数据分析的核心技能，后续我会不断补充各课程的详细内容和学习成果。
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number">6+</div>
+            <div class="stat-label">专业课程</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">核心技能</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">学习潜力</div>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <i class="fas fa-book-open" style="color:#cb8a7a; font-size:1.6rem;"></i>
+        <div class="section-title">我的课程</div>
+    </div>
+
+    <div class="courses-grid">
+        <div class="course-card">
+            <div class="card-icon">🐍</div>
+            <div class="course-name">Python基础</div>
+            <div class="course-desc">Python编程语言的基础知识和应用，掌握编程思维与核心语法。</div>
+            <div class="tags"><span class="tag">编程思维</span><span class="tag">自动化</span></div>
+        </div>
+        <div class="course-card">
+            <div class="card-icon">📊</div>
+            <div class="course-name">数据分析技术</div>
+            <div class="course-desc">数据分析的基本方法和工具，培养数据驱动的决策能力。</div>
+            <div class="tags"><span class="tag">Pandas</span><span class="tag">可视化</span></div>
+        </div>
+        <div class="course-card">
+            <div class="card-icon">🔍</div>
+            <div class="course-name">数据采集与处理</div>
+            <div class="course-desc">数据采集和预处理的技术，学习从多渠道获取并整理数据。</div>
+            <div class="tags"><span class="tag">爬虫</span><span class="tag">数据清洗</span></div>
+        </div>
+        <div class="course-card">
+            <div class="card-icon">🚚</div>
+            <div class="course-name">供应链数据分析</div>
+            <div class="course-desc">供应链管理中的数据分析应用，提升运营效率与决策水平。</div>
+            <div class="tags"><span class="tag">预测</span><span class="tag">优化</span></div>
+        </div>
+        <div class="course-card">
+            <div class="card-icon">💾</div>
+            <div class="course-name">数据库原理与应用</div>
+            <div class="course-desc">数据库的基本原理和应用，掌握数据存储与管理的核心技术。</div>
+            <div class="tags"><span class="tag">SQL</span><span class="tag">MySQL</span></div>
+        </div>
+    </div>
+
+    <div class="pathway">
+        <div class="pathway-title">🗺️ 学习路径</div>
+        <div class="steps">
+            <div class="step"><div class="step-number">1</div><h4>基础阶段</h4><div style="font-size:0.7rem; color:#8aa696;">Python基础、数据库原理</div></div>
+            <div class="step"><div class="step-number">2</div><h4>进阶阶段</h4><div style="font-size:0.7rem; color:#8aa696;">数据分析技术、数据采集</div></div>
+            <div class="step"><div class="step-number">3</div><h4>应用阶段</h4><div style="font-size:0.7rem; color:#8aa696;">供应链分析、实战项目</div></div>
+            <div class="step"><div class="step-number">4</div><h4>专业深化</h4><div style="font-size:0.7rem; color:#8aa696;">高级分析、行业应用</div></div>
+        </div>
+    </div>
+
+    <div class="contact">
+        <div class="contact-links">
+            <a href="https://github.com/liying001108/liying001108.github.io" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:3580278276@qq.com"><i class="fas fa-envelope"></i> 3580278276@qq.com</a>
+        </div>
+        <div><i class="fas fa-chart-line" style="color:#cb8a7a;"></i> 每天进步一点点 · 用数据讲述故事</div>
+    </div>
+    <footer>© 2026 李颖 · 商务数据分析学习日志</footer>
+</div>
+</body>
+</html>
