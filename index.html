@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>李颖 · 商务数据分析</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李颖 · 数据分析训练营</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -12,366 +12,713 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: linear-gradient(135deg, #eaf5ec 0%, #fff0ec 100%);
             color: #2c4a3a;
-            line-height: 1.45;
-            scroll-behavior: smooth;
-            min-height: 100vh;
+            line-height: 1.5;
             padding: 2rem 1rem;
+            min-height: 100vh;
         }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f0dfd8; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: #d4a598; border-radius: 10px; }
-
         .container {
             max-width: 1280px;
             margin: 0 auto;
         }
-
-        /* 头部卡片 - 保持粉绿毛玻璃 */
         .hero {
-            background: rgba(255, 252, 245, 0.75);
+            background: rgba(255,252,245,0.75);
             backdrop-filter: blur(16px);
-            border-radius: 2.5rem;
-            padding: 2rem 2rem;
+            border-radius: 2rem;
+            padding: 2rem;
             margin-bottom: 2rem;
-            border: 1px solid rgba(210, 180, 160, 0.4);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            border: 1px solid rgba(210,180,160,0.4);
         }
-
-        .name {
-            font-size: 2.4rem;
+        .hero h1 {
+            font-size: 2rem;
             font-weight: 700;
             color: #568469;
-            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
         }
-
-        .school {
-            font-size: 0.9rem;
-            color: #8c9a84;
-            margin: 0.6rem 0;
+        .subtitle {
+            color: #8ba18e;
+            margin-bottom: 1rem;
+        }
+        .stats-badge {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
-
-        .bio {
-            max-width: 75%;
-            background: rgba(250, 245, 240, 0.7);
-            padding: 0.7rem 1.2rem;
+        .stats-badge span {
+            background: rgba(255,255,255,0.6);
+            padding: 0.3rem 1rem;
             border-radius: 2rem;
-            font-size: 0.9rem;
-            color: #628a70;
-            margin-top: 1rem;
-            border-left: 4px solid #eac2b2;
+            font-size: 0.8rem;
+            color: #b27a8a;
         }
-
-        /* 统计卡片 */
-        .stats {
+        .stats-badge i {
+            margin-right: 0.3rem;
+        }
+        .section-header {
             display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
+            margin: 2rem 0 1rem;
             flex-wrap: wrap;
-            gap: 1.2rem;
-            margin: 2rem 0 2.5rem;
         }
-        .stat-card {
-            background: rgba(255, 252, 245, 0.8);
-            backdrop-filter: blur(4px);
-            flex: 1;
-            min-width: 120px;
+        .section-header h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #568469;
+        }
+        .count {
+            background: #fceae3;
+            padding: 0.2rem 0.8rem;
             border-radius: 2rem;
-            padding: 1rem 0.5rem;
-            text-align: center;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(190, 160, 140, 0.25);
+            font-size: 0.8rem;
+            color: #c28a7a;
         }
-        .stat-card:hover { transform: translateY(-4px); background: #fffef9; border-color: #e6c8bc; }
-        .stat-number { font-size: 2.2rem; font-weight: 800; color: #c08a7a; }
-        .stat-label { font-size: 0.8rem; font-weight: 600; color: #b27a8a; margin-top: 0.3rem; }
-
-        /* 课程网格 */
-        .section-header { display: flex; align-items: center; gap: 0.6rem; margin: 2rem 0 1rem 0; }
-        .section-title { font-size: 1.6rem; font-weight: 600; color: #568469; }
-
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
-
         .course-card {
-            background: rgba(255, 255, 250, 0.9);
+            background: rgba(255,255,250,0.9);
             backdrop-filter: blur(4px);
-            border-radius: 2rem;
-            padding: 1.3rem 1.3rem;
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border-radius: 1.8rem;
+            padding: 1.3rem;
+            transition: all 0.3s ease;
             border: 1px solid #f0dfd6;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-            cursor: pointer;
         }
         .course-card:hover {
-            transform: translateY(-6px) scale(1.01);
+            transform: translateY(-6px);
             background: white;
             border-color: #f5cfc0;
-            box-shadow: 0 18px 28px rgba(100, 70, 60, 0.08);
+            box-shadow: 0 18px 28px rgba(100,70,60,0.08);
         }
-        .card-icon { font-size: 2rem; margin-bottom: 0.5rem; display: inline-block; }
-        .course-name { font-size: 1.25rem; font-weight: 700; color: #568469; margin: 0.3rem 0 0.4rem; }
-        .course-desc { font-size: 0.8rem; color: #8ba18e; line-height: 1.4; margin-bottom: 0.6rem; }
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-        .tag { background: #fceae3; padding: 0.2rem 0.8rem; border-radius: 30px; font-size: 0.7rem; color: #c28a7a; font-weight: 500; }
-
-        /* 弹窗 - 保持圆润但内容风格专业 */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(100, 80, 70, 0.4);
-            backdrop-filter: blur(6px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
-        .modal-content {
-            background: #fffef8;
-            border-radius: 2rem;
-            max-width: 520px;
-            width: 90%;
-            padding: 1.8rem;
-            box-shadow: 0 25px 45px rgba(80, 60, 50, 0.15);
-            border: 1px solid #fae6dd;
-            animation: fadeSlideUp 0.2s ease;
+        .course-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #568469;
+            margin: 0.3rem 0;
         }
-        @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.6rem;
-            cursor: pointer;
-            color: #c2aa9a;
-            transition: 0.2s;
-        }
-        .modal-close:hover { color: #a06e5e; transform: rotate(90deg); }
-        .modal-icon { font-size: 2rem; margin-bottom: 0.3rem; }
-        .modal-title { font-size: 1.5rem; font-weight: 700; color: #568469; margin-bottom: 0.8rem; }
-        .modal-desc {
-            background: #fefaf5;
-            padding: 1rem;
-            border-radius: 1.5rem;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            color: #4f6a58;
-            line-height: 1.5;
-        }
-        .quiz-question { font-weight: 600; margin: 1rem 0 0.6rem; color: #b27a6a; }
-        .quiz-options { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.8rem 0; }
-        .quiz-option {
-            background: #fef5f0;
-            padding: 0.6rem 1rem;
-            border-radius: 2rem;
-            border: 1px solid #ffdfd0;
-            cursor: pointer;
-            transition: 0.2s;
+        .course-desc {
             font-size: 0.85rem;
+            color: #8ba18e;
+            margin-bottom: 0.8rem;
         }
-        .quiz-option:hover { background: #ffede3; transform: translateX(4px); }
-        .feedback { margin: 0.8rem 0; padding: 0.7rem; border-radius: 1.5rem; text-align: center; font-weight: 500; font-size: 0.85rem; }
-        .feedback.correct { background: #e0f0e4; color: #486e58; }
-        .feedback.wrong { background: #ffe0d8; color: #bd7a68; }
-        .submit-btn {
+        .course-meta {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            color: #b29a8a;
+        }
+        .start-btn {
             background: #dbbcac;
             border: none;
-            padding: 0.6rem 1.4rem;
+            padding: 0.6rem;
             border-radius: 2rem;
             font-weight: 500;
             color: white;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 0.3rem;
+            width: 100%;
+            font-size: 0.85rem;
         }
-        .submit-btn:hover { background: #c59c8a; transform: scale(0.97); }
-
-        /* 底部联系方式 */
-        .contact {
-            background: rgba(255, 250, 240, 0.7);
-            backdrop-filter: blur(8px);
+        .start-btn:hover {
+            background: #c59c8a;
+        }
+        .back-btn {
+            background: #dbbcac;
+            border: none;
+            padding: 0.5rem 1rem;
             border-radius: 2rem;
-            padding: 1rem 1.6rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
+            gap: 0.5rem;
         }
-        .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .contact-links a { color: #9b8a7a; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.2s; }
-        .contact-links a:hover { color: #c08a7a; transform: translateY(-1px); }
-        footer { text-align: center; margin-top: 2rem; font-size: 0.7rem; color: #b2aa9a; }
-        @media (max-width: 760px) { .container { padding: 0.5rem; } .name { font-size: 1.8rem; } .bio { max-width: 100%; } }
+        .course-detail-wrapper {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .sidebar {
+            flex: 1;
+            min-width: 220px;
+            background: rgba(255,252,245,0.7);
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            position: sticky;
+            top: 1rem;
+            height: fit-content;
+        }
+        .sidebar h3 {
+            color: #568469;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .toc-list {
+            list-style: none;
+        }
+        .toc-list li {
+            margin: 0.8rem 0;
+        }
+        .toc-list a {
+            text-decoration: none;
+            color: #8ba18e;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .toc-list a:hover {
+            color: #c28a7a;
+            padding-left: 5px;
+        }
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+        }
+        .content-section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .content-section h3 {
+            color: #568469;
+            margin-bottom: 0.8rem;
+        }
+        .code-block {
+            background: #f0f0e8;
+            padding: 1rem;
+            border-radius: 1rem;
+            font-family: monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            margin: 0.8rem 0;
+            position: relative;
+        }
+        .copy-btn {
+            background: #dbbcac;
+            border: none;
+            padding: 0.2rem 0.6rem;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            color: white;
+            cursor: pointer;
+            float: right;
+        }
+        .quiz-area {
+            background: #fefaf5;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .question {
+            margin-bottom: 1.2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 1.2rem;
+        }
+        .timer {
+            font-weight: bold;
+            color: #c28a7a;
+            margin-bottom: 0.5rem;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 0.8rem 0;
+        }
+        .option {
+            background: #fef5f0;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .option:hover {
+            background: #ffede3;
+        }
+        .quiz-result {
+            background: #e0f0e4;
+            padding: 1rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #e0e0d0;
+            border-radius: 5px;
+            margin: 0.5rem 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #c28a7a;
+            border-radius: 5px;
+            width: 0%;
+        }
+        @media (max-width: 760px) {
+            body { padding: 1rem; }
+            .course-detail-wrapper { flex-direction: column; }
+            .sidebar { position: static; }
+        }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="hero">
-        <div class="name">🍃 李颖</div>
-        <div class="school"><i class="fas fa-graduation-cap"></i> 广东科学技术职业学院 · 商务数据分析与应用专业</div>
-        <div class="bio">记录学习商务数据分析的成长旅程，每一门课程都配有详细的说明与知识自测。</div>
-    </div>
-
-    <div class="stats">
-        <div class="stat-card"><div class="stat-number">6+</div><div class="stat-label">专业课程</div></div>
-        <div class="stat-card"><div class="stat-number">15+</div><div class="stat-label">核心技能</div></div>
-        <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">学习潜力</div></div>
-    </div>
-
-    <div class="section-header"><i class="fas fa-candy-cane" style="color:#dbaa8a;"></i><div class="section-title">专业课程</div></div>
-    <div class="courses-grid" id="coursesGrid"></div>
-
-    <div class="contact">
-        <div class="contact-links">
-            <a href="https://github.com/lyyy001108" target="_blank"><i class="fab fa-github"></i> lyyy001108</a>
-            <a href="mailto:liying@data-school.com"><i class="fas fa-envelope"></i> liying@data-school.com</a>
-        </div>
-        <div><i class="fas fa-leaf" style="color:#b08a7a;"></i> 每天进步一点点 · 用数据讲述故事</div>
-    </div>
-    <footer>© 2025 李颖 · 商务数据分析学习日志</footer>
-</div>
-
-<!-- 弹窗 -->
-<div id="courseModal" class="modal">
-    <div class="modal-content" style="position:relative;">
-        <span class="modal-close">&times;</span>
-        <div class="modal-icon" id="modalIcon">📘</div>
-        <div class="modal-title" id="modalTitle">课程名称</div>
-        <div class="modal-desc" id="modalDesc">课程说明</div>
-        <div class="quiz-question" id="quizQuestion">题目：</div>
-        <div class="quiz-options" id="quizOptions"></div>
-        <div class="feedback" id="feedback"></div>
-        <button class="submit-btn" id="submitAnswer">提交答案</button>
-    </div>
-</div>
+<div class="container" id="app"></div>
 
 <script>
+    // ==================== 10门课程完整数据 ====================
     const courses = [
-        {
-            id:1, icon:"🐍", name:"Python基础", shortDesc:"编程思维与语法基础", tags:["编程思维","自动化"],
-            desc:"Python是一种解释型、面向对象的高级编程语言，广泛应用于数据分析、自动化脚本及Web开发等领域。本课程涵盖变量、数据类型、控制流、函数及常用数据结构等核心内容。",
-            question:"在Python中，以下哪个选项是输出内容到控制台的正确函数？",
-            options:["A. input()","B. print()","C. output()","D. console.log()"],
-            correct:"B"
+        { 
+            id: 1, icon: "🐍", name: "Python基础", shortDesc: "编程语法与数据结构", duration: "30分钟", level: "入门",
+            desc: "Python是一种解释型、面向对象的高级编程语言，广泛应用于数据分析、自动化脚本及Web开发等领域。",
+            chapters: ["变量与数据类型", "控制流", "函数定义", "列表与字典", "文件操作"],
+            content: {
+                "变量与数据类型": "Python中变量不需要声明类型，直接赋值即可。常见数据类型：int整数、float浮点数、str字符串、bool布尔值。",
+                "控制流": "使用if-elif-else进行条件判断，for循环和while循环控制程序流程。",
+                "函数定义": "使用def关键字定义函数，可带参数和返回值，提高代码复用性。",
+                "列表与字典": "列表list用[]存储有序集合；字典dict用{}存储键值对。",
+                "文件操作": "使用open()函数读写文件，支持文本和二进制模式。"
+            },
+            questions: [
+                { text: "Python中输出内容到控制台的函数是？", options: ["input()", "print()", "output()", "console.log()"], correct: 1 },
+                { text: "以下哪个是Python的注释符号？", options: ["//", "/* */", "#", "<!-- -->"], correct: 2 },
+                { text: "列表的索引从几开始？", options: ["0", "1", "根据元素数量", "任意"], correct: 0 },
+                { text: "哪个关键字用于定义函数？", options: ["func", "define", "def", "function"], correct: 2 },
+                { text: "字典通过什么访问值？", options: ["索引", "键", "下标", "属性"], correct: 1 }
+            ] 
         },
-        {
-            id:2, icon:"📊", name:"数据分析技术", shortDesc:"Pandas/NumPy实践", tags:["Pandas","可视化"],
-            desc:"数据分析技术主要涉及数据清洗、转换、聚合及可视化。本课程重点讲解Pandas与Matplotlib的使用，帮助你从原始数据中提取有效信息，支撑业务决策。",
-            question:"以下哪个Python库主要用于数据处理和表格型数据操作？",
-            options:["A. NumPy","B. Matplotlib","C. Pandas","D. Scikit-learn"],
-            correct:"C"
+        { 
+            id: 2, icon: "📊", name: "数据分析技术", shortDesc: "Pandas/NumPy核心", duration: "45分钟", level: "入门",
+            desc: "学习使用Pandas进行数据处理、清洗和聚合分析，掌握NumPy数组运算。",
+            chapters: ["Series与DataFrame", "数据筛选与索引", "缺失值处理", "分组聚合", "数据合并"],
+            content: {
+                "Series与DataFrame": "Series是一维带标签数组，DataFrame是二维表格。",
+                "数据筛选与索引": "使用loc按标签筛选，iloc按位置筛选。",
+                "缺失值处理": "isna()检测缺失值，dropna()删除，fillna()填充。",
+                "分组聚合": "groupby()按列分组，结合agg()聚合函数。",
+                "数据合并": "concat()纵向合并，merge()横向合并。"
+            },
+            questions: [
+                { text: "Pandas中读取CSV文件的函数是？", options: ["read_csv()", "load_csv()", "open_csv()", "csv_load()"], correct: 0 },
+                { text: "以下哪个用于检测缺失值？", options: ["isna()", "dropna()", "fillna()", "notna()"], correct: 0 },
+                { text: "DataFrame中按标签选取数据的函数是？", options: ["iloc", "loc", "ix", "select"], correct: 1 },
+                { text: "groupby()后通常使用哪个函数聚合？", options: ["sum()", "count()", "agg()", "以上都是"], correct: 3 },
+                { text: "Pandas的别名通常是？", options: ["pd", "pds", "pan", "panda"], correct: 0 }
+            ] 
         },
-        {
-            id:3, icon:"🕸️", name:"数据采集与处理", shortDesc:"requests/BeautifulSoup", tags:["爬虫","数据清洗"],
-            desc:"数据采集是从网络或多种数据源获取信息的过程，常使用requests与BeautifulSoup等库。数据处理则包括缺失值处理、格式转换、异常值剔除等步骤。",
-            question:"以下哪个库主要用于网页内容解析，便于提取所需数据？",
-            options:["A. requests","B. beautifulsoup","C. scrapy","D. selenium"],
-            correct:"B"
+        { 
+            id: 3, icon: "🔍", name: "数据采集与处理", shortDesc: "网络爬虫与数据清洗", duration: "50分钟", level: "中级",
+            desc: "学习使用requests和BeautifulSoup进行网络数据采集，掌握数据清洗全流程。",
+            chapters: ["HTTP请求基础", "BeautifulSoup解析", "数据提取技巧", "数据清洗实战", "反爬策略应对"],
+            content: {
+                "HTTP请求基础": "requests库发送GET/POST请求，处理请求头和参数。",
+                "BeautifulSoup解析": "将HTML解析为对象，通过find/find_all定位元素。",
+                "数据提取技巧": "使用CSS选择器和正则表达式精确提取目标数据。",
+                "数据清洗实战": "处理缺失值、格式转换、去重、异常值处理。",
+                "反爬策略应对": "设置User-Agent、代理IP、请求延迟等反反爬措施。"
+            },
+            questions: [
+                { text: "以下哪个库主要用于发送HTTP请求？", options: ["BeautifulSoup", "requests", "scrapy", "selenium"], correct: 1 },
+                { text: "BeautifulSoup解析HTML时，定位第一个匹配元素的方法是？", options: ["find()", "find_all()", "select()", "get()"], correct: 0 },
+                { text: "以下哪个不是常见的数据清洗步骤？", options: ["去重", "缺失值填充", "格式转换", "模型训练"], correct: 3 },
+                { text: "伪装浏览器身份通常修改哪个请求头？", options: ["Content-Type", "User-Agent", "Cookie", "Referer"], correct: 1 },
+                { text: "以下哪个库是专业的爬虫框架？", options: ["requests", "urllib", "scrapy", "httpx"], correct: 2 }
+            ] 
         },
-        {
-            id:4, icon:"📦", name:"供应链数据分析", shortDesc:"需求预测/库存优化", tags:["预测","优化"],
-            desc:"供应链数据分析关注需求预测、库存优化、物流效率等关键指标。通过历史销售数据及机器学习模型，可有效提升供应链响应速度，降低运营成本。",
-            question:"库存管理中根据物料价值高低进行重点分类控制的方法称为？",
-            options:["A. EOQ模型","B. 安全库存法","C. ABC分类法","D. JIT管理"],
-            correct:"C"
+        { 
+            id: 4, icon: "🗄️", name: "数据库原理与应用", shortDesc: "MySQL与SQL查询", duration: "60分钟", level: "中级",
+            desc: "掌握关系型数据库设计范式、SQL语言以及事务控制、索引优化等知识。",
+            chapters: ["数据库设计范式", "DDL建表语句", "DML增删改", "复杂查询", "索引与事务"],
+            content: {
+                "数据库设计范式": "第一、二、三范式，避免数据冗余和更新异常。",
+                "DDL建表语句": "CREATE TABLE定义表结构，指定字段类型和约束。",
+                "DML增删改": "INSERT插入、UPDATE更新、DELETE删除数据。",
+                "复杂查询": "多表JOIN连接、子查询、GROUP BY分组。",
+                "索引与事务": "索引加速查询，事务保证ACID特性。"
+            },
+            questions: [
+                { text: "SQL中用于提取数据的命令是？", options: ["INSERT", "UPDATE", "SELECT", "DELETE"], correct: 2 },
+                { text: "以下哪个是数据库设计时避免数据冗余的原则？", options: ["索引优化", "事务隔离", "范式设计", "主键约束"], correct: 2 },
+                { text: "多表查询时，INNER JOIN返回的是？", options: ["左表所有", "右表所有", "匹配的行", "全部行"], correct: 2 },
+                { text: "哪个关键字用于分组聚合？", options: ["ORDER BY", "GROUP BY", "WHERE", "HAVING"], correct: 1 },
+                { text: "以下哪个是MySQL的存储引擎？", options: ["InnoDB", "MongoDB", "Redis", "ElasticSearch"], correct: 0 }
+            ] 
         },
-        {
-            id:5, icon:"🗄️", name:"数据库原理与应用", shortDesc:"MySQL/SQL查询", tags:["SQL","数据库设计"],
-            desc:"数据库是数据管理的核心，本课程讲解关系型数据库设计范式、SQL语言（DDL、DML）以及事务控制、索引优化等知识，为数据存储与检索打下坚实基础。",
-            question:"在SQL查询中，用于从数据库中提取数据的命令是？",
-            options:["A. INSERT","B. UPDATE","C. SELECT","D. DELETE"],
-            correct:"C"
+        { 
+            id: 5, icon: "📦", name: "供应链数据分析", shortDesc: "需求预测与库存优化", duration: "55分钟", level: "进阶",
+            desc: "应用数据分析技术优化供应链管理，包括需求预测、库存分析、物流效率评估。",
+            chapters: ["需求预测方法", "库存分析ABC", "物流效率指标", "供应商评估", "数据可视化看板"],
+            content: {
+                "需求预测方法": "移动平均、指数平滑、ARIMA时间序列模型。",
+                "库存分析ABC": "按价值分类，A类重点管控，C类简化管理。",
+                "物流效率指标": "准时交付率、运输成本占比、库存周转率。",
+                "供应商评估": "质量、成本、交付、服务综合评分模型。",
+                "数据可视化看板": "Power BI/Tableau搭建供应链监控仪表板。"
+            },
+            questions: [
+                { text: "库存管理中价值最高、需要重点管理的商品属于哪一类？", options: ["A类", "B类", "C类", "D类"], correct: 0 },
+                { text: "以下哪个是时间序列预测方法？", options: ["K-means", "ARIMA", "决策树", "逻辑回归"], correct: 1 },
+                { text: "库存周转率的计算公式是？", options: ["销售成本/平均库存", "销售额/库存量", "利润/库存成本", "订单数/库存量"], correct: 0 },
+                { text: "以下哪个指标衡量交付及时性？", options: ["库存周转率", "准时交付率", "运输成本比", "损耗率"], correct: 1 },
+                { text: "ABC分类法的依据是什么？", options: ["商品数量", "商品价值", "商品体积", "商品重量"], correct: 1 }
+            ] 
+        },
+        { 
+            id: 6, icon: "📈", name: "数据可视化", shortDesc: "Matplotlib/Seaborn", duration: "40分钟", level: "中级",
+            desc: "学习使用Matplotlib和Seaborn创建专业图表，用故事化图表传达数据洞察。",
+            chapters: ["图表基础", "常见图表类型", "Seaborn高级绘图", "图表美化", "仪表板设计"],
+            content: {
+                "图表基础": "Figure画布、Axes坐标系，plt.subplots()创建子图。",
+                "常见图表类型": "折线图、柱状图、散点图、饼图、箱线图适用场景。",
+                "Seaborn高级绘图": "热力图、pairplot、catplot分类可视化。",
+                "图表美化": "颜色搭配、字体设置、图例位置、网格线调整。",
+                "仪表板设计": "多图表组合，布局优化，故事化呈现数据。"
+            },
+            questions: [
+                { text: "Matplotlib中创建新图表的函数是？", options: ["plt.figure()", "plt.plot()", "plt.show()", "plt.subplot()"], correct: 0 },
+                { text: "以下哪个库是基于Matplotlib的高级统计可视化库？", options: ["Plotly", "Seaborn", "Bokeh", "ggplot"], correct: 1 },
+                { text: "绘制折线图通常使用哪个函数？", options: ["plt.bar()", "plt.scatter()", "plt.plot()", "plt.pie()"], correct: 2 },
+                { text: "以下哪个用于显示热力图？", options: ["sns.heatmap()", "sns.barplot()", "sns.boxplot()", "sns.kdeplot()"], correct: 0 },
+                { text: "Seaborn的别名通常是？", options: ["sb", "sns", "sea", "sbrn"], correct: 1 }
+            ] 
+        },
+        { 
+            id: 7, icon: "🤖", name: "机器学习入门", shortDesc: "监督学习与无监督学习", duration: "70分钟", level: "进阶",
+            desc: "入门机器学习经典算法，包括线性回归、决策树、K-means聚类等。",
+            chapters: ["机器学习概述", "线性回归", "决策树", "K-means聚类", "模型评估"],
+            content: {
+                "机器学习概述": "监督学习、无监督学习、强化学习基本概念。",
+                "线性回归": "最小二乘法，拟合直线预测连续值。",
+                "决策树": "基于特征分裂，可解释性好。",
+                "K-means聚类": "无监督学习，将数据分为K个簇。",
+                "模型评估": "准确率、精确率、召回率、F1分数、混淆矩阵。"
+            },
+            questions: [
+                { text: "以下哪个是监督学习算法？", options: ["K-means", "线性回归", "PCA", "关联规则"], correct: 1 },
+                { text: "线性回归预测的目标变量类型是？", options: ["连续值", "类别值", "序列值", "文本值"], correct: 0 },
+                { text: "K-means属于哪类学习？", options: ["监督学习", "无监督学习", "强化学习", "半监督学习"], correct: 1 },
+                { text: "以下哪个用于分类问题评估？", options: ["RMSE", "MAE", "混淆矩阵", "R平方"], correct: 2 },
+                { text: "sklearn的别名通常是？", options: ["sk", "slearn", "sklearn", "scikit"], correct: 2 }
+            ] 
+        },
+        { 
+            id: 8, icon: "📊", name: "Excel高级分析", shortDesc: "数据透视表与Power Query", duration: "45分钟", level: "中级",
+            desc: "掌握Excel高级功能，包括数据透视表、Power Query、DAX函数等。",
+            chapters: ["数据透视表", "Power Query数据清洗", "DAX函数", "动态图表", "自动化报表"],
+            content: {
+                "数据透视表": "快速汇总、交叉分析、分组统计。",
+                "Power Query数据清洗": "从多种数据源导入，可视化ETL流程。",
+                "DAX函数": "CALCULATE、FILTER、SUMX等表达式。",
+                "动态图表": "结合切片器、时间轴实现交互。",
+                "自动化报表": "宏录制与VBA实现周期报表自动生成。"
+            },
+            questions: [
+                { text: "Excel中用于快速汇总数据的工具是？", options: ["VLOOKUP", "数据透视表", "条件格式", "排序"], correct: 1 },
+                { text: "Power Query主要用于？", options: ["数据清洗转换", "数据可视化", "数据建模", "数据输出"], correct: 0 },
+                { text: "以下哪个是DAX函数？", options: ["SUM", "VLOOKUP", "CALCULATE", "INDEX"], correct: 2 },
+                { text: "Excel中实现交互筛选的组件是？", options: ["数据验证", "切片器", "条件格式", "数据透视表"], correct: 1 },
+                { text: "VBA的中文全称是？", options: ["Visual Basic for Apps", "Visual Basic Application", "Visual Basic Analysis", "Visual Basic Array"], correct: 0 }
+            ] 
+        },
+        { 
+            id: 9, icon: "🏢", name: "业务指标体系", shortDesc: "搭建业务监控看板", duration: "50分钟", level: "进阶",
+            desc: "学习如何为不同业务场景设计核心指标体系，搭建实时监控看板。",
+            chapters: ["OSM模型", "AARRR模型", "关键指标设计", "看板搭建", "归因分析"],
+            content: {
+                "OSM模型": "目标-策略-度量三层结构设计指标体系。",
+                "AARRR模型": "用户获取、激活、留存、收入、传播。",
+                "关键指标设计": "北极星指标、领先指标、滞后指标。",
+                "看板搭建": "Power BI/Tableau搭建实时监控面板。",
+                "归因分析": "最后一次点击、线性归因、时间衰退归因。"
+            },
+            questions: [
+                { text: "AARRR模型中的第一个A代表？", options: ["激活", "获取", "留存", "收入"], correct: 1 },
+                { text: "OSM模型中的S代表？", options: ["目标", "策略", "度量", "系统"], correct: 2 },
+                { text: "以下哪个是指引团队方向的北极星指标？", options: ["日活跃用户", "点击率", "跳出率", "加载时间"], correct: 0 },
+                { text: "最后一次点击归因属于？", options: ["单触点归因", "多触点归因", "算法归因", "无归因"], correct: 0 },
+                { text: "以下哪个工具常用于搭建数据看板？", options: ["Excel", "Power BI", "PPT", "Word"], correct: 1 }
+            ] 
+        },
+        { 
+            id: 10, icon: "🚀", name: "项目实战", shortDesc: "完整商业分析案例", duration: "90分钟", level: "进阶",
+            desc: "综合运用所学技能，完成一个从数据采集到报告输出的完整商业分析项目。",
+            chapters: ["问题定义", "数据采集", "数据清洗", "分析与建模", "报告输出"],
+            content: {
+                "问题定义": "明确业务问题，拆解为数据分析任务。",
+                "数据采集": "从数据库、API、Excel等多源获取数据。",
+                "数据清洗": "处理缺失值、异常值，保证数据质量。",
+                "分析与建模": "描述性分析、诊断性分析、预测建模。",
+                "报告输出": "PPT/PDF报告，故事化呈现分析结论。"
+            },
+            questions: [
+                { text: "数据分析项目的第一步通常是？", options: ["数据采集", "数据清洗", "问题定义", "模型训练"], correct: 2 },
+                { text: "以下哪个用于描述数据的基本统计特征？", options: ["描述性分析", "诊断性分析", "预测性分析", "规范性分析"], correct: 0 },
+                { text: "完整商业分析项目最后一步是什么？", options: ["模型训练", "数据清洗", "报告输出", "数据采集"], correct: 2 },
+                { text: "以下哪个是数据可视化的主要作用？", options: ["数据存储", "数据计算", "数据传达", "数据采集"], correct: 2 },
+                { text: "CRISP-DM是数据挖掘的什么？", options: ["算法", "流程标准", "数据库", "编程语言"], correct: 1 }
+            ] 
         }
     ];
 
-    const grid = document.getElementById('coursesGrid');
-    const modal = document.getElementById('courseModal');
-    const modalIcon = document.getElementById('modalIcon');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-    const quizQuestion = document.getElementById('quizQuestion');
-    const quizOptions = document.getElementById('quizOptions');
-    const feedbackDiv = document.getElementById('feedback');
-    const submitBtn = document.getElementById('submitAnswer');
-    const closeBtn = document.querySelector('.modal-close');
-
+    // ==================== 全局状态 ====================
+    let currentView = 'list';
     let currentCourse = null;
-    let selectedAnswer = null;
+    let quizState = {};
 
-    courses.forEach(c => {
-        const card = document.createElement('div');
-        card.className = 'course-card';
-        card.innerHTML = `
-            <div class="card-icon">${c.icon}</div>
-            <div class="course-name">${c.name}</div>
-            <div class="course-desc">${c.shortDesc}</div>
-            <div class="tags">${c.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-        `;
-        card.addEventListener('click', () => openModal(c));
-        grid.appendChild(card);
-    });
-
-    function openModal(course) {
-        currentCourse = course;
-        modalIcon.textContent = course.icon;
-        modalTitle.textContent = course.name;
-        modalDesc.textContent = course.desc;
-        quizQuestion.textContent = `📝 知识自测：${course.question}`;
-        quizOptions.innerHTML = '';
-        course.options.forEach(opt => {
-            const optDiv = document.createElement('div');
-            optDiv.className = 'quiz-option';
-            optDiv.textContent = opt;
-            optDiv.addEventListener('click', () => {
-                document.querySelectorAll('.quiz-option').forEach(el => el.style.background = '#fef5f0');
-                optDiv.style.background = '#fce4d8';
-                selectedAnswer = opt.charAt(0);
+    // ==================== 渲染函数 ====================
+    function render() {
+        const app = document.getElementById('app');
+        if (currentView === 'list') {
+            // 渲染课程列表
+            app.innerHTML = `
+                <div class="hero">
+                    <h1>🍃 李颖 · 数据分析训练营</h1>
+                    <p class="subtitle">从零到一，掌握商务数据分析核心技能</p>
+                    <div class="stats-badge">
+                        <span><i class="fas fa-book-open"></i> 10 门实战课程</span>
+                        <span><i class="fas fa-code"></i> 50+ 单元测试</span>
+                        <span><i class="fas fa-certificate"></i> 完成获认证</span>
+                    </div>
+                </div>
+                <div class="section-header">
+                    <i class="fas fa-candy-cane"></i>
+                    <h2>精选项目</h2>
+                    <span class="count">共 10 个项目</span>
+                </div>
+                <div class="courses-grid" id="coursesGrid"></div>
+            `;
+            const grid = document.getElementById('coursesGrid');
+            courses.forEach(course => {
+                const card = document.createElement('div');
+                card.className = 'course-card';
+                card.innerHTML = `
+                    <div class="card-icon">${course.icon}</div>
+                    <div class="course-name">${course.name}</div>
+                    <div class="course-desc">${course.shortDesc}</div>
+                    <div class="course-meta">
+                        <span><i class="far fa-clock"></i> ${course.duration}</span>
+                        <span><i class="fas fa-chart-line"></i> ${course.level}</span>
+                    </div>
+                    <button class="start-btn" data-id="${course.id}">开始学习 →</button>
+                `;
+                card.querySelector('.start-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    startCourse(course.id);
+                });
+                grid.appendChild(card);
             });
-            quizOptions.appendChild(optDiv);
-        });
-        feedbackDiv.innerHTML = '';
-        feedbackDiv.className = 'feedback';
-        selectedAnswer = null;
-        modal.style.display = 'flex';
+        } else if (currentView === 'detail' && currentCourse) {
+            const qState = quizState[currentCourse.id] || { currentIndex: 0, answers: [], timeLeft: 30, timerInterval: null };
+            if (!quizState[currentCourse.id]) quizState[currentCourse.id] = qState;
+            const questions = currentCourse.questions;
+            const isFinished = qState.currentIndex >= questions.length;
+            
+            // 构建目录
+            let tocHtml = '';
+            currentCourse.chapters.forEach(ch => {
+                tocHtml += `<li><a class="scroll-link" data-target="${ch}">${ch}</a></li>`;
+            });
+            
+            // 构建内容区域
+            let contentHtml = '';
+            currentCourse.chapters.forEach(ch => {
+                contentHtml += `
+                    <div class="content-section" id="section-${ch}">
+                        <h3>${ch}</h3>
+                        <p>${currentCourse.content[ch]}</p>
+                        <div class="code-block">
+                            <button class="copy-btn" data-code="${ch}">复制代码</button>
+                            <pre style="margin-top:0.5rem">${getSampleCode(ch)}</pre>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // 测试区域
+            let quizHtml = '';
+            if (!isFinished) {
+                const currentQ = questions[qState.currentIndex];
+                quizHtml = `
+                    <div class="quiz-area">
+                        <h3>📝 单元测试</h3>
+                        <div class="question">
+                            <div class="timer">⏱️ 剩余时间: <span id="timer">${qState.timeLeft}</span> 秒</div>
+                            <div><strong>第 ${qState.currentIndex+1} / ${questions.length} 题</strong></div>
+                            <div style="margin: 0.8rem 0">${currentQ.text}</div>
+                            <div class="options" id="options">
+                                ${currentQ.options.map((opt, idx) => `<div class="option" data-opt="${idx}">${String.fromCharCode(65+idx)}. ${opt}</div>`).join('')}
+                            </div>
+                            <button id="nextBtn" style="background:#dbbcac; border:none; padding:0.5rem 1rem; border-radius:2rem; margin-top:1rem; cursor:pointer;">下一题</button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                const correctCount = qState.answers.filter((a,i) => a === questions[i].correct).length;
+                quizHtml = `
+                    <div class="quiz-area">
+                        <h3>📊 测试结果</h3>
+                        <div class="quiz-result">
+                            <div>得分：${correctCount} / ${questions.length}</div>
+                            <div>${correctCount === questions.length ? '🎉 完美！继续下一门吧 🎉' : '📚 再复习一下，下次更好～'}</div>
+                            <button id="resetQuiz" style="background:#dbbcac; border:none; padding:0.5rem 1rem; border-radius:2rem; margin-top:1rem; cursor:pointer;">重新测试</button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            app.innerHTML = `
+                <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> 返回课程列表</button>
+                <div class="course-detail-wrapper">
+                    <div class="sidebar">
+                        <h3>📖 课程目录</h3>
+                        <ul class="toc-list">${tocHtml}</ul>
+                        <div class="progress-bar"><div class="progress-fill" id="readingProgress"></div></div>
+                    </div>
+                    <div class="main-content">
+                        <div class="content-section"><h3>📌 ${currentCourse.name}</h3><p>${currentCourse.desc}</p></div>
+                        ${contentHtml}
+                        ${quizHtml}
+                    </div>
+                </div>
+            `;
+            
+            // 绑定目录滚动
+            document.querySelectorAll('.scroll-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('data-target');
+                    document.getElementById(`section-${targetId}`)?.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // 进度条
+            function updateProgress() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const percent = (scrollTop / docHeight) * 100;
+                const fill = document.getElementById('readingProgress');
+                if (fill) fill.style.width = percent + '%';
+            }
+            window.addEventListener('scroll', updateProgress);
+            updateProgress();
+            
+            // 复制代码
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const code = btn.getAttribute('data-code');
+                    const sample = getSampleCode(code);
+                    navigator.clipboard.writeText(sample);
+                    btn.innerText = '已复制！';
+                    setTimeout(() => btn.innerText = '复制代码', 1000);
+                });
+            });
+            
+            if (!isFinished) {
+                // 计时器
+                if (qState.timerInterval) clearInterval(qState.timerInterval);
+                qState.timerInterval = setInterval(() => {
+                    if (quizState[currentCourse.id] && quizState[currentCourse.id].timeLeft > 0) {
+                        quizState[currentCourse.id].timeLeft--;
+                        const timerSpan = document.getElementById('timer');
+                        if (timerSpan) timerSpan.innerText = quizState[currentCourse.id].timeLeft;
+                        if (quizState[currentCourse.id].timeLeft === 0) {
+                            clearInterval(quizState[currentCourse.id].timerInterval);
+                            alert('时间到！进入下一题');
+                            nextQuestion();
+                        }
+                    }
+                }, 1000);
+                
+                // 选项点击
+                document.querySelectorAll('.option').forEach(opt => {
+                    opt.addEventListener('click', (e) => {
+                        const selected = parseInt(opt.getAttribute('data-opt'));
+                        quizState[currentCourse.id].answers[quizState[currentCourse.id].currentIndex] = selected;
+                        document.querySelectorAll('.option').forEach(o => o.style.background = '#fef5f0');
+                        opt.style.background = '#e0f0e4';
+                    });
+                });
+                
+                const nextBtn = document.getElementById('nextBtn');
+                if (nextBtn) nextBtn.addEventListener('click', () => nextQuestion());
+            } else {
+                const resetBtn = document.getElementById('resetQuiz');
+                if (resetBtn) resetBtn.addEventListener('click', () => {
+                    clearInterval(quizState[currentCourse.id]?.timerInterval);
+                    quizState[currentCourse.id] = { currentIndex: 0, answers: [], timeLeft: 30, timerInterval: null };
+                    render();
+                });
+            }
+            
+            const backBtn = document.getElementById('backBtn');
+            backBtn.addEventListener('click', () => {
+                if (quizState[currentCourse.id]?.timerInterval) clearInterval(quizState[currentCourse.id].timerInterval);
+                currentView = 'list';
+                render();
+            });
+        }
     }
-
-    function checkAnswer() {
-        if (!selectedAnswer) {
-            feedbackDiv.innerHTML = '请选择一个答案后再提交。';
-            feedbackDiv.className = 'feedback wrong';
+    
+    function getSampleCode(chapter) {
+        const codes = {
+            "变量与数据类型": "x = 10\nname = '李颖'\nprint(x, name)",
+            "控制流": "score = 85\nif score >= 60:\n    print('及格')\nelse:\n    print('不及格')",
+            "函数定义": "def greet(name):\n    return f'你好, {name}'\nprint(greet('李颖'))",
+            "列表与字典": "my_list = [1, 2, 3]\nmy_dict = {'name': '李颖', 'age': 20}",
+            "文件操作": "with open('data.txt', 'r') as f:\n    content = f.read()",
+            "Series与DataFrame": "import pandas as pd\ns = pd.Series([1,2,3])\ndf = pd.DataFrame({'A':[1,2], 'B':[3,4]})",
+            "数据筛选与索引": "df.loc[0]  # 按标签\n df.iloc[0] # 按位置",
+            "缺失值处理": "df.isna().sum()\ndf.dropna()\ndf.fillna(0)",
+            "分组聚合": "df.groupby('类别')['销售额'].sum()",
+            "数据合并": "pd.concat([df1, df2])\npd.merge(df1, df2, on='key')"
+        };
+        return codes[chapter] || "示例代码";
+    }
+    
+    function nextQuestion() {
+        const qState = quizState[currentCourse.id];
+        if (qState.answers[qState.currentIndex] === undefined) {
+            alert('请先选择答案');
             return;
         }
-        if (selectedAnswer === currentCourse.correct) {
-            feedbackDiv.innerHTML = '✓ 答案正确！看来你掌握得不错。继续加油～';
-            feedbackDiv.className = 'feedback correct';
+        qState.currentIndex++;
+        if (qState.currentIndex >= currentCourse.questions.length) {
+            clearInterval(qState.timerInterval);
+            render();
         } else {
-            feedbackDiv.innerHTML = `✗ 答案错误。正确答案是 ${currentCourse.correct}，可以再复习一下该知识点。`;
-            feedbackDiv.className = 'feedback wrong';
+            qState.timeLeft = 30;
+            render();
         }
     }
-
-    submitBtn.addEventListener('click', checkAnswer);
-    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
-    window.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
+    
+    function startCourse(courseId) {
+        if (quizState[courseId]?.timerInterval) clearInterval(quizState[courseId].timerInterval);
+        const course = courses.find(c => c.id === courseId);
+        if (course) {
+            currentCourse = course;
+            if (!quizState[courseId]) {
+                quizState[courseId] = { currentIndex: 0, answers: [], timeLeft: 30, timerInterval: null };
+            }
+            currentView = 'detail';
+            render();
+        }
+    }
+    
+    render();
 </script>
 </body>
 </html>
