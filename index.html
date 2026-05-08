@@ -15,362 +15,363 @@
 
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #e6f0e8 0%, #fdf0ec 100%);
+            background: linear-gradient(135deg, #eaf5ec 0%, #fff0ec 100%);
             color: #2c4a3a;
             line-height: 1.45;
             scroll-behavior: smooth;
             min-height: 100vh;
+            padding: 2rem 1rem;
         }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0dfd8; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #d4a598; border-radius: 10px; }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
         }
 
-        /* 头部卡片 */
+        /* 头部卡片 - 保持粉绿毛玻璃 */
         .hero {
-            background: rgba(255, 255, 245, 0.7);
-            backdrop-filter: blur(12px);
-            border-radius: 2rem;
+            background: rgba(255, 252, 245, 0.75);
+            backdrop-filter: blur(16px);
+            border-radius: 2.5rem;
             padding: 2rem 2rem;
-            margin-bottom: 2.5rem;
-            border: 1px solid rgba(160, 190, 140, 0.4);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(210, 180, 160, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
         }
 
         .name {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 700;
-            color: #3a6b50;
+            color: #568469;
             letter-spacing: -0.01em;
-            margin-bottom: 0.3rem;
         }
 
         .school {
-            font-size: 0.95rem;
-            color: #7a8e7a;
-            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: #8c9a84;
+            margin: 0.6rem 0;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             flex-wrap: wrap;
         }
 
-        .school i {
-            color: #d49484;
-        }
-
         .bio {
-            max-width: 70%;
-            background: rgba(245, 240, 235, 0.6);
+            max-width: 75%;
+            background: rgba(250, 245, 240, 0.7);
             padding: 0.7rem 1.2rem;
-            border-radius: 1.5rem;
+            border-radius: 2rem;
             font-size: 0.9rem;
-            color: #5a7a64;
+            color: #628a70;
             margin-top: 1rem;
-            border-left: 3px solid #dbaa9a;
+            border-left: 4px solid #eac2b2;
         }
 
         /* 统计卡片 */
         .stats {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1.2rem;
             margin: 2rem 0 2.5rem;
         }
-
         .stat-card {
             background: rgba(255, 252, 245, 0.8);
             backdrop-filter: blur(4px);
             flex: 1;
             min-width: 120px;
-            border-radius: 1.8rem;
-            padding: 1.2rem 0.5rem;
+            border-radius: 2rem;
+            padding: 1rem 0.5rem;
             text-align: center;
-            transition: all 0.25s;
-            border: 1px solid rgba(170, 190, 150, 0.3);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(190, 160, 140, 0.25);
         }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            background: #ffffff;
-            border-color: #d4b0a4;
-        }
-
-        .stat-number {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: #558b6e;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #b27a8a;
-            letter-spacing: 0.5px;
-            margin-top: 0.3rem;
-        }
+        .stat-card:hover { transform: translateY(-4px); background: #fffef9; border-color: #e6c8bc; }
+        .stat-number { font-size: 2.2rem; font-weight: 800; color: #c08a7a; }
+        .stat-label { font-size: 0.8rem; font-weight: 600; color: #b27a8a; margin-top: 0.3rem; }
 
         /* 课程网格 */
-        .section-header {
-            margin: 2rem 0 1.2rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .section-title {
-            font-size: 1.7rem;
-            font-weight: 650;
-            color: #468066;
-        }
+        .section-header { display: flex; align-items: center; gap: 0.6rem; margin: 2rem 0 1rem 0; }
+        .section-title { font-size: 1.6rem; font-weight: 600; color: #568469; }
 
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 1.6rem;
-            margin-bottom: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .course-card {
-            background: rgba(255, 255, 250, 0.85);
+            background: rgba(255, 255, 250, 0.9);
             backdrop-filter: blur(4px);
-            border-radius: 1.6rem;
-            padding: 1.3rem 1.4rem;
-            transition: all 0.3s ease;
-            border: 1px solid #e8dcd4;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+            border-radius: 2rem;
+            padding: 1.3rem 1.3rem;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid #f0dfd6;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+            cursor: pointer;
         }
-
         .course-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px) scale(1.01);
             background: white;
-            border-color: #ddc2b8;
-            box-shadow: 0 14px 24px -10px rgba(100, 80, 70, 0.1);
+            border-color: #f5cfc0;
+            box-shadow: 0 18px 28px rgba(100, 70, 60, 0.08);
         }
+        .card-icon { font-size: 2rem; margin-bottom: 0.5rem; display: inline-block; }
+        .course-name { font-size: 1.25rem; font-weight: 700; color: #568469; margin: 0.3rem 0 0.4rem; }
+        .course-desc { font-size: 0.8rem; color: #8ba18e; line-height: 1.4; margin-bottom: 0.6rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .tag { background: #fceae3; padding: 0.2rem 0.8rem; border-radius: 30px; font-size: 0.7rem; color: #c28a7a; font-weight: 500; }
 
-        .card-icon {
-            font-size: 1.9rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
+        /* 弹窗 - 保持圆润但内容风格专业 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(100, 80, 70, 0.4);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
-
-        .course-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #4a7862;
-            margin: 0.3rem 0 0.4rem;
+        .modal-content {
+            background: #fffef8;
+            border-radius: 2rem;
+            max-width: 520px;
+            width: 90%;
+            padding: 1.8rem;
+            box-shadow: 0 25px 45px rgba(80, 60, 50, 0.15);
+            border: 1px solid #fae6dd;
+            animation: fadeSlideUp 0.2s ease;
         }
-
-        .course-desc {
-            font-size: 0.8rem;
-            color: #7a9080;
-            line-height: 1.45;
-            margin-bottom: 0.8rem;
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #c2aa9a;
+            transition: 0.2s;
+        }
+        .modal-close:hover { color: #a06e5e; transform: rotate(90deg); }
+        .modal-icon { font-size: 2rem; margin-bottom: 0.3rem; }
+        .modal-title { font-size: 1.5rem; font-weight: 700; color: #568469; margin-bottom: 0.8rem; }
+        .modal-desc {
+            background: #fefaf5;
+            padding: 1rem;
+            border-radius: 1.5rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #4f6a58;
+            line-height: 1.5;
+        }
+        .quiz-question { font-weight: 600; margin: 1rem 0 0.6rem; color: #b27a6a; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.8rem 0; }
+        .quiz-option {
+            background: #fef5f0;
+            padding: 0.6rem 1rem;
+            border-radius: 2rem;
+            border: 1px solid #ffdfd0;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+        .quiz-option:hover { background: #ffede3; transform: translateX(4px); }
+        .feedback { margin: 0.8rem 0; padding: 0.7rem; border-radius: 1.5rem; text-align: center; font-weight: 500; font-size: 0.85rem; }
+        .feedback.correct { background: #e0f0e4; color: #486e58; }
+        .feedback.wrong { background: #ffe0d8; color: #bd7a68; }
+        .submit-btn {
+            background: #dbbcac;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
             margin-top: 0.3rem;
         }
+        .submit-btn:hover { background: #c59c8a; transform: scale(0.97); }
 
-        .tag {
-            background: #f5eae6;
-            padding: 0.2rem 0.7rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            color: #b87a6a;
-            font-weight: 500;
-        }
-
-        /* 学习路径 */
-        .pathway {
-            background: rgba(250, 248, 240, 0.7);
-            backdrop-filter: blur(4px);
-            border-radius: 1.8rem;
-            padding: 1.5rem 1.8rem;
-            margin: 2rem 0 1.5rem;
-            border: 1px solid #e2d4cc;
-        }
-
-        .pathway-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #558064;
-            margin-bottom: 1.2rem;
-        }
-
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: space-between;
-        }
-
-        .step {
-            flex: 1;
-            background: white;
-            border-radius: 1.3rem;
-            padding: 0.9rem 0.8rem;
-            text-align: center;
-            border-bottom: 3px solid #d4a598;
-        }
-
-        .step-number {
-            background: #edddd6;
-            width: 28px;
-            height: 28px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #9c6e60;
-            margin-bottom: 0.5rem;
-        }
-
-        .step h4 {
-            font-size: 0.9rem;
-            color: #4a6e5a;
-        }
-
-        /* 联系方式 */
+        /* 底部联系方式 */
         .contact {
             background: rgba(255, 250, 240, 0.7);
             backdrop-filter: blur(8px);
-            border-radius: 1.6rem;
+            border-radius: 2rem;
             padding: 1rem 1.6rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             margin-top: 1.5rem;
         }
-
-        .contact-links {
-            display: flex;
-            gap: 1.8rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: #658d74;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: 0.2s;
-        }
-
-        .contact-links a:hover {
-            color: #bc7e6e;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.7rem;
-            color: #8aa696;
-        }
-
-        @media (max-width: 760px) {
-            .container { padding: 1rem; }
-            .name { font-size: 2rem; }
-            .bio { max-width: 100%; }
-            .steps { flex-direction: column; }
-        }
+        .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .contact-links a { color: #9b8a7a; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.2s; }
+        .contact-links a:hover { color: #c08a7a; transform: translateY(-1px); }
+        footer { text-align: center; margin-top: 2rem; font-size: 0.7rem; color: #b2aa9a; }
+        @media (max-width: 760px) { .container { padding: 0.5rem; } .name { font-size: 1.8rem; } .bio { max-width: 100%; } }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="hero">
-        <div class="name">李颖</div>
-        <div class="school">
-            <i class="fas fa-graduation-cap"></i> 广东科学技术职业学院 · 商务数据分析与应用专业
-        </div>
-        <div class="bio">
-            欢迎访问我的个人课程页面！这里展示了我学习的主要课程信息。<br>
-            作为商务数据分析与应用专业的学生，我致力于掌握数据分析的核心技能，后续我会不断补充各课程的详细内容和学习成果。
-        </div>
+        <div class="name">🍃 李颖</div>
+        <div class="school"><i class="fas fa-graduation-cap"></i> 广东科学技术职业学院 · 商务数据分析与应用专业</div>
+        <div class="bio">记录学习商务数据分析的成长旅程，每一门课程都配有详细的说明与知识自测。</div>
     </div>
 
     <div class="stats">
-        <div class="stat-card">
-            <div class="stat-number">6+</div>
-            <div class="stat-label">专业课程</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">核心技能</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">学习潜力</div>
-        </div>
+        <div class="stat-card"><div class="stat-number">6+</div><div class="stat-label">专业课程</div></div>
+        <div class="stat-card"><div class="stat-number">15+</div><div class="stat-label">核心技能</div></div>
+        <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">学习潜力</div></div>
     </div>
 
-    <div class="section-header">
-        <i class="fas fa-book-open" style="color:#cb8a7a; font-size:1.6rem;"></i>
-        <div class="section-title">我的课程</div>
-    </div>
-
-    <div class="courses-grid">
-        <div class="course-card">
-            <div class="card-icon">🐍</div>
-            <div class="course-name">Python基础</div>
-            <div class="course-desc">Python编程语言的基础知识和应用，掌握编程思维与核心语法。</div>
-            <div class="tags"><span class="tag">编程思维</span><span class="tag">自动化</span></div>
-        </div>
-        <div class="course-card">
-            <div class="card-icon">📊</div>
-            <div class="course-name">数据分析技术</div>
-            <div class="course-desc">数据分析的基本方法和工具，培养数据驱动的决策能力。</div>
-            <div class="tags"><span class="tag">Pandas</span><span class="tag">可视化</span></div>
-        </div>
-        <div class="course-card">
-            <div class="card-icon">🔍</div>
-            <div class="course-name">数据采集与处理</div>
-            <div class="course-desc">数据采集和预处理的技术，学习从多渠道获取并整理数据。</div>
-            <div class="tags"><span class="tag">爬虫</span><span class="tag">数据清洗</span></div>
-        </div>
-        <div class="course-card">
-            <div class="card-icon">🚚</div>
-            <div class="course-name">供应链数据分析</div>
-            <div class="course-desc">供应链管理中的数据分析应用，提升运营效率与决策水平。</div>
-            <div class="tags"><span class="tag">预测</span><span class="tag">优化</span></div>
-        </div>
-        <div class="course-card">
-            <div class="card-icon">💾</div>
-            <div class="course-name">数据库原理与应用</div>
-            <div class="course-desc">数据库的基本原理和应用，掌握数据存储与管理的核心技术。</div>
-            <div class="tags"><span class="tag">SQL</span><span class="tag">MySQL</span></div>
-        </div>
-    </div>
-
-    <div class="pathway">
-        <div class="pathway-title">🗺️ 学习路径</div>
-        <div class="steps">
-            <div class="step"><div class="step-number">1</div><h4>基础阶段</h4><div style="font-size:0.7rem; color:#8aa696;">Python基础、数据库原理</div></div>
-            <div class="step"><div class="step-number">2</div><h4>进阶阶段</h4><div style="font-size:0.7rem; color:#8aa696;">数据分析技术、数据采集</div></div>
-            <div class="step"><div class="step-number">3</div><h4>应用阶段</h4><div style="font-size:0.7rem; color:#8aa696;">供应链分析、实战项目</div></div>
-            <div class="step"><div class="step-number">4</div><h4>专业深化</h4><div style="font-size:0.7rem; color:#8aa696;">高级分析、行业应用</div></div>
-        </div>
-    </div>
+    <div class="section-header"><i class="fas fa-candy-cane" style="color:#dbaa8a;"></i><div class="section-title">专业课程</div></div>
+    <div class="courses-grid" id="coursesGrid"></div>
 
     <div class="contact">
         <div class="contact-links">
-            <a href="https://github.com/liying001108/liying001108.github.io" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="mailto:3580278276@qq.com"><i class="fas fa-envelope"></i> 3580278276@qq.com</a>
+            <a href="https://github.com/lyyy001108" target="_blank"><i class="fab fa-github"></i> lyyy001108</a>
+            <a href="mailto:liying@data-school.com"><i class="fas fa-envelope"></i> liying@data-school.com</a>
         </div>
-        <div><i class="fas fa-chart-line" style="color:#cb8a7a;"></i> 每天进步一点点 · 用数据讲述故事</div>
+        <div><i class="fas fa-leaf" style="color:#b08a7a;"></i> 每天进步一点点 · 用数据讲述故事</div>
     </div>
-    <footer>© 2026 李颖 · 商务数据分析学习日志</footer>
+    <footer>© 2025 李颖 · 商务数据分析学习日志</footer>
 </div>
+
+<!-- 弹窗 -->
+<div id="courseModal" class="modal">
+    <div class="modal-content" style="position:relative;">
+        <span class="modal-close">&times;</span>
+        <div class="modal-icon" id="modalIcon">📘</div>
+        <div class="modal-title" id="modalTitle">课程名称</div>
+        <div class="modal-desc" id="modalDesc">课程说明</div>
+        <div class="quiz-question" id="quizQuestion">题目：</div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="feedback" id="feedback"></div>
+        <button class="submit-btn" id="submitAnswer">提交答案</button>
+    </div>
+</div>
+
+<script>
+    const courses = [
+        {
+            id:1, icon:"🐍", name:"Python基础", shortDesc:"编程思维与语法基础", tags:["编程思维","自动化"],
+            desc:"Python是一种解释型、面向对象的高级编程语言，广泛应用于数据分析、自动化脚本及Web开发等领域。本课程涵盖变量、数据类型、控制流、函数及常用数据结构等核心内容。",
+            question:"在Python中，以下哪个选项是输出内容到控制台的正确函数？",
+            options:["A. input()","B. print()","C. output()","D. console.log()"],
+            correct:"B"
+        },
+        {
+            id:2, icon:"📊", name:"数据分析技术", shortDesc:"Pandas/NumPy实践", tags:["Pandas","可视化"],
+            desc:"数据分析技术主要涉及数据清洗、转换、聚合及可视化。本课程重点讲解Pandas与Matplotlib的使用，帮助你从原始数据中提取有效信息，支撑业务决策。",
+            question:"以下哪个Python库主要用于数据处理和表格型数据操作？",
+            options:["A. NumPy","B. Matplotlib","C. Pandas","D. Scikit-learn"],
+            correct:"C"
+        },
+        {
+            id:3, icon:"🕸️", name:"数据采集与处理", shortDesc:"requests/BeautifulSoup", tags:["爬虫","数据清洗"],
+            desc:"数据采集是从网络或多种数据源获取信息的过程，常使用requests与BeautifulSoup等库。数据处理则包括缺失值处理、格式转换、异常值剔除等步骤。",
+            question:"以下哪个库主要用于网页内容解析，便于提取所需数据？",
+            options:["A. requests","B. beautifulsoup","C. scrapy","D. selenium"],
+            correct:"B"
+        },
+        {
+            id:4, icon:"📦", name:"供应链数据分析", shortDesc:"需求预测/库存优化", tags:["预测","优化"],
+            desc:"供应链数据分析关注需求预测、库存优化、物流效率等关键指标。通过历史销售数据及机器学习模型，可有效提升供应链响应速度，降低运营成本。",
+            question:"库存管理中根据物料价值高低进行重点分类控制的方法称为？",
+            options:["A. EOQ模型","B. 安全库存法","C. ABC分类法","D. JIT管理"],
+            correct:"C"
+        },
+        {
+            id:5, icon:"🗄️", name:"数据库原理与应用", shortDesc:"MySQL/SQL查询", tags:["SQL","数据库设计"],
+            desc:"数据库是数据管理的核心，本课程讲解关系型数据库设计范式、SQL语言（DDL、DML）以及事务控制、索引优化等知识，为数据存储与检索打下坚实基础。",
+            question:"在SQL查询中，用于从数据库中提取数据的命令是？",
+            options:["A. INSERT","B. UPDATE","C. SELECT","D. DELETE"],
+            correct:"C"
+        }
+    ];
+
+    const grid = document.getElementById('coursesGrid');
+    const modal = document.getElementById('courseModal');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizOptions = document.getElementById('quizOptions');
+    const feedbackDiv = document.getElementById('feedback');
+    const submitBtn = document.getElementById('submitAnswer');
+    const closeBtn = document.querySelector('.modal-close');
+
+    let currentCourse = null;
+    let selectedAnswer = null;
+
+    courses.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'course-card';
+        card.innerHTML = `
+            <div class="card-icon">${c.icon}</div>
+            <div class="course-name">${c.name}</div>
+            <div class="course-desc">${c.shortDesc}</div>
+            <div class="tags">${c.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        `;
+        card.addEventListener('click', () => openModal(c));
+        grid.appendChild(card);
+    });
+
+    function openModal(course) {
+        currentCourse = course;
+        modalIcon.textContent = course.icon;
+        modalTitle.textContent = course.name;
+        modalDesc.textContent = course.desc;
+        quizQuestion.textContent = `📝 知识自测：${course.question}`;
+        quizOptions.innerHTML = '';
+        course.options.forEach(opt => {
+            const optDiv = document.createElement('div');
+            optDiv.className = 'quiz-option';
+            optDiv.textContent = opt;
+            optDiv.addEventListener('click', () => {
+                document.querySelectorAll('.quiz-option').forEach(el => el.style.background = '#fef5f0');
+                optDiv.style.background = '#fce4d8';
+                selectedAnswer = opt.charAt(0);
+            });
+            quizOptions.appendChild(optDiv);
+        });
+        feedbackDiv.innerHTML = '';
+        feedbackDiv.className = 'feedback';
+        selectedAnswer = null;
+        modal.style.display = 'flex';
+    }
+
+    function checkAnswer() {
+        if (!selectedAnswer) {
+            feedbackDiv.innerHTML = '请选择一个答案后再提交。';
+            feedbackDiv.className = 'feedback wrong';
+            return;
+        }
+        if (selectedAnswer === currentCourse.correct) {
+            feedbackDiv.innerHTML = '✓ 答案正确！看来你掌握得不错。继续加油～';
+            feedbackDiv.className = 'feedback correct';
+        } else {
+            feedbackDiv.innerHTML = `✗ 答案错误。正确答案是 ${currentCourse.correct}，可以再复习一下该知识点。`;
+            feedbackDiv.className = 'feedback wrong';
+        }
+    }
+
+    submitBtn.addEventListener('click', checkAnswer);
+    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
+</script>
 </body>
 </html>
