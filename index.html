@@ -44,20 +44,27 @@
         .tag { background: #FCE9E0; padding: 0.2rem 0.7rem; border-radius: 30px; font-size: 0.7rem; color: #C2847A; }
         .back-btn { background: #d4c0b0; border: none; padding: 0.5rem 1rem; border-radius: 2rem; color: white; cursor: pointer; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; }
         .detail-layout { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .sidebar { flex: 1; min-width: 220px; background: rgba(255,252,245,0.8); border-radius: 1.5rem; padding: 1.2rem; position: sticky; top: 1rem; height: fit-content; }
+        .sidebar { flex: 1; min-width: 260px; background: rgba(255,252,245,0.8); border-radius: 1.5rem; padding: 1.2rem; position: sticky; top: 1rem; height: fit-content; }
         .sidebar h3 { color: #568469; margin-bottom: 1rem; }
         .toc-list { list-style: none; }
-        .toc-list li { margin: 0.6rem 0; padding: 0.4rem 0.6rem; border-radius: 1rem; cursor: pointer; font-size: 0.85rem; color: #8ba18e; transition: 0.2s; }
-        .toc-list li:hover { background: #fceae3; color: #c28a7a; }
-        .toc-list li.active { background: #dbbcac; color: white; }
-        .main-content { flex: 2.5; min-width: 300px; }
-        .content-card { background: white; border-radius: 1.2rem; padding: 1.2rem; margin-bottom: 1.2rem; }
-        .content-card h3 { color: #568469; margin-bottom: 0.6rem; }
-        .code-block { background: #f0f0e8; padding: 0.8rem; border-radius: 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.8rem 0; position: relative; }
+        .toc-item { margin: 0.5rem 0; border-radius: 1rem; overflow: hidden; }
+        .toc-header { padding: 0.6rem 0.8rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fef5f0; border-radius: 1rem; transition: 0.2s; }
+        .toc-header:hover { background: #fceae3; }
+        .toc-header.active { background: #dbbcac; color: white; }
+        .toc-header .title { font-size: 0.9rem; font-weight: 500; }
+        .toc-header i { transition: transform 0.2s; }
+        .toc-header.active i { transform: rotate(90deg); }
+        .toc-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 0.8rem; }
+        .toc-content.active { max-height: 300px; padding: 0.8rem; }
+        .toc-content p { font-size: 0.85rem; color: #5a7a62; line-height: 1.5; }
+        .code-block { background: #f0f0e8; padding: 0.8rem; border-radius: 1rem; font-family: monospace; font-size: 0.8rem; margin-top: 0.8rem; position: relative; }
         .copy-btn { background: #dbbcac; border: none; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.7rem; color: white; cursor: pointer; float: right; }
+        .main-content { flex: 2; min-width: 300px; }
+        .right-panel { flex: 1; min-width: 280px; position: sticky; top: 1rem; height: fit-content; }
         .quiz-card { background: #fefaf5; border-radius: 1.2rem; padding: 1.2rem; border: 1px solid #f0dfd6; }
         .quiz-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 0.8rem; }
         .timer { background: #fceae3; padding: 0.3rem 0.8rem; border-radius: 2rem; font-size: 0.8rem; font-weight: bold; color: #c28a7a; }
+        .start-test-btn { background: #7CBA96; border: none; padding: 0.4rem 1rem; border-radius: 2rem; color: white; cursor: pointer; margin-bottom: 0.8rem; width: 100%; }
         .question-item { background: white; border-radius: 1rem; padding: 0.8rem; margin-bottom: 0.8rem; }
         .options { display: flex; flex-direction: column; gap: 0.5rem; margin: 0.6rem 0; }
         .option { background: #fef5f0; padding: 0.4rem 0.8rem; border-radius: 2rem; cursor: pointer; font-size: 0.85rem; }
@@ -71,7 +78,7 @@
         .contact-links a { color: #9b8a7a; text-decoration: none; }
         footer { text-align: center; margin-top: 1.5rem; font-size: 0.7rem; color: #b1a99a; }
         .hide { display: none; }
-        @media (max-width: 760px) { .detail-layout { flex-direction: column; } .sidebar { position: static; } }
+        @media (max-width: 900px) { .detail-layout { flex-direction: column; } .sidebar { position: static; } .right-panel { position: static; } }
     </style>
 </head>
 <body>
@@ -83,16 +90,16 @@
           overview:"Python是一种解释型、面向对象的高级编程语言，广泛应用于数据分析、自动化脚本等领域。",
           chapters:["变量与数据类型","控制流","函数定义","列表与字典"],
           content:{
-              "变量与数据类型":"变量是存储数据的容器。常见数据类型：int、float、str、bool。例如：age=18, name='李颖'",
-              "控制流":"if-elif-else条件判断，for/while循环控制程序流程。",
+              "变量与数据类型":"变量是存储数据的容器。常见数据类型：int、float、str、bool。例如：age=18, name='小李'",
+              "控制流":"if-elif-else条件判断，for/while循环控制程序流程。例如：if score >= 60: print('及格')",
               "函数定义":"使用def定义函数，可带参数和返回值。例如：def add(a,b): return a+b",
-              "列表与字典":"列表[]有序，字典{}键值对。例如：fruits=['苹果','香蕉'], person={'name':'李颖'}"
+              "列表与字典":"列表[]存储有序集合，字典{}存储键值对。例如：fruits=['苹果','香蕉'], person={'name':'小李', 'age':20}"
           },
           codeExamples:{
-              "变量与数据类型":"x = 10\nname = '李颖'\nprint(x, name)",
-              "控制流":"score = 85\nif score >= 60:\n    print('及格')",
-              "函数定义":"def greet(name):\n    return f'你好, {name}'\nprint(greet('李颖'))",
-              "列表与字典":"my_list = [1,2,3]\nmy_dict = {'name':'李颖'}"
+              "变量与数据类型":"x = 10\nname = '小李'\nprint(x, name)",
+              "控制流":"score = 85\nif score >= 60:\n    print('及格')\nelse:\n    print('不及格')",
+              "函数定义":"def greet(name):\n    return f'你好, {name}'\nprint(greet('小李'))",
+              "列表与字典":"my_list = [1,2,3]\nmy_dict = {'name':'小李', 'age':20}\nprint(my_list[0])\nprint(my_dict['name'])"
           },
           questions:[
               { text:"Python中输出到控制台的函数是？", options:["input()","print()","output()"], correct:1 },
@@ -105,10 +112,10 @@
           overview:"学习使用Pandas进行数据处理、清洗和聚合分析。",
           chapters:["Series与DataFrame","数据筛选与索引","缺失值处理","分组聚合"],
           content:{
-              "Series与DataFrame":"Series是一维数组，DataFrame是二维表格。",
-              "数据筛选与索引":"loc按标签，iloc按位置索引。",
-              "缺失值处理":"isna()检测，dropna()删除，fillna()填充。",
-              "分组聚合":"groupby()分组后使用sum()/mean()聚合。"
+              "Series与DataFrame":"Series是一维带标签数组，DataFrame是二维表格结构。",
+              "数据筛选与索引":"loc按标签名索引，iloc按整数位置索引。",
+              "缺失值处理":"isna()检测缺失值，dropna()删除缺失行，fillna()填充缺失值。",
+              "分组聚合":"groupby()实现分组，后可接sum()、mean()、agg()等聚合函数。"
           },
           codeExamples:{
               "Series与DataFrame":"import pandas as pd\ns = pd.Series([1,2,3])\ndf = pd.DataFrame({'A':[1,2],'B':[3,4]})",
@@ -127,16 +134,16 @@
           overview:"学习requests和BeautifulSoup进行数据采集。",
           chapters:["HTTP请求基础","BeautifulSoup解析","数据提取技巧","数据清洗实战"],
           content:{
-              "HTTP请求基础":"requests库发送GET/POST请求。",
-              "BeautifulSoup解析":"将HTML解析为对象，find/find_all定位元素。",
-              "数据提取技巧":"CSS选择器和正则表达式提取数据。",
-              "数据清洗实战":"去重、缺失值处理、格式统一。"
+              "HTTP请求基础":"requests库发送GET/POST请求获取网页内容。",
+              "BeautifulSoup解析":"将HTML解析为树形结构，用find/find_all定位元素。",
+              "数据提取技巧":"CSS选择器和正则表达式精确提取数据。",
+              "数据清洗实战":"去重、缺失值处理、格式统一、异常值检测。"
           },
           codeExamples:{
-              "HTTP请求基础":"import requests\nr = requests.get('https://example.com')",
-              "BeautifulSoup解析":"from bs4 import BeautifulSoup\nsoup = BeautifulSoup(html,'html.parser')",
-              "数据提取技巧":"soup.select('.title')\nre.findall(r'\\d+',text)",
-              "数据清洗实战":"df.drop_duplicates()\ndf.fillna(0)"
+              "HTTP请求基础":"import requests\nr = requests.get('https://example.com')\nprint(r.text)",
+              "BeautifulSoup解析":"from bs4 import BeautifulSoup\nsoup = BeautifulSoup(html,'html.parser')\ntitle = soup.find('title')",
+              "数据提取技巧":"soup.select('.title')\nre.findall(r'\\d+', text)",
+              "数据清洗实战":"df.drop_duplicates()\ndf.fillna(0)\ndf['price'] = df['price'].str.replace('¥','')"
           },
           questions:[
               { text:"发送HTTP请求的库？", options:["BeautifulSoup","requests","scrapy"], correct:1 },
@@ -149,10 +156,10 @@
           overview:"应用数据分析优化供应链管理。",
           chapters:["需求预测方法","库存分析ABC","物流效率指标","供应商评估"],
           content:{
-              "需求预测方法":"移动平均、指数平滑、ARIMA模型。",
-              "库存分析ABC":"A类重点管控，C类简化管理。",
-              "物流效率指标":"库存周转率、准时交付率。",
-              "供应商评估":"质量、成本、交付、服务综合评分。"
+              "需求预测方法":"移动平均、指数平滑、ARIMA时间序列模型。",
+              "库存分析ABC":"ABC分类法：A类重点管控，C类简化管理。",
+              "物流效率指标":"库存周转率、准时交付率、运输成本占比。",
+              "供应商评估":"综合评估质量、成本、交付、服务四个维度。"
           },
           codeExamples:{
               "需求预测方法":"from statsmodels.tsa.holtwinters import ExponentialSmoothing",
@@ -171,16 +178,16 @@
           overview:"掌握关系型数据库设计范式、SQL语言。",
           chapters:["数据库设计范式","DDL建表语句","DML增删改","复杂查询"],
           content:{
-              "数据库设计范式":"第一、二、三范式，避免数据冗余。",
-              "DDL建表语句":"CREATE TABLE定义表结构。",
-              "DML增删改":"INSERT、UPDATE、DELETE操作数据。",
-              "复杂查询":"JOIN连接、子查询、GROUP BY分组。"
+              "数据库设计范式":"第一、二、三范式，避免数据冗余和更新异常。",
+              "DDL建表语句":"CREATE TABLE定义表结构，指定字段类型和约束。",
+              "DML增删改":"INSERT插入、UPDATE更新、DELETE删除数据。",
+              "复杂查询":"JOIN连接多表、子查询、GROUP BY分组聚合。"
           },
           codeExamples:{
-              "数据库设计范式":"CREATE TABLE 订单 (订单ID INT PRIMARY KEY)",
-              "DDL建表语句":"CREATE TABLE students (id INT, name VARCHAR(50))",
-              "DML增删改":"INSERT INTO students VALUES (1,'李颖')",
-              "复杂查询":"SELECT * FROM orders JOIN customers ON orders.cid=customers.id"
+              "数据库设计范式":"-- 第三范式示例\nCREATE TABLE 订单 (订单ID INT PRIMARY KEY)",
+              "DDL建表语句":"CREATE TABLE students (\n    id INT PRIMARY KEY,\n    name VARCHAR(50)\n);",
+              "DML增删改":"INSERT INTO students VALUES (1, '小李');\nUPDATE students SET name='小王' WHERE id=1;",
+              "复杂查询":"SELECT * FROM orders \nJOIN customers ON orders.cid=customers.id"
           },
           questions:[
               { text:"提取数据的SQL命令？", options:["INSERT","UPDATE","SELECT"], correct:2 },
@@ -193,16 +200,16 @@
           overview:"掌握Excel高级功能：数据透视表、Power Query、DAX函数。",
           chapters:["数据透视表","Power Query数据清洗","DAX函数","动态图表"],
           content:{
-              "数据透视表":"拖拽字段快速汇总数据。",
-              "Power Query数据清洗":"连接多种数据源完成ETL。",
+              "数据透视表":"拖拽字段快速汇总数据，支持切片器交互。",
+              "Power Query数据清洗":"连接多种数据源，可视化ETL流程。",
               "DAX函数":"CALCULATE、FILTER、SUMX等表达式。",
-              "动态图表":"切片器+数据透视图实现交互。"
+              "动态图表":"结合切片器和数据透视图实现交互式图表。"
           },
           codeExamples:{
-              "数据透视表":"插入→数据透视表→拖拽字段",
-              "Power Query数据清洗":"数据→获取数据→启动Power Query编辑器",
+              "数据透视表":"选中数据 → 插入 → 数据透视表 → 拖拽字段",
+              "Power Query数据清洗":"数据 → 获取数据 → 启动Power Query编辑器",
               "DAX函数":"总销售额 = SUMX(销售表, 数量*单价)",
-              "动态图表":"使用OFFSET函数定义动态名称"
+              "动态图表":"使用OFFSET函数定义动态名称范围"
           },
           questions:[
               { text:"快速汇总数据的工具？", options:["VLOOKUP","数据透视表","条件格式"], correct:1 },
@@ -215,12 +222,11 @@
 
     let currentView = 'list';
     let currentCourse = null;
-    let activeChapter = null;
     let quizState = {};
 
     function formatTime(sec) { let m=Math.floor(sec/60), s=sec%60; return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
-    function stopTimer(cid) { if(quizState[cid]?.timer) clearInterval(quizState[cid].timer); quizState[cid]?.timer && (quizState[cid].timer=null); }
-    function startTimer(cid) { if(!quizState[cid]) return; stopTimer(cid); quizState[cid].timer = setInterval(()=>{ if(quizState[cid] && quizState[cid].time>0){ quizState[cid].time--; let span=document.getElementById(`qt_${cid}`); if(span) span.innerText=formatTime(quizState[cid].time); if(quizState[cid].time===0){ stopTimer(cid); alert('时间到！'); document.getElementById('quizNextBtn')?.click(); } } },1000); }
+    function stopTimer(cid) { if(quizState[cid]?.timer) clearInterval(quizState[cid].timer); quizState[cid] && (quizState[cid].timer=null); }
+    function startTimer(cid) { if(!quizState[cid] || quizState[cid].started) return; stopTimer(cid); quizState[cid].started=true; quizState[cid].timer = setInterval(()=>{ if(quizState[cid] && quizState[cid].time>0){ quizState[cid].time--; let span=document.getElementById(`qt_${cid}`); if(span) span.innerText=formatTime(quizState[cid].time); if(quizState[cid].time===0){ stopTimer(cid); alert('时间到！测验自动结束。'); } } },1000); }
 
     function renderHome() {
         currentView='list';
@@ -239,49 +245,109 @@
     }
 
     function renderDetail(course) {
-        currentCourse=course; currentView='detail'; activeChapter=course.chapters[0];
+        currentCourse=course;
         if(!quizState[course.id]) quizState[course.id]={ answers:new Array(course.questions.length).fill(null), idx:0, time:15*60, timer:null, started:false };
-        let qs=quizState[course.id];
-        let tocHtml=course.chapters.map(ch=>`<li data-ch="${ch}">📘 ${ch}</li>`).join('');
+        
+        let tocHtml = '';
+        course.chapters.forEach(ch => {
+            tocHtml += `
+                <div class="toc-item">
+                    <div class="toc-header" data-ch="${ch}">
+                        <span class="title">📘 ${ch}</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="toc-content">
+                        <p>${course.content[ch]}</p>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); alert('已复制')">复制代码</button>
+                            <pre style="margin-top:0.5rem">${course.codeExamples[ch]}</pre>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
         document.getElementById('app').innerHTML = `
             <div class="container">
                 <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> 返回项目列表</button>
                 <div class="detail-layout">
-                    <div class="sidebar"><h3>📖 课程目录</h3><ul class="toc-list" id="tocList">${tocHtml}</ul></div>
-                    <div class="main-content"><div class="content-card" id="contentArea"></div><div class="quiz-card"><div class="quiz-header"><span><i class="fas fa-puzzle-piece"></i> <strong>单元测试 · ${course.questions.length}题</strong></span><span class="timer" id="qt_${course.id}">${formatTime(qs.time)}</span></div><div id="quizArea"></div></div></div>
+                    <div class="sidebar">
+                        <h3>📖 课程目录</h3>
+                        <div class="toc-list" id="tocList">${tocHtml}</div>
+                    </div>
+                    <div class="right-panel">
+                        <div class="quiz-card">
+                            <div class="quiz-header">
+                                <span><i class="fas fa-puzzle-piece"></i> <strong>单元测试 · ${course.questions.length}题</strong></span>
+                                <span class="timer" id="qt_${course.id}">${formatTime(quizState[course.id].time)}</span>
+                            </div>
+                            <button class="start-test-btn" id="startTestBtn">▶ 开始测试</button>
+                            <div id="quizArea"></div>
+                        </div>
+                    </div>
                 </div>
                 <footer>© 2025 李颖 · 商务数据分析学习日志</footer>
             </div>
         `;
+        
         document.getElementById('backBtn').onclick=()=>{ stopTimer(course.id); renderHome(); };
-        renderChapter(activeChapter);
+        
+        // 绑定折叠功能
+        document.querySelectorAll('.toc-header').forEach(header => {
+            header.onclick = function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                let content = this.nextElementSibling;
+                content.classList.toggle('active');
+            };
+        });
+        
+        // 开始测试按钮
+        document.getElementById('startTestBtn').onclick = () => {
+            if(!quizState[course.id].started){
+                startTimer(course.id);
+                renderQuiz(course);
+            } else {
+                renderQuiz(course);
+            }
+        };
+        
         renderQuiz(course);
-        document.querySelectorAll('.toc-list li').forEach(li=>{ li.onclick=()=>{ let ch=li.getAttribute('data-ch'); activeChapter=ch; renderChapter(ch); document.querySelectorAll('.toc-list li').forEach(l=>l.classList.remove('active')); li.classList.add('active'); }; });
-        document.querySelector('.toc-list li')?.classList.add('active');
-        if(!qs.started){ qs.started=true; startTimer(course.id); }
     }
-
-    function renderChapter(ch) {
-        let c=currentCourse; let div=document.getElementById('contentArea');
-        div.innerHTML=`<h3>${ch}</h3><p>${c.content[ch]}</p><div class="code-block"><button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); alert('已复制')">复制代码</button><pre style="margin-top:0.5rem">${c.codeExamples[ch]}</pre></div>`;
-    }
-
+    
     function renderQuiz(course) {
-        let qs=quizState[course.id]; let questions=course.questions; let isFinished=qs.answers.every(a=>a!==null);
+        let qs=quizState[course.id];
+        let questions=course.questions;
+        let isFinished=qs.answers.every(a=>a!==null);
         let container=document.getElementById('quizArea');
+        
+        if(!qs.started){
+            container.innerHTML = `<div style="padding:1rem; text-align:center; color:#8DA38E;">⏳ 点击"开始测试"按钮，限时15分钟完成${questions.length}道题</div>`;
+            return;
+        }
+        
         if(isFinished){
             let correct=qs.answers.filter((a,i)=>a===questions[i].correct).length;
-            container.innerHTML=`<div class="quiz-result"><div>得分：${correct}/${questions.length}</div><button id="resetQuiz" style="background:#dbbcac;border:none;padding:0.3rem 1rem;border-radius:2rem;margin-top:0.5rem">重新测试</button></div>`;
+            container.innerHTML=`<div class="quiz-result"><div>得分：${correct}/${questions.length}</div><div>${correct===questions.length?'🎉 完美！继续下一门吧 🎉':'📚 再复习一下，下次更好～'}</div><button id="resetQuiz" style="background:#dbbcac;border:none;padding:0.3rem 1rem;border-radius:2rem;margin-top:0.5rem">重新测试</button></div>`;
             document.getElementById('resetQuiz')?.addEventListener('click',()=>{ stopTimer(course.id); quizState[course.id]={ answers:new Array(questions.length).fill(null), idx:0, time:15*60, timer:null, started:false }; renderDetail(course); });
             return;
         }
-        let q=questions[qs.idx]; let selected=qs.answers[qs.idx];
-        container.innerHTML=`<div class="question-item"><div>第 ${qs.idx+1}/${questions.length} 题</div><div style="margin:0.6rem 0">${q.text}</div><div class="options" id="opts">${q.options.map((opt,i)=>`<div class="option ${selected===i?'selected':''}" data-o="${i}">${String.fromCharCode(65+i)}. ${opt}</div>`).join('')}</div><div class="quiz-actions"><button id="prevQ">上一题</button><button id="nextQ">${qs.idx===questions.length-1?'提交':'下一题'}</button></div></div>`;
+        
+        let q=questions[qs.idx];
+        let selected=qs.answers[qs.idx];
+        container.innerHTML=`
+            <div class="question-item">
+                <div>第 ${qs.idx+1}/${questions.length} 题</div>
+                <div style="margin:0.6rem 0">${q.text}</div>
+                <div class="options" id="opts">${q.options.map((opt,i)=>`<div class="option ${selected===i?'selected':''}" data-o="${i}">${String.fromCharCode(65+i)}. ${opt}</div>`).join('')}</div>
+                <div class="quiz-actions"><button id="prevQ">上一题</button><button id="nextQ">${qs.idx===questions.length-1?'提交':'下一题'}</button></div>
+            </div>
+        `;
         document.querySelectorAll('#opts .option').forEach(opt=>{ opt.onclick=()=>{ let val=parseInt(opt.getAttribute('data-o')); qs.answers[qs.idx]=val; renderQuiz(course); }; });
         document.getElementById('prevQ').onclick=()=>{ if(qs.idx>0){ qs.idx--; renderQuiz(course); } };
         document.getElementById('nextQ').onclick=()=>{ if(qs.answers[qs.idx]===null){ alert('请先选择答案'); return; } if(qs.idx<questions.length-1){ qs.idx++; renderQuiz(course); }else{ stopTimer(course.id); renderQuiz(course); } };
     }
-
+    
     renderHome();
 </script>
 </body>
