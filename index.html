@@ -3,749 +3,601 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李颖的个人页面 ^_^</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>李颖 · 商务数据分析</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --mint: #7CBA96;
+            --mint-light: #C8E6C9;
+            --mint-dark: #2E7D32;
+            --mint-medium: #66BB6A;
+            --pink: #FFCDD2;
+            --pink-light: #FCE4EC;
+            --pink-dark: #E91E63;
+            --cream: #F1F8E9;
+            --text-dark: #1B5E20;
+            --text-light: #4CAF50;
+            --text-gray: #666666;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(123, 186, 150, 0.15);
+            --shadow-hover: 0 8px 30px rgba(123, 186, 150, 0.25);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #eaf5ec 0%, #fff0ec 100%);
-            color: #2c4a3a;
-            line-height: 1.5;
-            padding: 2rem 1rem;
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #E8F5E9 0%, #FCE4EC 50%, #FFFFFF 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
             min-height: 100vh;
         }
+
         .container {
-            max-width: 1400px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 2rem 1.5rem;
         }
-        /* 头部 */
-        .hero {
-            background: rgba(255,252,245,0.75);
-            backdrop-filter: blur(16px);
-            border-radius: 2rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            border: 1px solid rgba(210,180,160,0.4);
-        }
-        .hero h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #568469;
-            margin-bottom: 0.5rem;
-        }
-        .subtitle {
-            color: #8ba18e;
-            margin-bottom: 1rem;
-        }
-        .stats-badge {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .stats-badge span {
-            background: rgba(255,255,255,0.6);
-            padding: 0.3rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            color: #b27a8a;
-        }
-        .stats-badge i {
-            margin-right: 0.3rem;
-        }
-        .section-header {
-            display: flex;
-            align-items: baseline;
-            gap: 0.8rem;
-            margin: 2rem 0 1rem;
-            flex-wrap: wrap;
-        }
-        .section-header h2 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #568469;
-        }
-        .count {
-            background: #fceae3;
-            padding: 0.2rem 0.8rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            color: #c28a7a;
-        }
-        /* 课程网格 */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .course-card {
-            background: rgba(255,255,250,0.9);
-            backdrop-filter: blur(4px);
-            border-radius: 1.8rem;
-            padding: 1.3rem;
-            transition: all 0.3s ease;
-            border: 1px solid #f0dfd6;
-            cursor: pointer;
-        }
-        .course-card:hover {
-            transform: translateY(-6px);
-            background: white;
-            border-color: #f5cfc0;
-            box-shadow: 0 18px 28px rgba(100,70,60,0.08);
-        }
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        .course-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #568469;
-            margin: 0.3rem 0;
-        }
-        .course-desc {
-            font-size: 0.85rem;
-            color: #8ba18e;
-            margin-bottom: 0.8rem;
-        }
-        .course-meta {
-            display: flex;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-            font-size: 0.7rem;
-            color: #b29a8a;
-        }
-        .start-btn {
-            background: #dbbcac;
-            border: none;
-            padding: 0.6rem;
-            border-radius: 2rem;
-            font-weight: 500;
-            color: white;
-            cursor: pointer;
-            transition: 0.2s;
-            width: 100%;
-            font-size: 0.85rem;
-        }
-        .start-btn:hover {
-            background: #c59c8a;
-        }
-        .back-btn {
-            background: #dbbcac;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            color: white;
-            cursor: pointer;
-            margin-bottom: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        /* 详情页布局 */
-        .detail-layout {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        /* 左侧目录 */
-        .sidebar {
-            flex: 1;
-            min-width: 260px;
-            background: rgba(255,252,245,0.8);
-            backdrop-filter: blur(8px);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            position: sticky;
-            top: 1rem;
-            height: fit-content;
-        }
-        .sidebar h3 {
-            color: #568469;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        .toc-list {
-            list-style: none;
-        }
-        .toc-list li {
-            margin: 0.5rem 0;
-            padding: 0.5rem 0.8rem;
-            border-radius: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.85rem;
-            color: #8ba18e;
-        }
-        .toc-list li:hover {
-            background: #fceae3;
-            color: #c28a7a;
-        }
-        .toc-list li.active {
-            background: #dbbcac;
-            color: white;
-        }
-        .progress-bar {
-            height: 4px;
-            background: #e0e0d0;
-            border-radius: 5px;
-            margin: 1rem 0;
-        }
-        .progress-fill {
-            height: 100%;
-            background: #c28a7a;
-            border-radius: 5px;
-            width: 0%;
-        }
-        /* 右侧主内容 - 教程风格 */
-        .main-content {
-            flex: 3;
-            min-width: 300px;
-        }
-        .tutorial-section {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        .step-badge {
-            display: inline-block;
-            background: #e0f0e4;
-            color: #568469;
-            padding: 0.2rem 0.8rem;
-            border-radius: 2rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-        .tutorial-section h3 {
-            color: #568469;
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-        }
-        .tutorial-section p {
-            color: #5a7a62;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        .code-editor {
-            background: #1e2a2a;
-            border-radius: 1rem;
-            margin: 1rem 0;
-            overflow: hidden;
-        }
-        .code-header {
-            background: #2a3a3a;
-            padding: 0.5rem 1rem;
+
+        .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            margin-bottom: 3rem;
+            padding: 1.2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            box-shadow: var(--shadow-soft);
         }
-        .code-header span {
-            color: #8ba18e;
-            font-size: 0.8rem;
-        }
-        .code-actions {
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--mint-dark);
             display: flex;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 0.6rem;
         }
-        .code-actions button {
-            background: #dbbcac;
-            border: none;
-            padding: 0.2rem 0.8rem;
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 1rem;
-            color: white;
-            cursor: pointer;
-            font-size: 0.7rem;
+            transition: all 0.3s;
         }
-        .code-actions button:hover {
-            background: #c59c8a;
+
+        .nav-link:hover {
+            color: var(--mint-dark);
+            background: var(--mint-light);
         }
-        textarea {
-            width: 100%;
-            background: #1e2a2a;
-            color: #e0e0d0;
-            font-family: monospace;
+
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-tag {
+            padding: 0.4rem 1.2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 1.5rem;
             font-size: 0.85rem;
-            padding: 1rem;
-            border: none;
-            outline: none;
-            resize: vertical;
+            color: var(--mint-dark);
+            box-shadow: var(--shadow-soft);
         }
-        .output-area {
-            background: #2a3a3a;
-            padding: 1rem;
-            border-radius: 0.8rem;
-            margin-top: 0.5rem;
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-bottom: 3rem;
         }
-        .output-area pre {
-            color: #e0e0d0;
-            font-family: monospace;
-            font-size: 0.8rem;
-            white-space: pre-wrap;
-        }
-        /* 单元测试模块 - 放在底部 */
-        .quiz-module {
-            background: #fefaf5;
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 1.5rem;
             padding: 1.5rem;
-            margin-top: 1rem;
-            border: 1px solid #f0dfd6;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
         }
-        .quiz-module h3 {
-            color: #c28a7a;
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--mint);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-top: 0.2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .section-header p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 1.8rem;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(123, 186, 150, 0.1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--mint-light);
+        }
+
+        .course-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .course-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.5;
             margin-bottom: 1rem;
         }
-        .timer {
-            background: #fceae3;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            display: inline-block;
-            font-weight: bold;
-            color: #c28a7a;
-            margin-bottom: 1rem;
-        }
-        .question-item {
-            background: white;
-            border-radius: 1rem;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .options {
+
+        .course-card-tags {
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin: 0.8rem 0;
+            flex-wrap: wrap;
+            gap: 0.4rem;
         }
-        .option {
-            background: #fef5f0;
-            padding: 0.5rem 1rem;
+
+        .course-tag {
+            padding: 0.25rem 0.6rem;
+            background: linear-gradient(135deg, var(--mint-light) 0%, var(--pink-light) 100%);
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            color: var(--mint-dark);
+        }
+
+        .pathway {
+            background: linear-gradient(135deg, var(--mint) 0%, var(--mint-medium) 100%);
             border-radius: 2rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .option:hover {
-            background: #ffede3;
-        }
-        .option.selected {
-            background: #dbbcac;
+            padding: 2rem;
+            margin: 3rem 0;
             color: white;
         }
-        .quiz-nav {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-        .quiz-nav button {
-            background: #dbbcac;
-            border: none;
-            padding: 0.4rem 1rem;
-            border-radius: 2rem;
-            color: white;
-            cursor: pointer;
-        }
-        .quiz-result {
-            background: #e0f0e4;
-            padding: 1rem;
-            border-radius: 1rem;
+
+        .pathway h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
-        @media (max-width: 900px) {
-            .detail-layout { flex-direction: column; }
-            .sidebar { position: static; }
+
+        .pathway-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .pathway-step {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 1.2rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .pathway-step-number {
+            width: 32px;
+            height: 32px;
+            background: white;
+            color: var(--mint-dark);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pathway-step h4 {
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .pathway-step p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .skills-section {
+            margin: 3rem 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 1.2rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .skill-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .skill-level {
+            font-size: 0.7rem;
+            color: var(--pink-dark);
+            margin-top: 0.2rem;
+        }
+
+        .contact {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 1.8rem;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-info p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            padding: 0.6rem 1.2rem;
+            border-radius: 1.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .contact-link.github {
+            background: linear-gradient(135deg, var(--mint-light) 0%, var(--mint) 100%);
+            color: var(--mint-dark);
+        }
+
+        .contact-link.email {
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink) 100%);
+            color: var(--pink-dark);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .hero h1 { font-size: 1.8rem; }
+
+            .hero-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pathway-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-<div class="container" id="app"></div>
+    <div class="container">
+        <nav class="nav">
+            <div class="nav-logo">🌱 李颖</div>
+            <div class="nav-links">
+                <a href="#courses" class="nav-link">课程</a>
+                <a href="#pathway" class="nav-link">路径</a>
+                <a href="#skills" class="nav-link">技能</a>
+                <a href="#contact" class="nav-link">联系</a>
+            </div>
+        </nav>
 
-<script>
-    // ==================== 10门课程数据 ====================
-    const courses = [
-        { 
-            id: 1, icon: "🐍", name: "Python基础", shortDesc: "编程语法与数据结构", duration: "30分钟", level: "入门",
-            desc: "Python是一种解释型、面向对象的高级编程语言，广泛应用于数据分析、自动化脚本及Web开发等领域。",
-            chapters: ["变量与数据类型", "控制流", "函数定义", "列表与字典", "文件操作"],
-            content: {
-                "变量与数据类型": "变量是存储数据的容器。Python是动态类型语言，变量不需要声明类型即可使用。常见的数据类型包括：整数(int)、浮点数(float)、字符串(str)、布尔值(bool)。",
-                "控制流": "控制流用于决定程序执行顺序。if语句用于条件判断，for循环用于遍历序列，while循环在条件为真时重复执行。",
-                "函数定义": "函数是组织好的、可重复使用的代码块。使用def关键字定义函数，可接受参数并返回值。",
-                "列表与字典": "列表是可变的有序集合，用[]表示；字典是键值对集合，用{}表示，通过键快速访问值。",
-                "文件操作": "Python通过open()函数读写文件。第一个参数是文件路径，第二个参数是模式('r'读取、'w'写入、'a'追加)。"
-            },
-            sampleCode: {
-                "变量与数据类型": "x = 10\nname = '李颖'\nprint(x, name)",
-                "控制流": "score = 85\nif score >= 60:\n    print('及格')\nelse:\n    print('不及格')",
-                "函数定义": "def greet(name):\n    return f'你好, {name}'\nprint(greet('李颖'))",
-                "列表与字典": "my_list = [1, 2, 3]\nmy_dict = {'name': '李颖', 'age': 20}\nprint(my_list[0])\nprint(my_dict['name'])",
-                "文件操作": "with open('data.txt', 'w') as f:\n    f.write('Hello')\nwith open('data.txt', 'r') as f:\n    content = f.read()\n    print(content)"
-            },
-            questions: [
-                { text: "Python中输出内容到控制台的函数是？", options: ["input()", "print()", "output()", "console.log()"], correct: 1 },
-                { text: "以下哪个是Python的注释符号？", options: ["//", "/* */", "#", "<!-- -->"], correct: 2 },
-                { text: "列表的索引从几开始？", options: ["0", "1", "根据元素数量", "任意"], correct: 0 },
-                { text: "哪个关键字用于定义函数？", options: ["func", "define", "def", "function"], correct: 2 },
-                { text: "字典通过什么访问值？", options: ["索引", "键", "下标", "属性"], correct: 1 }
-            ] 
-        },
-        { 
-            id: 2, icon: "📊", name: "数据分析技术", shortDesc: "Pandas/NumPy核心", duration: "45分钟", level: "入门",
-            desc: "学习使用Pandas进行数据处理、清洗和聚合分析，掌握NumPy数组运算。",
-            chapters: ["Series与DataFrame", "数据筛选与索引", "缺失值处理", "分组聚合", "数据合并"],
-            content: {
-                "Series与DataFrame": "Series是一维带标签数组，类似于带索引的列表。DataFrame是二维表格，类似于Excel工作表。",
-                "数据筛选与索引": "Pandas提供两种索引方式：loc按标签名索引，iloc按整数位置索引。",
-                "缺失值处理": "现实数据常含有缺失值。isna()检测缺失，dropna()删除缺失行，fillna()填充缺失值。",
-                "分组聚合": "groupby()实现分组操作，类似于SQL的GROUP BY。分组后可应用聚合函数：sum()、mean()、count()等。",
-                "数据合并": "concat()垂直拼接多个DataFrame，merge()水平合并类似SQL的JOIN操作。"
-            },
-            sampleCode: {
-                "Series与DataFrame": "import pandas as pd\ns = pd.Series([1,2,3])\ndf = pd.DataFrame({'A':[1,2], 'B':[3,4]})\nprint(df)",
-                "数据筛选与索引": "df = pd.DataFrame({'name':['A','B'],'score':[85,92]})\nprint(df.loc[0])\nprint(df.iloc[0,1])",
-                "缺失值处理": "df = pd.DataFrame({'A':[1,None,3]})\nprint(df.isna())\ndf_clean = df.dropna()\ndf_filled = df.fillna(0)",
-                "分组聚合": "df = pd.DataFrame({'city':['BJ','SH','BJ'],'sales':[100,200,150]})\nprint(df.groupby('city').sum())",
-                "数据合并": "df1 = pd.DataFrame({'id':[1,2],'name':['A','B']})\ndf2 = pd.DataFrame({'id':[1,2],'score':[85,92]})\nprint(pd.merge(df1,df2,on='id'))"
-            },
-            questions: [
-                { text: "Pandas中读取CSV文件的函数是？", options: ["read_csv()", "load_csv()", "open_csv()", "csv_load()"], correct: 0 },
-                { text: "以下哪个用于检测缺失值？", options: ["isna()", "dropna()", "fillna()", "notna()"], correct: 0 },
-                { text: "DataFrame中按标签选取数据的函数是？", options: ["iloc", "loc", "ix", "select"], correct: 1 },
-                { text: "groupby()后通常使用哪个函数聚合？", options: ["sum()", "count()", "agg()", "以上都是"], correct: 3 },
-                { text: "Pandas的别名通常是？", options: ["pd", "pds", "pan", "panda"], correct: 0 }
-            ] 
-        }
-        // 为节省篇幅，这里只展示2门课示范，其余8门结构相同可后续补充
-    ];
+        <section class="hero">
+            <h1>李颖</h1>
+            <p class="hero-subtitle">广东科学技术职业学院 · 商务数据分析与应用专业</p>
+            <div class="hero-tags">
+                <span class="hero-tag">数据分析</span>
+                <span class="hero-tag">Python</span>
+                <span class="hero-tag">可视化</span>
+                <span class="hero-tag">商务智能</span>
+            </div>
+        </section>
 
-    // 补充剩余8门课（简化版，保持结构完整）
-    for (let i = 3; i <= 10; i++) {
-        courses.push({
-            id: i, icon: "📚", name: `课程${i}`, shortDesc: "详细内容请查看源码", duration: "45分钟", level: "中级",
-            desc: "本课程详细内容请查看完整数据。",
-            chapters: ["章节1", "章节2", "章节3"],
-            content: { "章节1": "这是章节1的详细讲解内容。", "章节2": "这是章节2的详细讲解内容。", "章节3": "这是章节3的详细讲解内容。" },
-            sampleCode: { "章节1": "print('Hello')", "章节2": "print('World')", "章节3": "print('Done')" },
-            questions: [
-                { text: "示例题目1", options: ["A", "B", "C", "D"], correct: 0 },
-                { text: "示例题目2", options: ["A", "B", "C", "D"], correct: 1 }
-            ]
-        });
-    }
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">专业课程</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">核心技能</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">学习热情</div>
+            </div>
+        </div>
 
-    let currentView = 'list';
-    let currentCourse = null;
-    let quizState = {};
+        <section id="courses">
+            <div class="section-header">
+                <h2>我的课程</h2>
+                <p>点击卡片进入详情页面</p>
+            </div>
 
-    function render() {
-        const app = document.getElementById('app');
-        if (currentView === 'list') {
-            app.innerHTML = `
-                <div class="hero">
-                    <h1>🍃 李颖 · 数据分析训练营</h1>
-                    <p class="subtitle">从零到一，掌握商务数据分析核心技能</p>
-                    <div class="stats-badge">
-                        <span><i class="fas fa-book-open"></i> 10 门实战课程</span>
-                        <span><i class="fas fa-code"></i> 50+ 单元测试</span>
-                        <span><i class="fas fa-certificate"></i> 完成获认证</span>
+            <div class="courses-grid">
+                <a href="course-python.html" class="course-card">
+                    <span class="course-card-icon">🐍</span>
+                    <h3>Python基础</h3>
+                    <p>掌握Python编程基础，培养编程思维。</p>
+                    <div class="course-card-tags">
+                        <span class="course-tag">编程入门</span>
+                        <span class="course-tag">数据分析</span>
                     </div>
+                </a>
+
+                <a href="course-analysis.html" class="course-card">
+                    <span class="course-card-icon">📊</span>
+                    <h3>数据分析技术</h3>
+                    <p>学习数据处理和可视化，掌握数据驱动决策能力。</p>
+                    <div class="course-card-tags">
+                        <span class="course-tag">Pandas</span>
+                        <span class="course-tag">可视化</span>
+                    </div>
+                </a>
+
+                <a href="course-collection.html" class="course-card">
+                    <span class="course-card-icon">🔍</span>
+                    <h3>数据采集与处理</h3>
+                    <p>学习网络爬虫技术和数据清洗方法。</p>
+                    <div class="course-card-tags">
+                        <span class="course-tag">爬虫</span>
+                        <span class="course-tag">数据清洗</span>
+                    </div>
+                </a>
+
+                <a href="course-supply.html" class="course-card">
+                    <span class="course-card-icon">🚚</span>
+                    <h3>供应链数据分析</h3>
+                    <p>应用数据分析优化供应链管理。</p>
+                    <div class="course-card-tags">
+                        <span class="course-tag">预测</span>
+                        <span class="course-tag">优化</span>
+                    </div>
+                </a>
+
+                <a href="course-database.html" class="course-card">
+                    <span class="course-card-icon">💾</span>
+                    <h3>数据库原理与应用</h3>
+                    <p>掌握数据库设计和SQL查询技术。</p>
+                    <div class="course-card-tags">
+                        <span class="course-tag">SQL</span>
+                        <span class="course-tag">MySQL</span>
+                    </div>
+                </a>
+
+                <a href="course-excel.html" class="course-card">
+                    <span class="course-card-icon">📑</span>
+                    <h3>Excel数据分析</h3>
+                    <p>精通Excel高级功能，包括数据透视表等。</p>
+                    <div class="course-card-tags">
+                        <span class="course-tag">透视表</span>
+                        <span class="course-tag">公式</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="pathway" class="pathway">
+            <h3>🌱 学习路径</h3>
+            <div class="pathway-steps">
+                <div class="pathway-step">
+                    <div class="pathway-step-number">1</div>
+                    <h4>基础入门</h4>
+                    <p>Python、Excel、数据库</p>
                 </div>
-                <div class="section-header">
-                    <i class="fas fa-candy-cane"></i>
-                    <h2>精选项目</h2>
-                    <span class="count">共 10 个项目</span>
+                <div class="pathway-step">
+                    <div class="pathway-step-number">2</div>
+                    <h4>数据分析</h4>
+                    <p>统计分析、数据处理</p>
                 </div>
-                <div class="courses-grid" id="coursesGrid"></div>
-            `;
-            const grid = document.getElementById('coursesGrid');
-            courses.forEach(course => {
-                const card = document.createElement('div');
-                card.className = 'course-card';
-                card.innerHTML = `
-                    <div class="card-icon">${course.icon}</div>
-                    <div class="course-name">${course.name}</div>
-                    <div class="course-desc">${course.shortDesc}</div>
-                    <div class="course-meta">
-                        <span><i class="far fa-clock"></i> ${course.duration}</span>
-                        <span><i class="fas fa-chart-line"></i> ${course.level}</span>
-                    </div>
-                    <button class="start-btn" data-id="${course.id}">开始学习 →</button>
-                `;
-                card.querySelector('.start-btn').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    startCourse(course.id);
-                });
-                grid.appendChild(card);
-            });
-        } else if (currentView === 'detail' && currentCourse) {
-            if (!quizState[currentCourse.id]) {
-                quizState[currentCourse.id] = {
-                    answers: new Array(currentCourse.questions.length).fill(null),
-                    currentIndex: 0,
-                    timeLeft: 15 * 60,
-                    timerInterval: null,
-                    quizStarted: false
-                };
-            }
-            const qs = quizState[currentCourse.id];
-            const questions = currentCourse.questions;
-            const isQuizFinished = qs.answers.every(a => a !== null);
-            
-            let tocHtml = '';
-            currentCourse.chapters.forEach(ch => {
-                tocHtml += `<li data-chapter="${ch}">📘 ${ch}</li>`;
-            });
-            
-            app.innerHTML = `
-                <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> 返回课程列表</button>
-                <div class="detail-layout">
-                    <div class="sidebar">
-                        <h3>📖 课程目录</h3>
-                        <ul class="toc-list" id="tocList">${tocHtml}</ul>
-                        <div class="progress-bar"><div class="progress-fill" id="readingProgress"></div></div>
-                    </div>
-                    <div class="main-content" id="mainContent"></div>
+                <div class="pathway-step">
+                    <div class="pathway-step-number">3</div>
+                    <h4>可视化</h4>
+                    <p>图表设计、仪表板</p>
                 </div>
-            `;
-            
-            // 默认显示第一个章节
-            const firstChapter = currentCourse.chapters[0];
-            renderChapter(firstChapter);
-            
-            // 绑定目录点击
-            document.querySelectorAll('.toc-list li').forEach(item => {
-                item.addEventListener('click', () => {
-                    const chapter = item.getAttribute('data-chapter');
-                    document.querySelectorAll('.toc-list li').forEach(li => li.classList.remove('active'));
-                    item.classList.add('active');
-                    renderChapter(chapter);
-                });
-            });
-            document.querySelector('.toc-list li')?.classList.add('active');
-            
-            function renderChapter(chapter) {
-                const mainDiv = document.getElementById('mainContent');
-                const sample = currentCourse.sampleCode[chapter] || "print('Hello')";
-                const chapterContent = currentCourse.content[chapter] || "详细内容正在准备中...";
-                
-                mainDiv.innerHTML = `
-                    <div class="tutorial-section">
-                        <span class="step-badge">📖 核心概念</span>
-                        <h3>${chapter}</h3>
-                        <p>${chapterContent}</p>
-                    </div>
-                    <div class="tutorial-section">
-                        <span class="step-badge">💻 在线运行示例</span>
-                        <h3>代码练习</h3>
-                        <p>尝试运行下面的代码，看看输出结果：</p>
-                        <div class="code-editor">
-                            <div class="code-header">
-                                <span><i class="fas fa-terminal"></i> 编辑器</span>
-                                <div class="code-actions">
-                                    <button class="run-btn"><i class="fas fa-play"></i> 运行代码</button>
-                                    <button class="reset-btn"><i class="fas fa-undo"></i> 重置代码</button>
-                                </div>
-                            </div>
-                            <textarea id="codeEditor" rows="8">${sample}</textarea>
-                            <div class="output-area">
-                                <strong>📤 执行结果：</strong>
-                                <pre id="outputArea">点击"运行代码"按钮来执行</pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="quiz-module" id="quizModule">
-                        <h3><i class="fas fa-puzzle-piece"></i> 单元测试</h3>
-                        <div id="quizContent"></div>
-                    </div>
-                `;
-                
-                // 绑定运行按钮
-                const runBtn = mainDiv.querySelector('.run-btn');
-                const resetBtn = mainDiv.querySelector('.reset-btn');
-                const textarea = mainDiv.querySelector('#codeEditor');
-                const outputPre = mainDiv.querySelector('#outputArea');
-                
-                // 模拟运行Python代码（简单eval，实际项目中可接入后端）
-                runBtn.addEventListener('click', () => {
-                    const code = textarea.value;
-                    outputPre.innerText = '正在运行...\n';
-                    setTimeout(() => {
-                        try {
-                            // 捕获console.log输出
-                            let logs = [];
-                            const originalLog = console.log;
-                            console.log = (...args) => {
-                                logs.push(args.join(' '));
-                                originalLog(...args);
-                            };
-                            // 使用eval执行代码
-                            const result = eval(code);
-                            console.log = originalLog;
-                            if (logs.length > 0) {
-                                outputPre.innerText = logs.join('\n');
-                            } else if (result !== undefined) {
-                                outputPre.innerText = String(result);
-                            } else {
-                                outputPre.innerText = '代码执行完成（无输出）';
-                            }
-                        } catch (e) {
-                            outputPre.innerText = `错误：${e.message}`;
-                        }
-                    }, 50);
-                });
-                
-                resetBtn.addEventListener('click', () => {
-                    textarea.value = sample;
-                    outputPre.innerText = '已重置代码';
-                });
-                
-                // 渲染测试模块
-                renderQuizContent();
-            }
-            
-            function renderQuizContent() {
-                const quizContainer = document.getElementById('quizContent');
-                if (!quizContainer) return;
-                const questions = currentCourse.questions;
-                const qs = quizState[currentCourse.id];
-                const isFinished = qs.answers.every(a => a !== null);
-                
-                if (isFinished) {
-                    const correctCount = qs.answers.filter((a,i) => a === questions[i].correct).length;
-                    quizContainer.innerHTML = `
-                        <div class="quiz-result">
-                            <div>得分：${correctCount} / ${questions.length}</div>
-                            <div>${correctCount === questions.length ? '🎉 完美！继续下一门吧 🎉' : '📚 再复习一下，下次更好～'}</div>
-                            <button id="resetQuiz" style="background:#dbbcac; border:none; padding:0.5rem 1rem; border-radius:2rem; margin-top:1rem;">重新测试</button>
-                        </div>
-                    `;
-                    const resetBtn = document.getElementById('resetQuiz');
-                    if (resetBtn) {
-                        resetBtn.addEventListener('click', () => {
-                            if (qs.timerInterval) clearInterval(qs.timerInterval);
-                            quizState[currentCourse.id] = {
-                                answers: new Array(questions.length).fill(null),
-                                currentIndex: 0,
-                                timeLeft: 15 * 60,
-                                timerInterval: null,
-                                quizStarted: false
-                            };
-                            renderChapter(currentCourse.chapters[0]);
-                        });
-                    }
-                    return;
-                }
-                
-                if (!qs.quizStarted) {
-                    qs.quizStarted = true;
-                    qs.timerInterval = setInterval(() => {
-                        if (quizState[currentCourse.id] && quizState[currentCourse.id].timeLeft > 0) {
-                            quizState[currentCourse.id].timeLeft--;
-                            const timerSpan = document.getElementById('quizTimer');
-                            if (timerSpan) timerSpan.innerText = formatTime(quizState[currentCourse.id].timeLeft);
-                            if (quizState[currentCourse.id].timeLeft === 0) {
-                                clearInterval(quizState[currentCourse.id].timerInterval);
-                                alert('时间到！自动提交测试');
-                                renderChapter(currentCourse.chapters[0]);
-                            }
-                        }
-                    }, 1000);
-                }
-                
-                const currentQ = questions[qs.currentIndex];
-                const selected = qs.answers[qs.currentIndex];
-                quizContainer.innerHTML = `
-                    <div class="timer" id="quizTimer">⏱️ 剩余时间: ${formatTime(qs.timeLeft)}</div>
-                    <div class="question-item">
-                        <div><strong>第 ${qs.currentIndex+1} / ${questions.length} 题</strong></div>
-                        <div style="margin: 0.8rem 0">${currentQ.text}</div>
-                        <div class="options" id="quizOptions">
-                            ${currentQ.options.map((opt, idx) => `
-                                <div class="option ${selected === idx ? 'selected' : ''}" data-opt="${idx}">
-                                    ${String.fromCharCode(65+idx)}. ${opt}
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div class="quiz-nav">
-                            <button id="prevBtn" ${qs.currentIndex === 0 ? 'disabled' : ''}>上一题</button>
-                            <button id="nextBtn">${qs.currentIndex === questions.length-1 ? '提交' : '下一题'}</button>
-                        </div>
-                    </div>
-                `;
-                
-                document.querySelectorAll('#quizOptions .option').forEach(opt => {
-                    opt.addEventListener('click', () => {
-                        const val = parseInt(opt.getAttribute('data-opt'));
-                        qs.answers[qs.currentIndex] = val;
-                        renderQuizContent();
-                    });
-                });
-                document.getElementById('prevBtn')?.addEventListener('click', () => {
-                    if (qs.currentIndex > 0) {
-                        qs.currentIndex--;
-                        renderQuizContent();
-                    }
-                });
-                document.getElementById('nextBtn')?.addEventListener('click', () => {
-                    if (qs.currentIndex < questions.length - 1) {
-                        qs.currentIndex++;
-                        renderQuizContent();
-                    } else {
-                        if (qs.answers[qs.currentIndex] === null) {
-                            alert('请回答当前题目');
-                            return;
-                        }
-                        if (qs.timerInterval) clearInterval(qs.timerInterval);
-                        renderChapter(currentCourse.chapters[0]);
-                    }
-                });
-            }
-            
-            function formatTime(seconds) {
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                return `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-            }
-            
-            // 进度条
-            function updateProgress() {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const percent = (scrollTop / docHeight) * 100;
-                const fill = document.getElementById('readingProgress');
-                if (fill) fill.style.width = percent + '%';
-            }
-            window.addEventListener('scroll', updateProgress);
-            updateProgress();
-            
-            document.getElementById('backBtn').addEventListener('click', () => {
-                if (quizState[currentCourse.id]?.timerInterval) clearInterval(quizState[currentCourse.id].timerInterval);
-                currentView = 'list';
-                render();
-            });
-        }
-    }
-    
-    function startCourse(courseId) {
-        const course = courses.find(c => c.id === courseId);
-        if (course) {
-            currentCourse = course;
-            currentView = 'detail';
-            render();
-        }
-    }
-    
-    render();
-</script>
+                <div class="pathway-step">
+                    <div class="pathway-step-number">4</div>
+                    <h4>进阶应用</h4>
+                    <p>机器学习、商务智能</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="section-header">
+                <h2>核心技能</h2>
+                <p>持续学习与提升中</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon">🐍</div>
+                    <div class="skill-name">Python</div>
+                    <div class="skill-level">★★★☆☆</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">数据分析</div>
+                    <div class="skill-level">★★★☆☆</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">💾</div>
+                    <div class="skill-name">SQL</div>
+                    <div class="skill-level">★★☆☆☆</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📑</div>
+                    <div class="skill-name">Excel</div>
+                    <div class="skill-level">★★★★☆</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-name">可视化</div>
+                    <div class="skill-level">★★☆☆☆</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📈</div>
+                    <div class="skill-name">统计</div>
+                    <div class="skill-level">★★☆☆☆</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="contact-info">
+                <h3>📬 联系方式</h3>
+                <p>欢迎交流学习，共同进步！</p>
+            </div>
+            <div class="contact-links">
+                <a href="https://github.com/liying001108/liying001108.github.io" target="_blank" class="contact-link github">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:3580278276@qq.com" class="contact-link email">
+                    <i class="fas fa-envelope"></i> 邮箱
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 李颖 · 商务数据分析学习日志
+        </footer>
+    </div>
 </body>
 </html>
