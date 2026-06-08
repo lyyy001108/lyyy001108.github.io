@@ -17,7 +17,7 @@
         }
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem; }
         
-        /* 头部 */
+        /* 头部 - 保留学校信息 */
         .hero {
             background: rgba(255,252,245,0.75);
             backdrop-filter: blur(16px);
@@ -27,9 +27,10 @@
             text-align: center;
             border: 1px solid rgba(160,190,140,0.3);
         }
-        .hero h1 { font-size: 2.2rem; font-weight: 700; color: #4a7a5e; margin-bottom: 0.3rem; }
+        .hero h1 { font-size: 2rem; font-weight: 700; color: #4a7a5e; margin-bottom: 0.3rem; }
         .hero h2 { font-size: 1.8rem; font-weight: 600; background: linear-gradient(135deg, #3a7b54, #c2857b); background-clip: text; -webkit-background-clip: text; color: transparent; }
-        .hero .sub { font-size: 0.95rem; color: #8aae8a; margin-top: 0.5rem; }
+        .hero .school { font-size: 0.9rem; color: #8aae8a; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
+        .hero .school i { color: #c28a7a; }
         
         /* 项目网格 */
         .projects-grid {
@@ -48,9 +49,10 @@
             cursor: pointer;
         }
         .project-card:hover { transform: translateY(-5px); background: white; box-shadow: 0 15px 25px rgba(0,0,0,0.08); }
-        .project-number { font-size: 0.8rem; color: #c28a7a; margin-bottom: 0.3rem; }
+        .project-number { font-size: 0.8rem; color: #c28a7a; margin-bottom: 0.3rem; font-weight: 500; }
         .project-name { font-size: 1.2rem; font-weight: 700; color: #4a7a5e; margin-bottom: 0.3rem; }
         .project-desc { font-size: 0.8rem; color: #8a9e8a; }
+        .project-meta { display: flex; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.7rem; color: #b0a090; }
         
         /* 详情页布局 */
         .back-btn {
@@ -63,7 +65,7 @@
         
         /* 左侧目录 */
         .sidebar {
-            flex: 1.2; min-width: 280px;
+            flex: 1; min-width: 240px;
             background: rgba(255,252,245,0.8);
             backdrop-filter: blur(12px);
             border-radius: 1.5rem;
@@ -71,7 +73,7 @@
             position: sticky; top: 1rem;
             height: fit-content;
         }
-        .sidebar h3 { color: #4a7a5e; margin-bottom: 1rem; }
+        .sidebar h3 { color: #4a7a5e; margin-bottom: 1rem; font-size: 1.1rem; }
         .mode-list { display: flex; flex-direction: column; gap: 0.5rem; }
         .mode-btn {
             padding: 0.8rem 1rem;
@@ -80,6 +82,7 @@
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 500;
+            text-align: center;
         }
         .mode-btn:hover { background: #f0e0d4; }
         .mode-btn.active { background: #dbbcac; color: white; }
@@ -94,10 +97,11 @@
             padding: 1.5rem;
             margin-bottom: 1rem;
         }
-        .content-card h2 { color: #4a7a5e; margin-bottom: 0.5rem; }
-        .content-card h3 { color: #c28a7a; margin: 1rem 0 0.5rem; }
+        .content-card h2 { color: #4a7a5e; margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .content-card h3 { color: #c28a7a; margin: 1rem 0 0.5rem; font-size: 1.1rem; }
         .content-card p { color: #5a6e5a; line-height: 1.6; margin-bottom: 0.8rem; }
-        .content-card ul, .content-card ol { margin-left: 1.5rem; margin-bottom: 0.8rem; }
+        .content-card ul, .content-card ol { margin-left: 1.5rem; margin-bottom: 0.8rem; color: #5a6e5a; }
+        .content-card li { margin: 0.3rem 0; }
         
         /* 代码编辑器 */
         .code-editor {
@@ -156,7 +160,7 @@
         .quiz-actions button { background: #d4c0b0; border: none; padding: 0.4rem 1rem; border-radius: 2rem; color: white; cursor: pointer; }
         .quiz-result { background: #e0f0e4; padding: 1rem; border-radius: 1rem; text-align: center; }
         
-        .contact { background: rgba(255,250,240,0.7); border-radius: 2rem; padding: 1rem 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 2rem; }
+        .contact { background: rgba(255,250,240,0.7); border-radius: 2rem; padding: 1rem 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 2rem; }
         .contact-links { display: flex; gap: 1.5rem; }
         .contact-links a { color: #9a8a7a; text-decoration: none; }
         footer { text-align: center; margin-top: 1.5rem; font-size: 0.7rem; color: #b1a99a; }
@@ -168,437 +172,216 @@
 <div id="app"></div>
 
 <script>
-    // ==================== 10个项目的完整数据 ====================
+    // ==================== 10个项目数据 ====================
     const projects = [
-        { id:1, name:"数据清洗实战", duration:"30分钟", level:"入门", dataset:"retail_orders.csv",
-          learn:`
-<h3>🎯 项目目标</h3>
-<p>掌握Pandas数据清洗的核心技能，包括处理缺失值、重复值、异常值等关键步骤。数据清洗是数据分析的第一步，通常占整个分析过程的60-80%时间，是保证分析质量的基础。</p>
+        { id:1, name:"数据清洗实战", duration:"30分钟", level:"入门",
+          learn:`<h3>🎯 项目目标</h3><p>掌握Pandas数据清洗的核心技能，包括处理缺失值、重复值、异常值等关键步骤。</p><h3>📌 什么是数据清洗？</h3><p>数据清洗是数据分析的第一步，通常占整个分析过程的60-80%时间。现实数据往往是不完整的、有噪声的、不一致的。</p><h3>🔧 9步完整数据清洗流程</h3><ol><li>处理重复值</li><li>处理缺失值</li><li>处理异常值</li><li>格式统一</li><li>数据类型转换</li><li>列名标准化</li><li>值映射</li><li>数据验证</li><li>记录清洗过程</li></ol>`,
+          code: `import pandas as pd\nimport numpy as np\n\n# 创建示例数据\ndata = {\n    '姓名': ['张三', '李四', '王五', '张三', None, '赵六'],\n    '年龄': [25, None, 30, 25, 22, 35],\n    '工资': [5000, 6000, 5500, 5000, 4800, None],\n    '部门': ['销售', '技术', '销售', '销售', '技术', '行政']\n}\ndf = pd.DataFrame(data)\n\nprint("原始数据：")\nprint(df)\n\nprint("\\n1. 检测重复值：", df.duplicated().sum())\ndf = df.drop_duplicates()\n\nprint("\\n2. 检测缺失值：")
+print(df.isnull().sum())\n\ndf['年龄'] = df['年龄'].fillna(df['年龄'].median())\ndf['工资'] = df['工资'].fillna(df['工资'].mean())\n\nprint("\\n3. 清洗后数据：")
+print(df)`,
+          explanation: "1. duplicated()检测重复行；2. drop_duplicates()删除重复；3. isnull().sum()统计缺失；4. fillna()填充缺失值，年龄用中位数，工资用均值。",
+          questions:[
+              { text:"Pandas中检测缺失值的函数是？", options:["isnull()","dropna()","fillna()"], correct:0, explanation:"isnull()返回布尔型DataFrame标记缺失值位置。" },
+              { text:"删除重复行的函数是？", options:["drop_duplicates()","duplicated()","unique()"], correct:0, explanation:"drop_duplicates()删除重复行。" },
+              { text:"以下哪个是数据清洗的步骤？", options:["去重","建模","可视化"], correct:0, explanation:"去重是清洗步骤，建模是后续分析。" }
+          ]},
+        { id:2, name:"多维统计分析", duration:"30分钟", level:"入门",
+          learn:`<h3>🎯 项目目标</h3><p>掌握描述性统计分析方法，理解数据分布特征和变量间关系。</p><h3>📊 描述性统计指标</h3><ul><li>均值：平均数</li><li>中位数：中间值</li><li>标准差：离散程度</li><li>四分位数：数据分布</li></ul><h3>📈 相关性分析</h3><p>相关系数r范围-1到1，>0正相关，<0负相关，|r|>0.8强相关。</p>`,
+          code: `import pandas as pd\nimport numpy as np\n\nnp.random.seed(42)\ndata = {'产品': ['A','B','C']*3, '销售额': np.random.randint(100,500,9), '销量': np.random.randint(10,100,9)}\ndf = pd.DataFrame(data)\n\nprint("描述性统计：")
+print(df[['销售额','销量']].describe())\n\nprint("\\n按产品分组统计：")
+print(df.groupby('产品')['销售额'].agg(['sum','mean']))\n\nprint("\\n相关性：", df['销售额'].corr(df['销量']))`,
+          explanation: "1. describe()输出统计指标；2. groupby分组聚合；3. corr()计算相关系数。",
+          questions:[
+              { text:"描述性统计不包括以下哪个？", options:["均值","中位数","聚类"], correct:2, explanation:"聚类是机器学习算法。" }
+          ]},
+        { id:3, name:"购物车关联规则", duration:"45分钟", level:"进阶",
+          learn:`<h3>🎯 项目目标</h3><p>学习关联规则挖掘，发现商品购买关联。</p><h3>📖 核心概念</h3><ul><li>支持度：商品出现的概率</li><li>置信度：条件概率</li><li>提升度：关联强度</li></ul>`,
+          code: `import pandas as pd\nfrom mlxtend.frequent_patterns import apriori, association_rules\n\ndata = {'订单号':[1,1,2,2,2,3,3], '商品':['牛奶','面包','牛奶','尿布','啤酒','面包','尿布']}\ndf = pd.DataFrame(data)\n\nbasket = df.groupby(['订单号','商品'])['商品'].count().unstack().fillna(0)\nbasket = basket.applymap(lambda x:1 if x>0 else 0)\n\nfrequent = apriori(basket, min_support=0.4, use_colnames=True)\nrules = association_rules(frequent, metric="confidence", min_threshold=0.6)\nprint("频繁项集：", frequent)\nprint("关联规则：", rules[['antecedents','consequents','lift']] if len(rules)>0 else "无规则")`,
+          explanation: "1. 转换购物篮矩阵；2. apriori挖掘频繁项集；3. association_rules生成规则。",
+          questions:[{ text:"提升度>1表示什么？", options:["正相关","负相关","独立"], correct:0, explanation:"提升度>1表示购买X会促进购买Y。" }]},
+        { id:4, name:"KMeans聚类分析", duration:"45分钟", level:"进阶",
+          learn:`<h3>🎯 项目目标</h3><p>学习KMeans聚类算法，实现客户分群。</p><h3>📖 算法原理</h3><p>将数据分为K个簇，簇内点距离近，簇间点距离远。</p>`,
+          code: `from sklearn.cluster import KMeans\nfrom sklearn.preprocessing import StandardScaler\nimport numpy as np\n\nX = np.array([[1,2],[1,4],[1,0],[10,2],[10,4],[10,0]])\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)\n\nkmeans = KMeans(n_clusters=2, random_state=42)\nlabels = kmeans.fit_predict(X_scaled)\nprint("聚类结果：", labels)`,
+          explanation: "1. 标准化数据；2. KMeans聚类；3. fit_predict预测标签。",
+          questions:[{ text:"KMeans属于什么学习？", options:["监督学习","无监督学习","强化学习"], correct:1, explanation:"KMeans不需要标签，是无监督学习。" }]},
+        { id:5, name:"RFM模型用户分层", duration:"45分钟", level:"进阶",
+          learn:`<h3>🎯 项目目标</h3><p>学习RFM模型进行客户价值分层。</p><h3>📖 RFM指标</h3><ul><li>R：最近消费时间</li><li>F：消费频率</li><li>M：消费金额</li></ul>`,
+          code: `import pandas as pd\n\ndata = {'客户':[1,2,3], 'R':[5,30,90], 'F':[10,3,1], 'M':[5000,800,100]}\ndf = pd.DataFrame(data)\n\ndf['R_score'] = pd.qcut(df['R'], 3, labels=[3,2,1])\ndf['F_score'] = pd.qcut(df['F'], 3, labels=[1,2,3])\ndf['M_score'] = pd.qcut(df['M'], 3, labels=[1,2,3])\nprint(df)`,
+          explanation: "1. 计算RFM值；2. qcut分箱评分；3. 综合评分分层。",
+          questions:[{ text:"RFM中R代表什么？", options:["最近消费时间","消费频率","消费金额"], correct:0, explanation:"R是Recency的缩写。" }]},
+        { id:6, name:"线性回归分析", duration:"45分钟", level:"进阶",
+          learn:`<h3>🎯 项目目标</h3><p>学习线性回归预测连续变量。</p><h3>📈 模型原理</h3><p>y = β₀ + β₁x₁ + ... + βₙxₙ，最小二乘法估计参数。</p>`,
+          code: `from sklearn.linear_model import LinearRegression\nimport numpy as np\n\nX = np.array([[1],[2],[3],[4],[5]])\ny = np.array([2,4,6,8,10])\n\nmodel = LinearRegression()\nmodel.fit(X, y)\nprint(f"系数: {model.coef_[0]:.2f}, 截距: {model.intercept_:.2f}")\nprint(f"预测X=6: {model.predict([[6]])[0]:.2f}")`,
+          explanation: "1. 创建数据；2. LinearRegression训练；3. predict预测。",
+          questions:[{ text:"线性回归适合预测什么类型？", options:["连续值","类别值","序列值"], correct:0, explanation:"线性回归预测连续数值。" }]},
+        { id:7, name:"随机森林预测", duration:"60分钟", level:"高级",
+          learn:`<h3>🎯 项目目标</h3><p>学习随机森林集成算法进行预测。</p><h3>🌲 算法原理</h3><p>构建多棵决策树，取平均预测，抗过拟合能力强。</p>`,
+          code: `from sklearn.ensemble import RandomForestRegressor\nimport numpy as np\n\nX = np.random.rand(100, 2)\ny = X[:,0] * 3 + X[:,1] * 2 + np.random.randn(100)*0.1\n\nrf = RandomForestRegressor(n_estimators=10, random_state=42)\nrf.fit(X, y)\nprint(f"R²得分: {rf.score(X, y):.3f}")`,
+          explanation: "1. 生成数据；2. 随机森林训练；3. 评估R²。",
+          questions:[{ text:"随机森林是什么类型算法？", options:["集成学习","聚类","关联规则"], correct:0, explanation:"随机森林是多决策树的集成。" }]},
+        { id:8, name:"时间序列分析", duration:"45分钟", level:"高级",
+          learn:`<h3>🎯 项目目标</h3><p>学习时间序列分析和预测。</p><h3>⏰ 常用方法</h3><ul><li>移动平均</li><li>指数平滑</li><li>ARIMA模型</li></ul>`,
+          code: `import pandas as pd\n\nsales = [100,110,105,120,115,130,125,140]\ndf = pd.DataFrame({'销量': sales})\ndf['MA3'] = df['销量'].rolling(window=3).mean()\nprint("原始销量：", df['销量'].tolist())\nprint("3期移动平均：", df['MA3'].tolist())`,
+          explanation: "1. 创建时间序列；2. rolling计算移动平均；3. 预测趋势。",
+          questions:[{ text:"移动平均的作用是？", options:["平滑数据","增加噪声","分类"], correct:0, explanation:"移动平均平滑短期波动。" }]},
+        { id:9, name:"异常检测", duration:"45分钟", level:"高级",
+          learn:`<h3>🎯 项目目标</h3><p>学习识别数据中的异常值。</p><h3>📊 常用方法</h3><ul><li>Z-score法（正态分布）</li><li>IQR法（箱线图）</li><li>孤立森林</li></ul>`,
+          code: `import numpy as np\nfrom scipy import stats\n\ndata = [10,12,13,12,11,14,13,100,12,11]\nz_scores = np.abs(stats.zscore(data))\noutliers = [data[i] for i, z in enumerate(z_scores) if z > 2]\nprint(f"数据: {data}")\nprint(f"异常值(Z>2): {outliers}")`,
+          explanation: "1. 计算Z-score；2. 判断阈值；3. 识别异常点。",
+          questions:[{ text:"IQR法中的IQR是什么？", options:["四分位距","标准差","均值"], correct:0, explanation:"IQR = Q3 - Q1。" }]},
+        { id:10, name:"全流程综合项目", duration:"60分钟", level:"高级",
+          learn:`<h3>🎯 项目目标</h3><p>综合运用所学技能完成完整商业分析流程。</p><h3>📋 分析流程</h3><ol><li>问题定义</li><li>数据采集</li><li>数据清洗</li><li>分析与建模</li><li>可视化</li><li>报告输出</li></ol>`,
+          code: `import pandas as pd\nimport numpy as np\n\nnp.random.seed(42)\ndata = {'月份': range(1,13), '销售额': np.random.randint(1000,5000,12)}\ndf = pd.DataFrame(data)\n\nprint("=== 月度销售分析 ===\n", df)\nprint(f"\\n总销售额: {df['销售额'].sum():,}")\nprint(f"平均销售额: {df['销售额'].mean():.0f}")\nprint(f"最高月: {df.loc[df['销售额'].idxmax(), '月份']}月")
+print("\\n结论: 建议旺季前增加库存，淡季促销清仓。")`,
+          explanation: "1. 创建销售数据；2. 计算关键指标；3. 输出分析结论。",
+          questions:[{ text:"数据分析最后一步通常是？", options:["数据清洗","可视化报告","模型训练"], correct:1, explanation:"分析结果需要可视化报告呈现。" }]}
+    ];
 
-<h3>📌 什么是数据清洗？</h3>
-<p>数据清洗（Data Cleaning）是指发现并纠正数据文件中可识别的错误的最后一道程序，包括检查数据一致性、处理无效值和缺失值等。现实数据往往是不完整的（缺少属性值）、有噪声的（包含错误值）、不一致的（命名或代码不一致）。</p>
+    let currentView = 'list';
+    let currentProject = null;
+    let currentMode = 'learn';
+    let quizState = {};
 
-<h3>🔧 为什么需要数据清洗？</h3>
-<ul>
-<li><strong>提高数据质量</strong>：错误数据会导致错误的分析结论</li>
-<li><strong>保证分析准确性</strong>：清洗后的数据才能反映真实情况</li>
-<li><strong>提升模型性能</strong>：机器学习模型对数据质量非常敏感</li>
-<li><strong>避免"垃圾进垃圾出"</strong>：输入质量决定输出质量</li>
-</ul>
+    function formatTime(sec) { let m=Math.floor(sec/60), s=sec%60; return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
+    function stopTimer(id) { if(quizState[id]?.timer) clearInterval(quizState[id].timer); }
+    function startTimer(id) { if(!quizState[id] || quizState[id].started) return; stopTimer(id); quizState[id].started=true; quizState[id].timer = setInterval(()=>{ if(quizState[id] && quizState[id].time>0){ quizState[id].time--; let span=document.getElementById(`qt_${id}`); if(span) span.innerText=formatTime(quizState[id].time); if(quizState[id].time===0){ stopTimer(id); alert('时间到！测验结束。'); } } },1000); }
 
-<h3>📖 9步完整数据清洗流程</h3>
-<ol>
-<li><strong>处理重复值</strong>：删除完全相同的行，避免重复统计</li>
-<li><strong>处理缺失值</strong>：填充或删除空值，常用中位数、均值填充</li>
-<li><strong>处理异常值</strong>：识别并处理超出合理范围的数据</li>
-<li><strong>格式统一</strong>：统一日期格式、字符串大小写等</li>
-<li><strong>数据类型转换</strong>：确保每列数据是正确类型</li>
-<li><strong>列名标准化</strong>：统一命名规范，便于理解</li>
-<li><strong>值映射</strong>：将编码值转换为可读标签</li>
-<li><strong>数据验证</strong>：检查清洗后的数据是否符合业务规则</li>
-<li><strong>记录清洗过程</strong>：便于复现和审计</li>
-</ol>
+    function renderHome() {
+        currentView='list';
+        document.getElementById('app').innerHTML = `
+            <div class="container">
+                <div class="hero">
+                    <h1>🌸 欢迎来到李颖的学习空间</h1>
+                    <h2>📊 数据分析技术</h2>
+                    <div class="school"><i class="fas fa-graduation-cap"></i> 广东科学技术职业学院 · 商学院 · 商务数据分析与应用专业大二学生</div>
+                </div>
+                <div class="projects-grid" id="projectsGrid"></div>
+                <div class="contact"><div class="contact-links"><a href="https://github.com/lyyy001108"><i class="fab fa-github"></i> lyyy001108</a><a href="mailto:liying@example.com"><i class="fas fa-envelope"></i> liying@example.com</a></div><div><i class="fas fa-heart"></i> 保持好奇 · 用数据探索世界</div></div>
+                <footer>© 2025 李颖 · 数据分析实战营 | 第1-10章完整项目</footer>
+            </div>
+        `;
+        let grid = document.getElementById('projectsGrid');
+        projects.forEach((p, idx) => {
+            let card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `<div class="project-number">第${idx+1}章</div><div class="project-name">${p.name}</div><div class="project-desc">${p.duration} · ${p.level}</div><div class="project-meta"><span><i class="far fa-clock"></i> ${p.duration}</span><span><i class="fas fa-chart-line"></i> ${p.level}</span></div>`;
+            card.onclick = () => renderDetail(p, idx);
+            grid.appendChild(card);
+        });
+    }
 
-<h3>💡 小贴士</h3>
-<p>不要过度清洗！删除太多数据可能会丢失重要信息。清洗前先备份原始数据，每次操作后检查数据量变化。建议使用Jupyter Notebook分段执行，便于调试和记录。</p>`,
-          code: `import pandas as pd
-import numpy as np
-
-# 创建示例数据
-data = {
-    '姓名': ['张三', '李四', '王五', '张三', None, '赵六'],
-    '年龄': [25, None, 30, 25, 22, 35],
-    '工资': [5000, 6000, 5500, 5000, 4800, None],
-    '部门': ['销售', '技术', '销售', '销售', '技术', '行政']
-}
-df = pd.DataFrame(data)
-
-print("="*50)
-print("原始数据：")
-print(df)
-print(f"数据形状: {df.shape}")
-
-print("\\n" + "="*50)
-print("1. 检测重复值：")
-print(f"重复行数: {df.duplicated().sum()}")
-print(df[df.duplicated()])
-
-print("\\n" + "="*50)
-print("2. 删除重复值后：")
-df = df.drop_duplicates()
-print(df)
-
-print("\\n" + "="*50)
-print("3. 检测缺失值：")
-print(df.isnull().sum())
-
-print("\\n" + "="*50)
-print("4. 填充缺失值：")
-df['年龄'] = df['年龄'].fillna(df['年龄'].median())
-df['工资'] = df['工资'].fillna(df['工资'].mean())
-print(df)
-
-print("\\n" + "="*50)
-print("5. 数据类型检查：")
-print(df.dtypes)
-
-print("\\n" + "="*50)
-print("清洗完成！最终数据：")
-print(df)
-print(f"清洗后数据形状: {df.shape}")`,
-          explanation: "1. 创建包含缺失值和重复值的测试数据；2. duplicated()检测重复行，drop_duplicates()删除；3. isnull().sum()统计每列缺失数量；4. fillna()填充缺失值，年龄用中位数，工资用均值；5. dtypes检查数据类型是否正确。" },
-        { id:2, name:"多维统计分析", duration:"30分钟", level:"入门", dataset:"retail_orders.csv",
-          learn:`
-<h3>🎯 项目目标</h3>
-<p>掌握描述性统计分析方法，学会计算均值、中位数、标准差等统计指标，理解数据分布特征和变量间关系。统计分析是数据分析的核心基础，帮助我们从数据中提取有意义的信息。</p>
-
-<h3>📊 描述性统计指标</h3>
-<ul>
-<li><strong>均值(Mean)</strong>：所有值的平均数，反映数据的集中趋势，但对异常值敏感</li>
-<li><strong>中位数(Median)</strong>：排序后的中间值，不受异常值影响，更能反映典型水平</li>
-<li><strong>众数(Mode)</strong>：出现频率最高的值，适合分类数据</li>
-<li><strong>标准差(Std)</strong>：衡量数据离散程度，越大表示数据越分散</li>
-<li><strong>四分位数(Quartile)</strong>：将数据分为四等分，Q1(25%)、Q2(50%)、Q3(75%)</li>
-<li><strong>偏度(Skewness)</strong>：分布对称性，正偏表示右尾长，负偏表示左尾长</li>
-<li><strong>峰度(Kurtosis)</strong>：分布峰值陡峭程度，正态分布峰度为3</li>
-</ul>
-
-<h3>📈 相关性分析</h3>
-<p>相关系数(r)衡量两个变量间的线性关系强度，取值范围-1到1：</p>
-<ul>
-<li>r > 0：正相关，一个变量增大另一个也增大</li>
-<li>r < 0：负相关，一个变量增大另一个减小</li>
-<li>|r| = 1：完全线性相关</li>
-<li>|r| = 0：无线性关系</li>
-<li>|r| > 0.8：强相关，0.3-0.8中等相关，<0.3弱相关</li>
-</ul>
-<p>注意：相关不等于因果，需结合业务逻辑判断。</p>
-
-<h3>📖 分组聚合分析</h3>
-<p>分组聚合是将数据按某个维度分组后计算统计量，类似SQL的GROUP BY。常见操作：</p>
-<ul>
-<li><strong>sum()</strong>：求和</li>
-<li><strong>mean()</strong>：平均值</li>
-<li><strong>count()</strong>：计数</li>
-<li><strong>max()/min()</strong>：最大值/最小值</li>
-<li><strong>agg()</strong>：同时应用多个聚合函数</li>
-</ul>`,
-          code: `import pandas as pd
-import numpy as np
-
-# 创建销售数据
-np.random.seed(42)
-data = {
-    '产品': ['A','B','C','A','B','C','A','B','C'],
-    '销售额': np.random.randint(100, 500, 9),
-    '销量': np.random.randint(10, 100, 9),
-    '地区': ['东','东','西','西','南','南','北','北','中']
-}
-df = pd.DataFrame(data)
-
-print("="*50)
-print("原始数据：")
-print(df)
-
-print("\\n" + "="*50)
-print("1. 描述性统计：")
-print(df[['销售额', '销量']].describe())
-
-print("\\n" + "="*50)
-print("2. 销售额的中位数和众数：")
-print(f"销售额中位数: {df['销售额'].median()}")
-print(f"销售额众数: {df['销售额'].mode().tolist()}")
-
-print("\\n" + "="*50)
-print("3. 分组统计 - 按产品：")
-print(df.groupby('产品').agg({
-    '销售额': ['sum', 'mean', 'count'],
-    '销量': 'sum'
-}))
-
-print("\\n" + "="*50)
-print("4. 分组统计 - 按地区：")
-print(df.groupby('地区')['销售额'].agg(['sum', 'mean']))
-
-print("\\n" + "="*50)
-print("5. 相关性分析：")
-print(df[['销售额', '销量']].corr())
-
-print("\\n" + "="*50)
-print("6. 销售额排名前3的产品：")
-print(df.nlargest(3, '销售额')[['产品', '销售额']])`,
-          explanation: "1. describe()输出均值、标准差、四分位数等；2. median()和mode()计算中位数和众数；3. groupby按产品分组后多指标聚合；4. 按地区分组统计销售额；5. corr()计算销售额和销量的相关系数；6. nlargest()获取前3大值。" },
-        { id:3, name:"购物车关联规则", duration:"45分钟", level:"进阶", dataset:"market_basket.csv",
-          learn:`
-<h3>🎯 项目目标</h3>
-<p>学习关联规则挖掘算法（Apriori），发现商品之间的购买关联，为捆绑销售、商品推荐提供数据支持。例如著名的"啤酒与尿布"案例就是关联规则的典型应用。</p>
-
-<h3>📖 核心概念</h3>
-<ul>
-<li><strong>支持度(Support)</strong>：包含商品X的交易占总交易的比例。Support(X) = count(X)/总交易数。支持度越高说明商品越热门。</li>
-<li><strong>置信度(Confidence)</strong>：购买X的顾客同时购买Y的概率。Confidence(X→Y) = Support(X∪Y)/Support(X)。置信度越高说明关联越强。</li>
-<li><strong>提升度(Lift)</strong>：购买X对购买Y的提升作用。Lift(X→Y) = Confidence(X→Y)/Support(Y)。</li>
-<li>Lift > 1：正相关，购买X会促进购买Y</li>
-<li>Lift < 1：负相关，购买X会抑制购买Y</li>
-<li>Lift = 1：独立，X和Y无关联</li>
-</ul>
-
-<h3>📈 Apriori算法原理</h3>
-<p>Apriori算法基于先验性质：一个项集是频繁的，则它的所有子集也是频繁的。反之，如果一个子集不频繁，则其超集也不频繁。算法步骤：</p>
-<ol>
-<li>设置最小支持度阈值，找出所有频繁1项集</li>
-<li>根据频繁k项集生成候选(k+1)项集</li>
-<li>计算候选集的支持度，筛选出频繁(k+1)项集</li>
-<li>重复2-3步直到无法生成新的频繁项集</li>
-<li>根据最小置信度生成关联规则</li>
-</ol>
-
-<h3>💡 业务应用</h3>
-<ul>
-<li><strong>商品推荐</strong>：购买了A的用户也常买B，可以捆绑推荐</li>
-<li><strong>货架摆放</strong>：关联强的商品放在附近，提高交叉销售</li>
-<li><strong>促销策略</strong>：对提升度高的商品组合进行联合促销</li>
-<li><strong>套餐设计</strong>：组合高频购买的商品形成套餐</li>
-</ul>`,
-          code: `import pandas as pd
-from mlxtend.frequent_patterns import apriori, association_rules
-
-# 创建购物篮数据
-data = {
-    '订单号': [1,1,2,2,2,3,3,4,4,5],
-    '商品': ['牛奶','面包','牛奶','尿布','啤酒','面包','尿布','牛奶','面包','啤酒']
-}
-df = pd.DataFrame(data)
-
-print("="*50)
-print("原始交易数据：")
-print(df)
-
-# 转换为购物篮矩阵
-basket = df.groupby(['订单号', '商品'])['商品'].count().unstack().fillna(0)
-basket = basket.applymap(lambda x: 1 if x > 0 else 0)
-
-print("\\n" + "="*50)
-print("购物篮矩阵：")
-print(basket)
-
-# 挖掘频繁项集
-frequent_items = apriori(basket, min_support=0.4, use_colnames=True)
-print("\\n" + "="*50)
-print(f"频繁项集（最小支持度40%）：")
-print(frequent_items)
-
-# 生成关联规则
-rules = association_rules(frequent_items, metric="confidence", min_threshold=0.6)
-print("\\n" + "="*50)
-print("关联规则：")
-if len(rules) > 0:
-    print(rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']])
-else:
-    print("未发现满足条件的关联规则")`,
-          explanation: "1. 创建包含5笔订单的交易数据；2. groupby().unstack()转换为商品-订单矩阵；3. applymap将数值转为0/1；4. apriori()挖掘频繁项集，min_support=0.4；5. association_rules()生成规则，min_threshold=0.6；6. 输出规则的 antecedents(前提)、consequents(结果)、support、confidence、lift。" },
-        { id:4, name:"KMeans聚类分析", duration:"45分钟", level:"进阶", dataset:"customer_features.csv",
-          learn:`
-<h3>🎯 项目目标</h3>
-<p>学习KMeans聚类算法，将客户或商品分组，实现精准营销和用户分群。聚类是无监督学习，不需要标签数据，通过数据间的相似度自动分组。</p>
-
-<h3>📖 算法原理</h3>
-<p>KMeans算法将数据分为K个簇，簇内点距离近，簇间点距离远。算法步骤：</p>
-<ol>
-<li>随机选择K个点作为初始质心</li>
-<li>计算每个点到各质心的距离，分配到最近的簇</li>
-<li>重新计算每个簇的质心（簇内点的均值）</li>
-<li>重复2-3步直到质心不再变化或达到迭代次数</li>
-</ol>
-
-<h3>📊 如何选择K值</h3>
-<ul>
-<li><strong>肘部法则</strong>：计算不同K值的SSE（簇内平方和），选择SSE下降趋缓的拐点</li>
-<li><strong>轮廓系数</strong>：评估聚类效果，值在-1到1之间，越大越好</li>
-<li><strong>业务经验</strong>：根据实际业务场景确定分组数</li>
-</ul>
-
-<h3>💡 应用场景</h3>
-<ul>
-<li><strong>客户分群</strong>：根据消费行为将客户分组，针对性运营</li>
-<li><strong>商品分类</strong>：将相似商品聚类，优化货架管理</li>
-<li><strong>异常检测</strong>：距离所有簇中心都远的点可能是异常</li>
-<li><strong>图像分割</strong>：将图像像素按颜色聚类</li>
-</ul>
-
-<h3>⚠️ 注意事项</h3>
-<p>KMeans对初始质心敏感，建议多次运行取最佳结果；需要标准化数据消除量纲影响；假设簇是球形且大小相近，不符合时效果不佳；不适合处理非球形簇或密度不均匀的数据。</p>`,
-          code: `import pandas as pd
-import numpy as np
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
-
-# 创建客户数据
-np.random.seed(42)
-data = {
-    '客户ID': range(1, 31),
-    '月消费金额': np.random.normal(500, 200, 30),
-    '月消费频次': np.random.randint(1, 20, 30),
-    '平均客单价': np.random.normal(50, 20, 30)
-}
-df = pd.DataFrame(data)
-
-print("="*50)
-print("客户数据前10行：")
-print(df.head(10))
-
-# 特征选择
-features = ['月消费金额', '月消费频次', '平均客单价']
-X = df[features]
-
-# 标准化
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-print("\\n" + "="*50)
-print("标准化后数据前3行：")
-print(X_scaled[:3])
-
-# KMeans聚类
-kmeans = KMeans(n_clusters=3, random_state=42)
-df['聚类'] = kmeans.fit_predict(X_scaled)
-
-print("\\n" + "="*50)
-print("聚类结果统计：")
-print(df['聚类'].value_counts())
-
-print("\\n" + "="*50)
-print("各聚类特征均值：")
-print(df.groupby('聚类')[features].mean())
-
-# 聚类命名
-cluster_names = {0: '高价值客户', 1: '潜力客户', 2: '普通客户'}
-df['客户类型'] = df['聚类'].map(cluster_names)
-print("\\n" + "="*50)
-print("客户类型分布：")
-print(df['客户类型'].value_counts())`,
-          explanation: "1. 生成30个客户的消费数据；2. 选择月消费金额、频次、客单价三个特征；3. StandardScaler标准化数据消除量纲；4. KMeans聚类，K=3；5. fit_predict同时训练和预测；6. groupby查看各簇特征均值；7. 根据业务含义为簇命名。" },
-        { id:5, name:"RFM模型用户分层", duration:"45分钟", level:"进阶", dataset:"customer_features.csv",
-          learn:`
-<h3>🎯 项目目标</h3>
-<p>学习RFM模型（最近消费时间、消费频率、消费金额），对客户进行价值分层，识别高价值客户、流失风险客户，制定精准营销策略。</p>
-
-<h3>📖 RFM指标详解</h3>
-<ul>
-<li><strong>R（Recency - 最近消费时间）</strong>：客户最近一次消费距离今天的天数。R越小越好，说明客户活跃度高。</li>
-<li><strong>F（Frequency - 消费频率）</strong>：一定时期内客户消费的次数。F越大越好，说明客户忠诚度高。</li>
-<li><strong>M（Monetary - 消费金额）</strong>：一定时期内客户消费的总金额。M越大越好，说明客户价值高。</li>
-</ul>
-
-<h3>📊 评分方法</h3>
-<ol>
-<li>将R、F、M分别分箱（通常5档），从差到好打分（R分越高越好，F/M分越高越好）</li>
-<li>R：距离越近得分越高（5-4-3-2-1）</li>
-<li>F：频次越高得分越高（1-2-3-4-5）</li>
-<li>M：金额越高得分越高（1-2-3-4-5）</li>
-<li>计算RFM总分或组合评分</li>
-</ol>
-
-<h3>👥 客户分层策略</h3>
-<table style="width:100%; border-collapse:collapse;">
-<tr><th>客户类型</th><th>R</th><th>F</th><th>M</th><th>运营策略</th></tr>
-<tr><td>重要价值客户</td><td>高</td><td>高</td><td>高</td><td>VIP服务、专属优惠</td></tr>
-<tr><td>重要发展客户</td><td>高</td><td>低</td><td>高</td><td>提升购买频次</td></tr>
-<tr><td>重要保持客户</td><td>低</td><td>高</td><td>高</td><td>召回唤醒、优惠券</td></tr>
-<tr><td>一般价值客户</td><td>高</td><td>低</td><td>低</td><td>培养习惯</td></tr>
-<tr><td>流失客户</td><td>低</td><td>低</td><td>低</td><td>大力度召回</td></tr>
-</table>`,
-          code: `import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-
-# 创建客户数据
-np.random.seed(42)
-n_customers = 20
-data = {
-    '客户ID': range(1, n_customers+1),
-    '最后消费日期': [datetime.now() - timedelta(days=np.random.randint(1, 180)) for _ in range(n_customers)],
-    '消费次数': np.random.randint(1, 20, n_customers),
-    '累计金额': np.random.randint(200, 5000, n_customers)
-}
-df = pd.DataFrame(data)
-
-print("="*50)
-print("原始客户数据：")
-print(df.head(10))
-
-# 计算R值（距离今天的天数）
-today = df['最后消费日期'].max() + timedelta(days=1)
-df['R'] = (today - df['最后消费日期']).dt.days
-
-print("\\n" + "="*50)
-print("RFM原始值：")
-print(df[['客户ID', 'R', '消费次数', '累计金额']].head())
-
-# RFM评分
-df['R_score'] = pd.qcut(df['R'], 5, labels=[5,4,3,2,1]).astype(int)
-df['F_score'] = pd.qcut(df['消费次数'].rank(method='first'), 5, labels=[1,2,3,4,5]).astype(int)
-df['M_score'] = pd.qcut(df['累计金额'], 5, labels=[1,2,3,4,5]).astype(int)
-
-print("\\n" + "="*50)
-print("RFM评分：")
-print(df[['客户ID', 'R_score', 'F_score', 'M_score']].head())
-
-# 客户分层
-def get_segment(row):
-    if row['R_score'] >= 4 and row['F_score'] >= 4:
-        return '重要价值客户'
-    elif row['R_score'] >= 4:
-        return '重要发展客户'
-    elif row['F_score'] >= 4:
-        return '重要保持客户'
-    elif row['R_score'] >= 3 and row['F_score'] >= 3:
-        return '一般价值客户'
-    else:
-        return '流失风险客户'
-
-df['客户分层'] = df.apply(get_segment, axis=1)
-
-print("\\n" + "="*50)
-print("客户分层统计：")
-print(df['客户分层'].value_counts())`,
-          explanation: "1. 生成20个客户数据，包含最后消费日期、次数、金额；2. 计算R值（距离今天天数）；3. qcut分箱将R/F/M分为5档；4. R分越高越好（越近），F/M分越高越好；5. 根据RFM评分组合定义客户类型；6. value_counts统计各类型客户数量。" },
-        { id:6, name:"线性回归分析", duration:"45分钟", level:"进阶", dataset:"retail_orders.csv",
-          learn:`
-<h3>🎯 项目目标</h3>
-<p>学习线性回归模型，预测连续型目标变量，理解变量间线性关系。线性回归是最基础的预测模型，广泛应用于销售预测、价格预测等场景。</p>
-
-<h3>📈 模型原理</h3>
-<p>线性回归假设目标变量y与特征x存在线性关系：y = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ + ε</p>
-<ul>
-<li>β₀：截距，当所有特征为0时的预测值</li>
-<li>βᵢ：回归系数，特征每增加1单位对y的影响</li>
-<li>ε：误差项，实际值与预测值的差异</li>
-</ul>
-
-<h3>📊 参数估计</h3>
-<p>使用最小二乘法（OLS）估计参数，目标是最小化残差平方和：Σ(yᵢ - ŷᵢ)²。求解公式：β = (XᵀX)⁻¹Xᵀy</p>
-
-<h3>📉 模型评估指标</h3>
-<ul>
-<li><strong>R²（决定系数）</strong>：模型解释的变异比例，范围[0,1]，越接近1越好</li>
-<li><strong>调整R²</strong>：考虑特征数量的R²，防止过拟合</li>
-<li><strong>MSE（均方误差）</strong>：预测误差平方的平均值，越小越好</li>
-<li><strong>RMSE（均方根误差）</strong>：MSE的平方根，与原数据单位一致</li>
-<li><strong>MAE（平均绝对误差）</strong>：绝对误差的平均值，更稳健</li>
-</ul>
-
-<h3>⚠️ 假设条件</h3>
-<p>线性回归需要满足以下假设：线性关系、误差独立、误差同方差、误差正态分布、无多重共线性。</p>`,
-          code: `import pandas as pd
-import numpy as np
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
-
-# 创建数据
-np.random.seed(42)
-n = 100
-data = {
-    '广告投入': np
+    function renderDetail(project, idx) {
+        currentProject = project;
+        currentMode = 'learn';
+        const pid = project.id;
+        if(!quizState[pid]) quizState[pid] = { answers: new Array(project.questions.length).fill(null), idx:0, time:10*60, timer:null, started:false, showExplanation:false };
+        
+        document.getElementById('app').innerHTML = `
+            <div class="container">
+                <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> 返回项目列表</button>
+                <div class="detail-layout">
+                    <div class="sidebar">
+                        <h3>📖 第${idx+1}章 · ${project.name}</h3>
+                        <div class="mode-list">
+                            <div class="mode-btn" data-mode="learn">📚 学 · 课程学习</div>
+                            <div class="mode-btn" data-mode="practice">💻 练 · 代码练习</div>
+                            <div class="mode-btn" data-mode="quiz">📝 考 · 课程测验</div>
+                        </div>
+                    </div>
+                    <div class="right-panel" id="rightPanel"></div>
+                </div>
+                <footer>© 2025 李颖 · 数据分析实战营</footer>
+            </div>
+        `;
+        
+        document.getElementById('backBtn').onclick = renderHome;
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                currentMode = btn.getAttribute('data-mode');
+                renderModeContent();
+            };
+        });
+        document.querySelector('.mode-btn').classList.add('active');
+        renderModeContent();
+    }
+    
+    function renderModeContent() {
+        const container = document.getElementById('rightPanel');
+        if(!container) return;
+        if(currentMode === 'learn') {
+            container.innerHTML = `<div class="content-card">${currentProject.learn}</div>`;
+        } else if(currentMode === 'practice') {
+            container.innerHTML = `
+                <div class="content-card">
+                    <h2>💻 代码练习</h2>
+                    <p>尝试运行下面的代码，修改参数观察结果变化：</p>
+                    <div class="code-editor">
+                        <div class="code-header"><span><i class="fas fa-terminal"></i> Python编辑器</span><div class="code-actions"><button id="runCode">▶ 运行代码</button><button id="copyCode">📋 复制代码</button></div></div>
+                        <textarea id="codeArea" rows="12">${currentProject.code}</textarea>
+                        <div class="output-area"><strong>📤 运行结果：</strong><pre id="outputResult">点击"运行代码"按钮执行</pre></div>
+                    </div>
+                    <div style="background:#e8f0e4; padding:1rem; border-radius:1rem; margin-top:1rem;">
+                        <strong>💡 代码解析</strong><br>${currentProject.explanation}
+                    </div>
+                </div>
+            `;
+            document.getElementById('runCode').onclick = () => {
+                let code = document.getElementById('codeArea').value;
+                let out = document.getElementById('outputResult');
+                out.innerText = '运行中...\n';
+                setTimeout(() => {
+                    try {
+                        let logs = [];
+                        const oldLog = console.log;
+                        console.log = (...args) => { logs.push(args.join(' ')); };
+                        const result = eval(code);
+                        console.log = oldLog;
+                        if(logs.length) out.innerText = logs.join('\n');
+                        else if(result !== undefined) out.innerText = String(result);
+                        else out.innerText = '执行完成（无输出）';
+                    } catch(e) { out.innerText = `错误：${e.message}`; }
+                }, 50);
+            };
+            document.getElementById('copyCode').onclick = () => {
+                navigator.clipboard.writeText(document.getElementById('codeArea').value);
+                alert('✅ 代码已复制');
+            };
+        } else if(currentMode === 'quiz') {
+            const qs = quizState[currentProject.id];
+            const questions = currentProject.questions;
+            const isFinished = qs.answers.every(a=>a!==null);
+            if(!qs.started) {
+                container.innerHTML = `<div class="quiz-area"><div class="timer" id="qt_${currentProject.id}">⏱️ 10:00</div><button id="startQuizBtn" style="background:#7CBA96; border:none; padding:0.6rem; border-radius:2rem; width:100%; color:white; cursor:pointer;">▶ 开始测验（${questions.length}道题）</button><div id="quizContent"></div></div>`;
+                document.getElementById('startQuizBtn').onclick = () => { startTimer(currentProject.id); renderModeContent(); };
+                return;
+            }
+            if(isFinished) {
+                const correct = qs.answers.filter((a,i)=>a===questions[i].correct).length;
+                container.innerHTML = `<div class="quiz-area"><div class="quiz-result">得分：${correct}/${questions.length}<br>${correct===questions.length?'🎉 完美通关！':'📚 继续努力！'}<button id="resetQuiz" style="background:#dbbcac; border:none; padding:0.4rem 1rem; border-radius:2rem; margin-top:0.8rem;">重新测验</button></div></div>`;
+                document.getElementById('resetQuiz')?.addEventListener('click',()=>{ stopTimer(currentProject.id); quizState[currentProject.id]={ answers:new Array(questions.length).fill(null), idx:0, time:10*60, timer:null, started:false, showExplanation:false }; renderModeContent(); });
+                return;
+            }
+            const q = questions[qs.idx];
+            const selected = qs.answers[qs.idx];
+            let expHtml = '';
+            if(qs.showExplanation && selected!==undefined){
+                const isCorrect = (selected === q.correct);
+                expHtml = `<div class="explanation-box"><strong>${isCorrect?'✅ 回答正确！':'❌ 回答错误'}</strong><br>📖 ${q.explanation}<br>${!isCorrect?`💡 正确答案：${String.fromCharCode(65+q.correct)}. ${q.options[q.correct]}`:''}</div>`;
+            }
+            container.innerHTML = `<div class="quiz-area"><div class="timer" id="qt_${currentProject.id}">⏱️ ${formatTime(qs.time)}</div>
+                <div class="question-item"><div>第 ${qs.idx+1}/${questions.length} 题</div><div style="margin:0.6rem 0">${q.text}</div>
+                <div class="options" id="opts">${q.options.map((opt,i)=>`<div class="option ${selected===i?'selected':''}" data-o="${i}">${String.fromCharCode(65+i)}. ${opt}</div>`).join('')}</div>
+                ${expHtml}<div class="quiz-actions"><button id="prevQ">◀ 上一题</button><button id="checkAns">🔍 查看解析</button><button id="nextQ">${qs.idx===questions.length-1?'✅ 提交':'下一题 ▶'}</button></div></div></div>`;
+            document.querySelectorAll('#opts .option').forEach(opt=>{ opt.onclick=()=>{ let val=parseInt(opt.getAttribute('data-o')); qs.answers[qs.idx]=val; renderModeContent(); }; });
+            document.getElementById('prevQ').onclick = () => { if(qs.idx>0){ qs.idx--; qs.showExplanation=false; renderModeContent(); } };
+            document.getElementById('checkAns').onclick = () => { if(qs.answers[qs.idx]!==undefined){ qs.showExplanation=true; renderModeContent(); }else{ alert('请先选择答案'); } };
+            document.getElementById('nextQ').onclick = () => { if(qs.answers[qs.idx]===null){ alert('请先选择答案'); return; } if(qs.idx<questions.length-1){ qs.idx++; qs.showExplanation=false; renderModeContent(); }else{ stopTimer(currentProject.id); renderModeContent(); } };
+        }
+    }
+    
+    renderHome();
+</script>
+</body>
+</html>
