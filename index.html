@@ -10,26 +10,30 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #e0f0e5 0%, #fdf0ea 100%);
-            color: #2c4a3a;
+            background: linear-gradient(145deg, #b8d5c5 0%, #f5e0d8 100%);
+            color: #1a3a2a;
             line-height: 1.7;
             min-height: 100vh;
         }
+        
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem; }
         
+        /* 头部 - 加深背景 */
         .hero {
-            background: rgba(255,252,245,0.75);
-            backdrop-filter: blur(16px);
+            background: rgba(255, 248, 240, 0.88);
+            backdrop-filter: blur(12px);
             border-radius: 2rem;
             padding: 2rem;
             margin-bottom: 2rem;
             text-align: center;
-            border: 1px solid rgba(160,190,140,0.3);
+            border: 1px solid rgba(100, 140, 100, 0.4);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
-        .hero h1 { font-size: 2rem; font-weight: 700; color: #4a7a5e; margin-bottom: 0.3rem; }
-        .hero h2 { font-size: 1.8rem; font-weight: 600; background: linear-gradient(135deg, #3a7b54, #c2857b); background-clip: text; -webkit-background-clip: text; color: transparent; }
-        .hero .school { font-size: 0.9rem; color: #8aae8a; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
+        .hero h1 { font-size: 2rem; font-weight: 700; color: #2a5a3a; margin-bottom: 0.3rem; }
+        .hero h2 { font-size: 1.8rem; font-weight: 600; background: linear-gradient(135deg, #2a6a3a, #b56a5a); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .hero .school { font-size: 0.9rem; color: #5a8a6a; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
         
+        /* 项目网格 */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -37,127 +41,139 @@
             margin: 2rem 0;
         }
         .project-card {
-            background: rgba(255,255,250,0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 250, 242, 0.92);
+            backdrop-filter: blur(4px);
             border-radius: 1.5rem;
-            padding: 1.2rem;
+            padding: 1.3rem;
             transition: all 0.3s;
-            border: 1px solid #ece0d6;
+            border: 1px solid rgba(100, 130, 90, 0.3);
             cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        .project-card:hover { transform: translateY(-5px); background: white; box-shadow: 0 15px 25px rgba(0,0,0,0.08); }
-        .project-number { font-size: 0.8rem; color: #c28a7a; margin-bottom: 0.3rem; font-weight: 500; }
-        .project-name { font-size: 1.2rem; font-weight: 700; color: #4a7a5e; margin-bottom: 0.3rem; }
-        .project-meta { display: flex; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.7rem; color: #b0a090; }
+        .project-card:hover { transform: translateY(-5px); background: white; box-shadow: 0 15px 25px rgba(0,0,0,0.1); border-color: #c8a890; }
+        .project-number { font-size: 0.8rem; color: #b56a5a; margin-bottom: 0.3rem; font-weight: 600; }
+        .project-name { font-size: 1.2rem; font-weight: 700; color: #2a5a3a; margin-bottom: 0.3rem; }
+        .project-meta { display: flex; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.7rem; color: #8a7a6a; }
         
         .back-btn {
-            background: #d4c0b0;
+            background: #b0c0a8;
             border: none; padding: 0.5rem 1.2rem; border-radius: 2rem;
             color: white; cursor: pointer; margin-bottom: 1.5rem;
             display: inline-flex; align-items: center; gap: 0.5rem;
+            font-weight: 500;
         }
+        .back-btn:hover { background: #9aae92; }
+        
         .detail-layout { display: flex; gap: 2rem; flex-wrap: wrap; }
         
         .sidebar {
             flex: 1; min-width: 240px;
-            background: rgba(255,252,245,0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 248, 240, 0.9);
+            backdrop-filter: blur(8px);
             border-radius: 1.5rem;
             padding: 1.2rem;
             position: sticky; top: 1rem;
             height: fit-content;
+            border: 1px solid rgba(100, 130, 90, 0.2);
         }
-        .sidebar h3 { color: #4a7a5e; margin-bottom: 1rem; font-size: 1.1rem; }
-        .mode-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .sidebar h3 { color: #2a5a3a; margin-bottom: 1rem; font-size: 1.1rem; }
+        .mode-list { display: flex; flex-direction: column; gap: 0.6rem; }
         .mode-btn {
             padding: 0.8rem 1rem;
-            background: rgba(250,240,230,0.6);
+            background: rgba(230, 218, 208, 0.7);
             border-radius: 1rem;
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 500;
             text-align: center;
+            color: #3a5a3a;
         }
-        .mode-btn:hover { background: #f0e0d4; }
-        .mode-btn.active { background: #dbbcac; color: white; }
+        .mode-btn:hover { background: #d0c0b0; }
+        .mode-btn.active { background: #b0a090; color: white; }
         
         .right-panel {
             flex: 2.5; min-width: 500px;
         }
         .content-card {
-            background: white;
+            background: rgba(255, 252, 248, 0.96);
             border-radius: 1.5rem;
             padding: 1.8rem;
             margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid rgba(150, 170, 140, 0.2);
         }
-        .content-card h2 { color: #4a7a5e; margin-bottom: 0.5rem; font-size: 1.4rem; }
-        .content-card h3 { color: #c28a7a; margin: 1.2rem 0 0.5rem; font-size: 1.2rem; border-left: 4px solid #c28a7a; padding-left: 0.8rem; }
-        .content-card h4 { color: #5a8f6c; margin: 1rem 0 0.3rem; font-size: 1rem; }
-        .content-card p { color: #5a6e5a; line-height: 1.7; margin-bottom: 0.8rem; }
-        .content-card ul, .content-card ol { margin-left: 1.5rem; margin-bottom: 0.8rem; color: #5a6e5a; }
+        .content-card h2 { color: #2a5a3a; margin-bottom: 0.5rem; font-size: 1.4rem; }
+        .content-card h3 { color: #b56a5a; margin: 1.2rem 0 0.5rem; font-size: 1.2rem; border-left: 4px solid #b56a5a; padding-left: 0.8rem; }
+        .content-card h4 { color: #4a7a5a; margin: 1rem 0 0.3rem; font-size: 1rem; }
+        .content-card p { color: #3a5a3a; line-height: 1.7; margin-bottom: 0.8rem; }
+        .content-card ul, .content-card ol { margin-left: 1.5rem; margin-bottom: 0.8rem; color: #3a5a3a; }
         .content-card li { margin: 0.5rem 0; }
         .content-card table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-        .content-card th, .content-card td { border: 1px solid #e0d6d0; padding: 0.6rem; text-align: left; }
-        .content-card th { background: #f0e8e0; }
+        .content-card th, .content-card td { border: 1px solid #d0c8c0; padding: 0.6rem; text-align: left; }
+        .content-card th { background: #e8e0d8; }
         
         .code-editor {
-            background: #1e2a2a;
+            background: #1a2a22;
             border-radius: 1rem;
             margin: 1rem 0;
             overflow: hidden;
         }
         .code-header {
-            background: #2a3a3a;
+            background: #2a3a32;
             padding: 0.5rem 1rem;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-        .code-header span { color: #8ba18e; font-size: 0.75rem; }
+        .code-header span { color: #9ab89a; font-size: 0.75rem; }
         .code-actions button {
-            background: #dbbcac; border: none; padding: 0.2rem 0.8rem;
+            background: #c0a898; border: none; padding: 0.2rem 0.8rem;
             border-radius: 1rem; color: white; cursor: pointer; font-size: 0.7rem;
         }
+        .code-actions button:hover { background: #a89080; }
         textarea {
-            width: 100%; background: #1e2a2a; color: #e0e0d0;
+            width: 100%; background: #1a2a22; color: #d0e8d0;
             font-family: monospace; font-size: 0.8rem; padding: 1rem;
             border: none; outline: none; resize: vertical;
         }
         .output-area {
-            background: #2a3a3a; padding: 0.8rem; border-radius: 0.8rem;
+            background: #2a3a32; padding: 0.8rem; border-radius: 0.8rem;
             margin-top: 0.5rem;
         }
-        .output-area pre { color: #e0e0d0; font-family: monospace; font-size: 0.75rem; white-space: pre-wrap; }
+        .output-area pre { color: #c0d8c0; font-family: monospace; font-size: 0.75rem; white-space: pre-wrap; }
         
         .quiz-area {
-            background: #fefaf5;
+            background: #fff8f0;
             border-radius: 1.2rem;
             padding: 1.2rem;
-            border: 1px solid #f0e0d4;
+            border: 1px solid #e0d0c0;
         }
         .timer {
-            background: #fceae3; padding: 0.3rem 0.8rem; border-radius: 2rem;
-            font-size: 0.8rem; font-weight: bold; color: #c28a7a; display: inline-block;
+            background: #f0e0d0; padding: 0.3rem 0.8rem; border-radius: 2rem;
+            font-size: 0.8rem; font-weight: bold; color: #b56a5a; display: inline-block;
             margin-bottom: 1rem;
         }
-        .question-item { background: white; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem; }
+        .question-item { background: white; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem; border: 1px solid #e8ddd0; }
         .options { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.8rem 0; }
         .option {
-            background: #fef5f0; padding: 0.5rem 1rem; border-radius: 2rem;
-            cursor: pointer; font-size: 0.85rem; border: 1px solid #f0e0d4;
+            background: #fef8f0; padding: 0.5rem 1rem; border-radius: 2rem;
+            cursor: pointer; font-size: 0.85rem; border: 1px solid #e0d0c0;
+            transition: all 0.15s;
         }
-        .option:hover { background: #ffede3; transform: translateX(4px); }
-        .option.selected { background: #dbbcac; color: white; }
-        .explanation-box { background: #e8f0e4; border-radius: 1rem; padding: 0.8rem; margin: 0.8rem 0; border-left: 4px solid #7CBA96; }
+        .option:hover { background: #f0e8e0; transform: translateX(4px); }
+        .option.selected { background: #b0c0a8; color: white; border-color: #b0c0a8; }
+        .explanation-box { background: #e8f0e0; border-radius: 1rem; padding: 0.8rem; margin: 0.8rem 0; border-left: 4px solid #7a9a6a; }
         .quiz-actions { display: flex; gap: 0.8rem; margin-top: 1rem; justify-content: space-between; }
-        .quiz-actions button { background: #d4c0b0; border: none; padding: 0.4rem 1rem; border-radius: 2rem; color: white; cursor: pointer; }
-        .quiz-result { background: #e0f0e4; padding: 1rem; border-radius: 1rem; text-align: center; }
+        .quiz-actions button { background: #b0c0a8; border: none; padding: 0.4rem 1rem; border-radius: 2rem; color: white; cursor: pointer; }
+        .quiz-actions button:hover { background: #9aae92; }
+        .quiz-result { background: #e0e8d8; padding: 1rem; border-radius: 1rem; text-align: center; }
         
-        .contact { background: rgba(255,250,240,0.7); border-radius: 2rem; padding: 1rem 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 2rem; }
+        .contact { background: rgba(255, 248, 240, 0.85); border-radius: 2rem; padding: 1rem 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 2rem; border: 1px solid rgba(100,130,90,0.2); }
         .contact-links { display: flex; gap: 1.5rem; }
-        .contact-links a { color: #9a8a7a; text-decoration: none; }
-        footer { text-align: center; margin-top: 1.5rem; font-size: 0.7rem; color: #b1a99a; }
+        .contact-links a { color: #7a8a6a; text-decoration: none; }
+        .contact-links a:hover { color: #b56a5a; }
+        footer { text-align: center; margin-top: 1.5rem; font-size: 0.7rem; color: #8a9a7a; }
         
         @media (max-width: 900px) { .detail-layout { flex-direction: column; } .sidebar { position: static; } .right-panel { min-width: auto; } }
     </style>
@@ -166,688 +182,453 @@
 <div id="app"></div>
 
 <script>
-    // ==================== 10个项目完整数据（学习内容极度丰富） ====================
+    // ==================== 10个项目完整数据 ====================
     const projects = [
         { id:1, name:"数据清洗实战", duration:"30分钟", level:"入门",
-          learn:`
+          learn: `
 <h2>📖 第一章：数据清洗实战</h2>
-<p>数据清洗是数据分析的第一步，也是最耗时的环节（通常占整个分析过程的60-80%）。本课程将系统讲解Pandas数据清洗的核心技术。</p>
-
+<p>数据清洗是数据分析的第一步，也是最耗时的环节（通常占整个分析过程的60-80%）。</p>
 <h3>🎯 学习目标</h3>
-<ul>
-<li>掌握处理缺失值的多种方法（删除、填充、插值）</li>
-<li>掌握重复值的检测与删除</li>
-<li>掌握异常值的识别与处理</li>
-<li>掌握数据类型转换与格式统一</li>
-</ul>
-
+<ul><li>掌握处理缺失值的多种方法</li><li>掌握重复值的检测与删除</li><li>掌握异常值的识别与处理</li></ul>
 <h3>📌 什么是数据清洗？</h3>
-<p>数据清洗（Data Cleaning）是指发现并纠正数据文件中可识别的错误的最后一道程序，包括检查数据一致性、处理无效值和缺失值等。现实数据往往存在以下问题：</p>
-<ul>
-<li><strong>不完整</strong>：缺少属性值或某些字段为空</li>
-<li><strong>有噪声</strong>：包含错误值或异常值</li>
-<li><strong>不一致</strong>：命名或代码不统一</li>
-<li><strong>重复</strong>：存在完全相同的记录</li>
-</ul>
-
+<p>数据清洗是指发现并纠正数据文件中可识别的错误的最后一道程序，包括检查数据一致性、处理无效值和缺失值等。</p>
 <h3>🔧 为什么需要数据清洗？</h3>
-<ul>
-<li><strong>提高数据质量</strong>：错误数据会导致错误的分析结论</li>
-<li><strong>保证分析准确性</strong>：清洗后的数据才能反映真实情况</li>
-<li><strong>提升模型性能</strong>：机器学习模型对数据质量非常敏感</li>
-<li><strong>避免"垃圾进垃圾出"</strong>：输入质量决定输出质量</li>
-</ul>
-
+<ul><li>提高数据质量</li><li>保证分析准确性</li><li>提升模型性能</li></ul>
 <h3>📖 9步完整数据清洗流程</h3>
-<table>
-<tr><th>步骤</th><th>操作</th><th>Pandas方法</th></tr>
-<tr><td>1</td><td>处理重复值</td><td>drop_duplicates(), duplicated()</td></tr>
-<tr><td>2</td><td>处理缺失值</td><td>isnull(), fillna(), dropna()</td></tr>
-<tr><td>3</td><td>处理异常值</td><td>描述统计+业务规则筛选</td></tr>
-<tr><td>4</td><td>格式统一</td><td>str.lower(), str.strip()</td></tr>
-<tr><td>5</td><td>数据类型转换</td><td>astype(), to_datetime()</td></tr>
-<tr><td>6</td><td>列名标准化</td><td>rename()</td></tr>
-<tr><td>7</td><td>值映射</td><td>map(), replace()</td></tr>
-<tr><td>8</td><td>数据验证</td><td>条件筛选</td></tr>
-<tr><td>9</td><td>记录清洗过程</td><td>日志记录</td></tr>
-</table>
+<ol><li>处理重复值 - drop_duplicates()</li><li>处理缺失值 - fillna() / dropna()</li><li>处理异常值 - 业务规则筛选</li><li>格式统一 - str.strip()</li><li>数据类型转换 - astype()</li><li>列名标准化 - rename()</li><li>值映射 - map() / replace()</li><li>数据验证 - 条件筛选</li><li>记录清洗过程</li></ol>`,
+          code: `// 数据清洗示例代码
+const data = [
+    { name: '张三', age: 25, salary: 5000 },
+    { name: '李四', age: null, salary: 6000 },
+    { name: '王五', age: 30, salary: 5500 },
+    { name: '张三', age: 25, salary: 5000 },
+    { name: null, age: 22, salary: 4800 }
+];
 
-<h3>💡 缺失值处理方法详解</h3>
-<ul>
-<li><strong>删除法</strong>：dropna()删除包含缺失的行或列，适合缺失比例很小的情况</li>
-<li><strong>填充法</strong>：fillna()用指定值填充，常用中位数、均值、众数</li>
-<li><strong>插值法</strong>：interpolate()用前后值线性插值，适合时间序列</li>
-<li><strong>前向/后向填充</strong>：method='ffill'/'bfill'用前面或后面的值填充</li>
-</ul>
+console.log("原始数据:", data);
+console.log("数据条数:", data.length);
 
-<h3>💡 异常值检测方法</h3>
-<ul>
-<li><strong>3σ原则</strong>：假设数据服从正态分布，超出均值±3倍标准差的值视为异常</li>
-<li><strong>IQR法</strong>：四分位距法，超出Q1-1.5IQR或Q3+1.5IQR的值视为异常</li>
-<li><strong>业务规则法</strong>：根据业务常识设定合理范围</li>
-</ul>
-
-<h3>⚠️ 注意事项</h3>
-<p>不要过度清洗！删除太多数据可能会丢失重要信息。清洗前先备份原始数据，每次操作后检查数据量变化。建议使用Jupyter Notebook分段执行，便于调试和记录。</p>`,
-          code: `import pandas as pd
-import numpy as np
-
-# 创建包含各种问题的示例数据
-np.random.seed(42)
-data = {
-    '姓名': ['张三', '李四', '王五', '张三', None, '赵六', '钱七', '孙八', '周九', '吴十'],
-    '年龄': [25, None, 30, 25, 22, 35, 28, 40, None, 32],
-    '工资': [5000, 6000, 5500, 5000, 4800, None, 5200, 6500, 5800, 6100],
-    '部门': ['销售', '技术', '销售', '销售', '技术', '行政', '技术', '销售', '行政', '技术'],
-    '入职日期': ['2020-01-15', '2019-03-20', '2021-06-10', '2020-01-15', '2022-02-01', 
-                '2018-11-11', '2020-07-07', '2019-09-09', '2021-12-12', '2020-04-01']
+// 1. 去重（根据name和age）
+const uniqueData = [];
+const seen = new Set();
+for (let item of data) {
+    const key = item.name + '|' + item.age;
+    if (!seen.has(key) && item.name !== null) {
+        seen.add(key);
+        uniqueData.push(item);
+    }
 }
-df = pd.DataFrame(data)
+console.log("去重后:", uniqueData);
 
-print("="*60)
-print("【原始数据】")
-print(df)
-print(f"数据形状: {df.shape}")
-print(f"缺失值统计:\\n{df.isnull().sum()}")
+// 2. 处理缺失值（年龄用中位数填充）
+const ages = uniqueData.filter(d => d.age !== null).map(d => d.age);
+ages.sort((a,b) => a-b);
+const medianAge = ages[Math.floor(ages.length/2)];
+console.log("年龄中位数:", medianAge);
 
-print("\\n" + "="*60)
-print("【步骤1】处理重复值")
-print(f"重复行数: {df.duplicated().sum()}")
-df = df.drop_duplicates()
-print(f"删除重复后形状: {df.shape}")
-
-print("\\n" + "="*60)
-print("【步骤2】处理缺失值")
-# 年龄用中位数填充
-df['年龄'] = df['年龄'].fillna(df['年龄'].median())
-# 工资用均值填充
-df['工资'] = df['工资'].fillna(df['工资'].mean())
-print(f"填充后:\\n{df[['姓名','年龄','工资']]}")
-
-print("\\n" + "="*60)
-print("【步骤3】数据类型转换")
-df['入职日期'] = pd.to_datetime(df['入职日期'])
-print(f"入职日期类型: {df['入职日期'].dtypes}")
-
-print("\\n" + "="*60)
-print("【步骤4】格式统一")
-df['部门'] = df['部门'].str.strip()
-print(f"部门唯一值: {df['部门'].unique()}")
-
-print("\\n" + "="*60)
-print("【步骤5】异常值处理（工资>10000视为异常）")
-outliers = df[df['工资'] > 10000]
-print(f"异常值数量: {len(outliers)}")
-
-print("\\n" + "="*60)
-print("【清洗完成】最终数据")
-print(df)
-print(f"最终数据形状: {df.shape}")`,
-          explanation: "1. 创建包含缺失值、重复值的测试数据；2. duplicated()检测重复行，drop_duplicates()删除；3. isnull().sum()统计每列缺失数量；4. fillna()填充缺失值，年龄用中位数，工资用均值；5. to_datetime()转换日期格式；6. str.strip()去除字符串首尾空格。",
+for (let item of uniqueData) {
+    if (item.age === null) item.age = medianAge;
+}
+console.log("填充后:", uniqueData);`,
+          explanation: "1. 创建包含重复和缺失的测试数据；2. 使用Set去重；3. 计算年龄中位数填充缺失值。",
           questions: [
-              { text:"Pandas中检测缺失值的函数是？", options:["isnull()","dropna()","fillna()"], correct:0, explanation:"isnull()返回布尔型DataFrame，标记每个元素是否为缺失值。" },
-              { text:"删除重复行的正确方法是？", options:["drop_duplicates()","duplicated()","unique()"], correct:0, explanation:"drop_duplicates()删除重复行，duplicated()只检测不删除。" },
-              { text:"以下哪个是数据清洗的典型步骤？", options:["去重","建模","可视化"], correct:0, explanation:"去重是清洗步骤，建模是后续分析阶段。" },
-              { text:"fillna()方法的作用是？", options:["填充缺失值","删除缺失值","检测缺失值"], correct:0, explanation:"fillna()用指定值填充缺失值。" },
-              { text:"处理异常值常用的IQR方法中，IQR代表什么？", options:["四分位距","标准差","均值"], correct:0, explanation:"IQR = Q3 - Q1，即第三四分位数减第一四分位数。" },
-              { text:"以下哪个不是数据清洗的目的？", options:["提高数据质量","保证分析准确性","增加数据量"], correct:2, explanation:"数据清洗目的是提升质量，而不是增加数据量。" },
-              { text:"astype()方法用于？", options:["数据类型转换","删除重复","填充缺失"], correct:0, explanation:"astype()将数据列转换为指定类型。" },
-              { text:"处理缺失值时，什么情况下适合用dropna()直接删除？", options:["缺失比例很小","缺失比例很大","数据量很小"], correct:0, explanation:"缺失比例很小时删除影响不大；缺失比例大时应考虑填充。" },
-              { text:"str.strip()方法的作用是？", options:["去除首尾空格","转换为小写","拆分字符串"], correct:0, explanation:"strip()去除字符串首尾的空白字符。" },
-              { text:"数据清洗通常占分析过程的多少比例？", options:["10-20%","40-50%","60-80%"], correct:2, explanation:"数据清洗通常耗时最多，占60-80%。" }
+              { text:"数据清洗通常占分析过程的多少比例？", options:["20-30%","40-50%","60-80%"], correct:2, explanation:"数据清洗耗时最多，占60-80%。" },
+              { text:"处理缺失值的常用方法有？", options:["删除","填充","以上都是"], correct:2, explanation:"删除和填充都是常用方法。" },
+              { text:"drop_duplicates()方法的作用是？", options:["删除重复行","删除缺失行","填充缺失值"], correct:0, explanation:"drop_duplicates()删除重复行。" },
+              { text:"处理异常值的常用方法是？", options:["业务规则筛选","随机删除","保留所有"], correct:0, explanation:"根据业务规则筛选合理范围。" },
+              { text:"fillna()方法用于？", options:["填充缺失值","删除缺失值","检测缺失值"], correct:0, explanation:"fillna()填充缺失值。" },
+              { text:"数据清洗的目的是？", options:["提高数据质量","增加数据量","加快计算"], correct:0, explanation:"主要目的是提高数据质量。" },
+              { text:"astype()方法用于？", options:["数据类型转换","删除重复","填充缺失"], correct:0, explanation:"astype()转换数据类型。" },
+              { text:"str.strip()方法的作用是？", options:["去除首尾空格","转换为大写","拆分字符串"], correct:0, explanation:"strip()去除字符串首尾空格。" },
+              { text:"duplicated()方法返回什么？", options:["布尔序列","数值序列","DataFrame"], correct:0, explanation:"duplicated()返回布尔型Series。" },
+              { text:"处理缺失值时，什么情况下适合用删除？", options:["缺失比例很小","缺失比例很大","数据量很小"], correct:0, explanation:"缺失比例小时删除影响不大。" }
           ]},
         { id:2, name:"多维统计分析", duration:"30分钟", level:"入门",
-          learn:`
-<h2>📊 第二章：多维统计分析</h2>
-<p>描述性统计是数据分析的基础，通过计算均值、中位数、标准差等指标快速了解数据分布特征。本课程将系统学习统计分析方法。</p>
+          learn: `<h2>📊 第二章：多维统计分析</h2><p>描述性统计是数据分析的基础，通过计算均值、中位数、标准差等指标快速了解数据分布。</p><h3>📊 描述性统计指标</h3><ul><li>均值：平均数</li><li>中位数：中间值</li><li>标准差：离散程度</li><li>四分位数：数据分布</li></ul>`,
+          code: `// 统计分析示例
+const scores = [85, 92, 78, 88, 95, 76, 89, 91, 84, 87];
+console.log("成绩数据:", scores);
 
-<h3>🎯 学习目标</h3>
-<ul>
-<li>掌握描述性统计指标的计算与解读</li>
-<li>掌握分组聚合分析方法</li>
-<li>掌握相关性分析的原理与应用</li>
-<li>理解数据分布特征（偏度、峰度）</li>
-</ul>
+// 计算均值
+const sum = scores.reduce((a,b) => a + b, 0);
+const mean = sum / scores.length;
+console.log("均值:", mean.toFixed(2));
 
-<h3>📊 描述性统计指标详解</h3>
-<table>
-<tr><th>指标</th><th>含义</th><th>计算公式</th><th>特点</th></tr>
-<tr><td>均值</td><td>算术平均数</td><td>μ = Σx/n</td><td>对异常值敏感</td></tr>
-<tr><td>中位数</td><td>排序后中间值</td><td>50%分位数</td><td>不受异常值影响</td></tr>
-<tr><td>众数</td><td>出现频率最高的值</td><td>频率统计</td><td>适合分类数据</td></tr>
-<tr><td>方差</td><td>离散程度</td><td>σ² = Σ(x-μ)²/n</td><td>衡量波动性</td></tr>
-<tr><td>标准差</td><td>方差的平方根</td><td>σ = √σ²</td><td>与原数据同单位</td></tr>
-<tr><td>偏度</td><td>分布对称性</td><td>Skewness</td><td>正偏/负偏/对称</td></tr>
-<tr><td>峰度</td><td>分布陡峭程度</td><td>Kurtosis</td><td>尖峰/平峰/正态</td></tr>
-</table>
+// 计算中位数
+const sorted = [...scores].sort((a,b) => a - b);
+const median = sorted.length % 2 === 0 
+    ? (sorted[sorted.length/2-1] + sorted[sorted.length/2]) / 2
+    : sorted[Math.floor(sorted.length/2)];
+console.log("中位数:", median);
 
-<h3>📈 相关性分析</h3>
-<p>相关系数r衡量两个变量间的线性关系强度，取值范围-1到1：</p>
-<ul>
-<li><strong>r = 1</strong>：完全正相关，一个增大另一个也按比例增大</li>
-<li><strong>r = -1</strong>：完全负相关，一个增大另一个按比例减小</li>
-<li><strong>r = 0</strong>：无线性关系</li>
-<li><strong>|r| > 0.8</strong>：强相关</li>
-<li><strong>0.3 < |r| < 0.8</strong>：中等相关</li>
-<li><strong>|r| < 0.3</strong>：弱相关</li>
-</ul>
-<p>⚠️ 注意：相关不等于因果！需要结合业务逻辑判断。</p>
+// 计算标准差
+const variance = scores.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0) / scores.length;
+const stdDev = Math.sqrt(variance);
+console.log("标准差:", stdDev.toFixed(2));
 
-<h3>📖 分组聚合分析</h3>
-<p>分组聚合是将数据按某个维度分组后计算统计量，类似SQL的GROUP BY。常用聚合函数：</p>
-<ul>
-<li>sum()：求和</li>
-<li>mean()：平均值</li>
-<li>median()：中位数</li>
-<li>count()：计数</li>
-<li>max() / min()：最大值/最小值</li>
-<li>std() / var()：标准差/方差</li>
-<li>agg()：同时应用多个聚合函数</li>
-</ul>
-
-<h3>💡 实战案例：销售数据分析</h3>
-<p>某电商公司想要了解：不同产品的销售情况、销售额与销量的关系、各地区的业绩表现。通过描述性统计可以快速回答这些问题。</p>`,
-          code: `import pandas as pd
-import numpy as np
-
-# 创建销售数据
-np.random.seed(42)
-n = 100
-data = {
-    '产品': np.random.choice(['A','B','C','D'], n),
-    '地区': np.random.choice(['东区','西区','南区','北区'], n),
-    '销售额': np.random.normal(500, 150, n).astype(int),
-    '销量': np.random.poisson(30, n),
-    '利润': np.random.normal(100, 40, n).astype(int)
-}
-df = pd.DataFrame(data)
-# 添加一些极端值
-df.loc[0, '销售额'] = 2000
-df.loc[1, '销量'] = 150
-
-print("="*60)
-print("【数据概览】")
-print(df.head(10))
-print(f"数据形状: {df.shape}")
-
-print("\\n" + "="*60)
-print("【1. 描述性统计】")
-print(df[['销售额','销量','利润']].describe())
-
-print("\\n" + "="*60)
-print("【2. 中位数与众数】")
-print(f"销售额中位数: {df['销售额'].median()}")
-print(f"利润众数: {df['利润'].mode().tolist()}")
-
-print("\\n" + "="*60)
-print("【3. 分组统计 - 按产品】")
-product_stats = df.groupby('产品').agg({
-    '销售额': ['sum', 'mean', 'count'],
-    '销量': 'sum',
-    '利润': 'mean'
-})
-print(product_stats)
-
-print("\\n" + "="*60)
-print("【4. 分组统计 - 按地区】")
-region_stats = df.groupby('地区')['销售额'].agg(['sum', 'mean', 'std'])
-print(region_stats)
-
-print("\\n" + "="*60)
-print("【5. 相关性分析】")
-corr_matrix = df[['销售额','销量','利润']].corr()
-print(corr_matrix)
-print("\\n解读：销售额与销量相关系数 =", corr_matrix.loc['销售额','销量'])
-
-print("\\n" + "="*60)
-print("【6. 销售额排名TOP5】")
-print(df.nlargest(5, '销售额')[['产品','地区','销售额']])`,
-          explanation: "1. 生成100条销售数据；2. describe()输出统计指标（均值、标准差、四分位数）；3. median()和mode()计算中位数和众数；4. groupby按产品分组后多指标聚合；5. groupby按地区分组统计销售额；6. corr()计算相关系数矩阵；7. nlargest()获取前5大值。",
+// 分组统计
+const groups = { '高分组': scores.filter(s => s >= 90), '中分组': scores.filter(s => s >= 75 && s < 90), '低分组': scores.filter(s => s < 75) };
+console.log("高分组人数:", groups['高分组'].length, "平均分:", (groups['高分组'].reduce((a,b)=>a+b,0)/groups['高分组'].length || 0).toFixed(1));`,
+          explanation: "1. 计算均值、中位数、标准差；2. 分组统计。",
           questions: [
-              { text:"描述性统计中，受异常值影响最大的指标是？", options:["均值","中位数","众数"], correct:0, explanation:"均值对所有值敏感，异常值会拉高或拉低均值。" },
-              { text:"相关系数r的取值范围是？", options:["[-1,1]","[0,1]","(-∞,+∞)"], correct:0, explanation:"相关系数范围-1到1，负值表示负相关。" },
-              { text:"以下哪个函数用于分组聚合？", options:["groupby()","sort_values()","dropna()"], correct:0, explanation:"groupby()是分组聚合的核心函数。" },
-              { text:"标准差的作用是？", options:["衡量离散程度","衡量集中趋势","衡量分布形状"], correct:0, explanation:"标准差表示数据波动大小。" },
-              { text:"如果相关系数r=0.9，说明什么？", options:["强正相关","强负相关","无相关"], correct:0, explanation:"|r|>0.8为强相关，正值表示正相关。" },
-              { text:"四分位数中，Q2代表什么？", options:["中位数","最小值","最大值"], correct:0, explanation:"Q2就是中位数，即50%分位数。" },
-              { text:"agg()函数的作用是？", options:["同时应用多个聚合","单个聚合","排序"], correct:0, explanation:"agg()可以同时应用sum、mean等多个函数。" },
-              { text:"偏度>0表示数据分布？", options:["右偏（正偏）","左偏（负偏）","对称"], correct:0, explanation:"正偏表示右尾长，均值大于中位数。" },
-              { text:"以下哪个不是描述性统计指标？", options:["聚类系数","方差","峰度"], correct:0, explanation:"聚类系数是聚类分析指标，不属于描述性统计。" },
-              { text:"分组聚合后，以下哪个方法可以查看各组的统计结果？", options:["mean()","sum()","以上都是"], correct:2, explanation:"mean()、sum()等都可查看分组统计结果。" }
+              { text:"受异常值影响最大的指标是？", options:["均值","中位数","众数"], correct:0, explanation:"均值对所有值敏感。" },
+              { text:"中位数的特点是？", options:["不受异常值影响","受异常值影响","等于均值"], correct:0, explanation:"中位数对异常值不敏感。" },
+              { text:"标准差衡量什么？", options:["离散程度","集中趋势","分布形状"], correct:0, explanation:"标准差表示数据波动大小。" },
+              { text:"相关系数范围是？", options:["[-1,1]","[0,1]","(-∞,+∞)"], correct:0, explanation:"相关系数-1到1。" },
+              { text:"r=0.9表示什么？", options:["强正相关","强负相关","无相关"], correct:0, explanation:"|r|>0.8为强相关。" },
+              { text:"groupby()用于？", options:["分组聚合","排序","筛选"], correct:0, explanation:"groupby()分组聚合。" },
+              { text:"describe()返回什么？", options:["统计指标","原始数据","排序结果"], correct:0, explanation:"describe()输出统计指标。" },
+              { text:"四分位数Q2代表？", options:["中位数","最小值","最大值"], correct:0, explanation:"Q2就是中位数。" },
+              { text:"偏度>0表示？", options:["右偏","左偏","对称"], correct:0, explanation:"正偏表示右尾长。" },
+              { text:"以下哪个不是描述性统计？", options:["聚类系数","方差","峰度"], correct:0, explanation:"聚类系数不是描述性统计。" }
           ]},
         { id:3, name:"购物车关联规则", duration:"45分钟", level:"进阶",
-          learn:`
-<h2>🛒 第三章：购物车关联规则</h2>
-<p>关联规则挖掘用于发现商品之间的购买关联，是零售业数据挖掘的经典应用。著名的"啤酒与尿布"案例就是关联规则的典型应用。</p>
+          learn: `<h2>🛒 第三章：购物车关联规则</h2><p>关联规则挖掘用于发现商品之间的购买关联。核心概念：支持度、置信度、提升度。</p>`,
+          code: `// 关联规则示例 - 计算商品购买频率
+const transactions = [
+    ['牛奶', '面包', '尿布'],
+    ['牛奶', '尿布', '啤酒'],
+    ['面包', '尿布'],
+    ['牛奶', '面包', '啤酒'],
+    ['牛奶', '面包', '尿布', '啤酒']
+];
 
-<h3>🎯 学习目标</h3>
-<ul>
-<li>理解支持度、置信度、提升度的含义</li>
-<li>掌握Apriori算法的原理</li>
-<li>能够使用mlxtend库进行关联规则挖掘</li>
-<li>能够解读关联规则结果并提出业务建议</li>
-</ul>
+console.log("交易数据:", transactions);
+console.log("总订单数:", transactions.length);
 
-<h3>📖 核心概念</h3>
-<ul>
-<li><strong>支持度(Support)</strong>：包含商品X的交易占总交易的比例。公式：Support(X) = count(X)/总交易数。支持度越高说明商品越热门。</li>
-<li><strong>置信度(Confidence)</strong>：购买X的顾客同时购买Y的概率。公式：Confidence(X→Y) = Support(X∪Y)/Support(X)。置信度越高说明关联越强。</li>
-<li><strong>提升度(Lift)</strong>：购买X对购买Y的提升作用。公式：Lift(X→Y) = Confidence(X→Y)/Support(Y)。</li>
-</ul>
-<p>提升度的解读：</p>
-<ul>
-<li>Lift > 1：正相关，购买X会促进购买Y</li>
-<li>Lift < 1：负相关，购买X会抑制购买Y</li>
-<li>Lift = 1：独立，X和Y无关联</li>
-</ul>
-
-<h3>📈 Apriori算法原理</h3>
-<p>Apriori算法基于"先验性质"：一个项集是频繁的，则它的所有子集也是频繁的。算法步骤：</p>
-<ol>
-<li>设置最小支持度阈值，扫描数据集找出所有频繁1项集</li>
-<li>根据频繁k项集生成候选(k+1)项集（连接步）</li>
-<li>计算候选集的支持度，筛选出频繁(k+1)项集（剪枝步）</li>
-<li>重复2-3步直到无法生成新的频繁项集</li>
-<li>根据最小置信度从频繁项集生成关联规则</li>
-</ol>
-
-<h3>💡 业务应用场景</h3>
-<ul>
-<li><strong>商品推荐</strong>：购买了A的用户也常买B，可以捆绑推荐</li>
-<li><strong>货架摆放</strong>：关联强的商品放在附近，提高交叉销售</li>
-<li><strong>促销策略</strong>：对提升度高的商品组合进行联合促销</li>
-<li><strong>套餐设计</strong>：组合高频购买的商品形成套餐</li>
-<li><strong>购物篮分析</strong>：了解顾客购买习惯，优化商品结构</li>
-</ul>
-
-<h3>⚠️ 注意事项</h3>
-<p>最小支持度和置信度的设置需要根据业务调整；关联规则数量可能很多，需要按提升度排序筛选；注意区分相关关系和因果关系。</p>`,
-          code: `import pandas as pd
-from mlxtend.frequent_patterns import apriori, association_rules
-
-# 创建购物篮数据
-data = {
-    '订单号': [1,1,2,2,2,3,3,4,4,4,5,5,6,6,6,7,7,8,8,9,9,10,10],
-    '商品': ['牛奶','面包','牛奶','尿布','啤酒','面包','尿布','牛奶','面包','啤酒',
-            '尿布','啤酒','牛奶','面包','尿布','牛奶','啤酒','面包','尿布','牛奶',
-            '面包','尿布','啤酒']
+// 计算每个商品的支持度
+const itemCount = {};
+for (let trans of transactions) {
+    for (let item of trans) {
+        itemCount[item] = (itemCount[item] || 0) + 1;
+    }
 }
-df = pd.DataFrame(data)
+for (let [item, count] of Object.entries(itemCount)) {
+    const support = count / transactions.length;
+    console.log(\`\${item} 支持度: \${support.toFixed(2)}\`);
+}
 
-print("="*60)
-print("【原始交易数据】")
-print(f"总订单数: {df['订单号'].nunique()}")
-print(df.head(15))
-
-# 转换为购物篮矩阵
-basket = df.groupby(['订单号', '商品'])['商品'].count().unstack().fillna(0)
-basket = basket.applymap(lambda x: 1 if x > 0 else 0)
-
-print("\\n" + "="*60)
-print("【购物篮矩阵】")
-print(basket)
-
-# 挖掘频繁项集
-min_support = 0.3  # 最小支持度30%
-frequent_items = apriori(basket, min_support=min_support, use_colnames=True)
-
-print("\\n" + "="*60)
-print(f"【频繁项集】(最小支持度={min_support})")
-print(frequent_items)
-
-# 生成关联规则
-min_confidence = 0.6  # 最小置信度60%
-rules = association_rules(frequent_items, metric="confidence", min_threshold=min_confidence)
-
-print("\\n" + "="*60)
-print(f"【关联规则】(最小置信度={min_confidence})")
-if len(rules) > 0:
-    print(rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']].to_string())
-else:
-    print("未发现满足条件的关联规则，尝试降低阈值")
-
-# 按提升度排序
-if len(rules) > 0:
-    print("\\n【按提升度排序的Top5规则】")
-    top_rules = rules.nlargest(5, 'lift')
-    print(top_rules[['antecedents', 'consequents', 'lift']])`,
-          explanation: "1. 创建10笔订单的交易数据；2. groupby().unstack()转换为商品-订单矩阵；3. applymap将数值转为0/1；4. apriori()挖掘频繁项集，min_support=0.3；5. association_rules()生成规则，min_confidence=0.6；6. 输出规则的antecedents(前提)、consequents(结果)、support、confidence、lift；7. nlargest()获取提升度Top5规则。",
+// 计算牛奶和面包的关联度
+let milkAndBread = 0;
+let milkCount = 0;
+for (let trans of transactions) {
+    const hasMilk = trans.includes('牛奶');
+    const hasBread = trans.includes('面包');
+    if (hasMilk) milkCount++;
+    if (hasMilk && hasBread) milkAndBread++;
+}
+const confidence = milkAndBread / milkCount;
+console.log("买牛奶同时买面包的置信度:", confidence.toFixed(2));`,
+          explanation: "1. 计算每个商品的支持度；2. 计算关联规则的置信度。",
           questions: [
-              { text:"关联规则中，提升度Lift > 1表示什么？", options:["正相关","负相关","独立"], correct:0, explanation:"Lift>1表示购买X会促进购买Y，呈正相关关系。" },
-              { text:"支持度的计算公式是？", options:["count(X)/总交易数","count(X∪Y)/count(X)","count(X∪Y)/总交易数"], correct:0, explanation:"支持度=包含X的交易数/总交易数。" },
-              { text:"置信度的计算公式是？", options:["Support(X∪Y)/Support(X)","Support(X)/Support(Y)","Support(X∪Y)"], correct:0, explanation:"置信度=同时包含X和Y的交易数/包含X的交易数。" },
-              { text:"Apriori算法的核心思想是什么？", options:["先验性质","后验概率","随机采样"], correct:0, explanation:"先验性质：频繁项集的所有子集也必须是频繁的。" },
-              { text:"以下哪个不是关联规则的应用场景？", options:["商品推荐","货架摆放","价格预测"], correct:2, explanation:"价格预测是回归问题，不是关联规则。" },
-              { text:"提升度Lift < 1表示？", options:["负相关","正相关","独立"], correct:0, explanation:"Lift<1表示购买X会抑制购买Y。" },
-              { text:"apriori()函数中的use_colnames参数作用？", options:["使用列名","使用索引","使用数值"], correct:0, explanation:"use_colnames=True使输出使用原始列名。" },
-              { text:"关联规则挖掘中，最小支持度设置过高会导致？", options:["规则太少","规则太多","无影响"], correct:0, explanation:"支持度越高，满足条件的项集越少，规则越少。" },
-              { text:"著名的'啤酒与尿布'案例说明了什么？", options:["关联规则","聚类分析","回归分析"], correct:0, explanation:"这是关联规则挖掘的经典案例，发现啤酒和尿布经常一起购买。" },
-              { text:"mlxtend库中的association_rules()用于？", options:["生成关联规则","挖掘频繁项集","数据清洗"], correct:0, explanation:"association_rules()从频繁项集生成关联规则。" }
+              { text:"提升度>1表示？", options:["正相关","负相关","独立"], correct:0, explanation:"Lift>1表示正相关。" },
+              { text:"支持度的公式？", options:["包含X订单/总订单","包含X和Y/包含X","包含X和Y/总订单"], correct:0, explanation:"支持度=包含X订单/总订单。" },
+              { text:"置信度的公式？", options:["Support(X∪Y)/Support(X)","Support(X)/Support(Y)","Support(X∪Y)"], correct:0, explanation:"置信度=同时包含X和Y/包含X。" },
+              { text:"Apriori算法用于？", options:["关联规则","聚类","分类"], correct:0, explanation:"Apriori是关联规则算法。" },
+              { text:"提升度Lift<1表示？", options:["负相关","正相关","独立"], correct:0, explanation:"Lift<1表示负相关。" },
+              { text:"啤酒与尿布案例说明？", options:["关联规则","聚类","回归"], correct:0, explanation:"关联规则经典案例。" },
+              { text:"最小支持度设置过高会导致？", options:["规则太少","规则太多","无影响"], correct:0, explanation:"支持度高规则少。" },
+              { text:"association_rules()用于？", options:["生成规则","挖掘项集","数据清洗"], correct:0, explanation:"生成关联规则。" },
+              { text:"频繁项集是指？", options:["支持度高的项集","置信度高的规则","提升度高的规则"], correct:0, explanation:"频繁项集支持度高。" },
+              { text:"购物篮分析目的是？", options:["发现商品关联","预测销量","分类客户"], correct:0, explanation:"发现商品购买关联。" }
           ]},
         { id:4, name:"KMeans聚类分析", duration:"45分钟", level:"进阶",
-          learn:`
-<h2>🔍 第四章：KMeans聚类分析</h2>
-<p>KMeans是经典的无监督学习算法，用于将相似的数据点分组。广泛应用于客户分群、商品分类、图像分割等场景。</p>
+          learn: `<h2>🔍 第四章：KMeans聚类分析</h2><p>KMeans是无监督学习算法，将相似的数据点分组。常用于客户分群、商品分类。</p>`,
+          code: `// KMeans聚类简化实现
+const customers = [
+    [100, 5], [120, 6], [90, 4],   // 高价值客户
+    [50, 2], [60, 3], [55, 2],     // 中等客户
+    [10, 1], [15, 1], [8, 1]       // 低价值客户
+];
+console.log("客户数据(金额,频次):", customers);
 
-<h3>🎯 学习目标</h3>
-<ul>
-<li>理解KMeans算法的原理和步骤</li>
-<li>掌握肘部法则选择K值</li>
-<li>学会数据标准化处理</li>
-<li>能够解读聚类结果并提出业务建议</li>
-</ul>
-
-<h3>📖 算法原理</h3>
-<p>KMeans算法将数据分为K个簇，簇内点距离近，簇间点距离远。算法步骤：</p>
-<ol>
-<li>随机选择K个点作为初始质心</li>
-<li>计算每个点到各质心的距离，分配到最近的簇</li>
-<li>重新计算每个簇的质心（簇内点的均值）</li>
-<li>重复2-3步直到质心不再变化或达到迭代次数</li>
-</ol>
-<p>距离通常使用欧氏距离：d = √[(x₁-y₁)² + (x₂-y₂)² + ...]</p>
-
-<h3>📊 如何选择K值</h3>
-<ul>
-<li><strong>肘部法则</strong>：计算不同K值的SSE（簇内平方和），选择SSE下降趋缓的拐点</li>
-<li><strong>轮廓系数</strong>：评估聚类效果，值在-1到1之间，越大越好</li>
-<li><strong>业务经验</strong>：根据实际业务场景确定分组数</li>
-</ul>
-
-<h3>💡 应用场景</h3>
-<ul>
-<li><strong>客户分群</strong>：根据消费行为将客户分组，针对性运营</li>
-<li><strong>商品分类</strong>：将相似商品聚类，优化货架管理</li>
-<li><strong>异常检测</strong>：距离所有簇中心都远的点可能是异常</li>
-<li><strong>图像压缩</strong>：将相似颜色聚类，减少颜色数</li>
-<li><strong>文本聚类</strong>：将相似文档分组</li>
-</ul>
-
-<h3>⚠️ 注意事项</h3>
-<ul>
-<li>KMeans对初始质心敏感，建议多次运行取最佳结果</li>
-<li>需要标准化数据消除量纲影响</li>
-<li>假设簇是球形且大小相近，不符合时效果不佳</li>
-<li>不适合处理非球形簇或密度不均匀的数据</li>
-<li>需要预先指定K值</li>
-</ul>`,
-          code: `import pandas as pd
-import numpy as np
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import silhouette_score
-
-# 创建客户数据
-np.random.seed(42)
-n_customers = 100
-data = {
-    '客户ID': range(1, n_customers+1),
-    '月消费金额': np.random.normal(800, 300, n_customers).astype(int),
-    '月消费频次': np.random.poisson(8, n_customers),
-    '平均客单价': np.random.normal(100, 30, n_customers).astype(int)
+// 简单KMeans (K=2)
+function distance(a, b) {
+    return Math.sqrt(Math.pow(a[0]-b[0], 2) + Math.pow(a[1]-b[1], 2));
 }
-# 添加一些高价值客户
-for i in range(10):
-    data['月消费金额'][i] += 1500
-    data['月消费频次'][i] += 12
-df = pd.DataFrame(data)
 
-print("="*60)
-print("【客户数据】")
-print(df.head(10))
-
-# 特征选择
-features = ['月消费金额', '月消费频次', '平均客单价']
-X = df[features]
-
-# 标准化
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-print("\\n" + "="*60)
-print("【标准化后数据(前5行)】")
-print(X_scaled[:5])
-
-# 肘部法则确定K值
-inertia = []
-K_range = range(2, 8)
-for k in K_range:
-    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
-    kmeans.fit(X_scaled)
-    inertia.append(kmeans.inertia_)
-
-print("\\n" + "="*60)
-print("【肘部法则 - 不同K值的SSE】")
-for k, sse in zip(K_range, inertia):
-    print(f"K={k}: SSE={sse:.0f}")
-
-# 选择K=3进行聚类
-k_opt = 3
-kmeans = KMeans(n_clusters=k_opt, random_state=42, n_init=10)
-df['聚类标签'] = kmeans.fit_predict(X_scaled)
-
-print("\\n" + "="*60)
-print(f"【聚类结果(K={k_opt})】")
-print(df['聚类标签'].value_counts().sort_index())
-
-print("\\n" + "="*60)
-print("【各聚类特征均值】")
-cluster_means = df.groupby('聚类标签')[features].mean()
-print(cluster_means)
-
-# 轮廓系数
-sil_score = silhouette_score(X_scaled, df['聚类标签'])
-print(f"\\n轮廓系数: {sil_score:.3f} (越接近1越好)")
-
-# 聚类命名
-cluster_names = {
-    0: '💎 高价值客户',
-    1: '🌟 潜力客户', 
-   2: '📖 普通客户'
+const centroids = [[customers[0][0], customers[0][1]], [customers[8][0], customers[8][1]]];
+let changed = true;
+let iterations = 0;
+while (changed && iterations < 10) {
+    changed = false;
+    const clusters = [[], []];
+    for (let c of customers) {
+        const dist0 = distance(c, centroids[0]);
+        const dist1 = distance(c, centroids[1]);
+        clusters[dist0 < dist1 ? 0 : 1].push(c);
+    }
+    for (let i = 0; i < 2; i++) {
+        if (clusters[i].length === 0) continue;
+        const newCenter = [
+            clusters[i].reduce((s, p) => s + p[0], 0) / clusters[i].length,
+            clusters[i].reduce((s, p) => s + p[1], 0) / clusters[i].length
+        ];
+        if (newCenter[0] !== centroids[i][0] || newCenter[1] !== centroids[i][1]) {
+            centroids[i] = newCenter;
+            changed = true;
+        }
+    }
+    iterations++;
 }
-df['客户类型'] = df['聚类标签'].map(cluster_names)
-print("\\n【客户类型分布】")
-print(df['客户类型'].value_counts())`,
-          explanation: "1. 生成100个客户的消费数据，包含高价值客户；2. 选择月消费金额、频次、客单价三个特征；3. StandardScaler标准化消除量纲影响；4. 肘部法则计算不同K值的SSE；5. KMeans聚类，K=3，n_init=10多次初始化；6. groupby查看各簇特征均值；7. silhouette_score计算轮廓系数评估效果；8. 根据业务含义为簇命名。",
+console.log("聚类中心:", centroids);
+console.log("高价值客户群中心:", centroids[0]);
+console.log("低价值客户群中心:", centroids[1]);`,
+          explanation: "1. 创建客户数据；2. 实现简单KMeans聚类；3. 输出聚类中心。",
           questions: [
-              { text:"KMeans算法属于哪种学习类型？", options:["无监督学习","监督学习","强化学习"], correct:0, explanation:"KMeans不需要标签，是无监督学习。" },
-              { text:"以下哪个方法用于选择K值？", options:["肘部法则","梯度下降","反向传播"], correct:0, explanation:"肘部法则通过SSE拐点选择K值。" },
-              { text:"为什么需要对数据进行标准化？", options:["消除量纲影响","提高精度","减少噪声"], correct:0, explanation:"标准化使不同量纲的特征具有可比性。" },
-              { text:"KMeans中，SSE代表什么？", options:["簇内平方和","簇间平方和","总平方和"], correct:0, explanation:"SSE衡量簇内点与质心的距离平方和。" },
-              { text:"轮廓系数的取值范围是？", options:["[-1,1]","[0,1]","[0,∞]"], correct:0, explanation:"轮廓系数越接近1聚类效果越好。" },
-              { text:"KMeans算法的第一步是什么？", options:["随机选初始质心","计算距离","更新质心"], correct:0, explanation:"先随机选择K个点作为初始质心。" },
-              { text:"以下哪个不是KMeans的应用场景？", options:["线性回归","客户分群","图像压缩"], correct:0, explanation:"线性回归是监督学习，不是聚类应用。" },
-              { text:"KMeans对什么敏感？", options:["初始质心","数据量","迭代次数"], correct:0, explanation:"不同初始质心可能导致不同结果。" },
-              { text:"欧氏距离用于衡量什么？", options:["点间距离","概率大小","相关性"], correct:0, explanation:"欧氏距离是KMeans常用的距离度量。" },
-              { text:"聚类后如何分析各簇特征？", options:["groupby().mean()","corr()","describe()"], correct:0, explanation:"groupby().mean()查看各簇均值差异。" }
+              { text:"KMeans属于什么学习？", options:["无监督","监督","强化"], correct:0, explanation:"KMeans不需要标签。" },
+              { text:"选择K值的方法？", options:["肘部法则","梯度下降","反向传播"], correct:0, explanation:"肘部法则选择K值。" },
+              { text:"为什么需要标准化？", options:["消除量纲","提高精度","减少噪声"], correct:0, explanation:"标准化使特征可比。" },
+              { text:"SSE代表什么？", options:["簇内平方和","簇间平方和","总平方和"], correct:0, explanation:"SSE衡量簇内距离。" },
+              { text:"轮廓系数范围？", options:["[-1,1]","[0,1]","[0,∞]"], correct:0, explanation:"越接近1越好。" },
+              { text:"KMeans对什么敏感？", options:["初始质心","数据量","迭代次数"], correct:0, explanation:"不同初始质心结果不同。" },
+              { text:"欧氏距离用于？", options:["点间距离","概率计算","相关性"], correct:0, explanation:"欧氏距离是距离度量。" },
+              { text:"聚类后如何分析？", options:["groupby均值","corr","describe"], correct:0, explanation:"查看各簇均值差异。" },
+              { text:"KMeans假设簇形状？", options:["球形","任意形状","线形"], correct:0, explanation:"假设簇是球形。" },
+              { text:"以下哪个不是KMeans应用？", options:["线性回归","客户分群","图像压缩"], correct:0, explanation:"线性回归不是聚类。" }
           ]},
         { id:5, name:"RFM模型用户分层", duration:"45分钟", level:"进阶",
-          learn:`
-<h2>👥 第五章：RFM模型用户分层</h2>
-<p>RFM模型是经典的客户价值分析模型，通过最近消费时间、消费频率、消费金额三个维度对客户进行分层，是CRM系统的核心工具。</p>
+          learn: `<h2>👥 第五章：RFM模型用户分层</h2><p>RFM通过最近消费(R)、频率(F)、金额(M)三维度对客户分层。</p>`,
+          code: `// RFM模型示例
+const customersRFM = [
+    { id: 1, R: 5, F: 10, M: 5000 },
+    { id: 2, R: 30, F: 3, M: 800 },
+    { id: 3, R: 90, F: 1, M: 100 },
+    { id: 4, R: 15, F: 8, M: 3000 },
+    { id: 5, R: 60, F: 2, M: 500 }
+];
+console.log("客户RFM数据:", customersRFM);
 
-<h3>🎯 学习目标</h3>
-<ul>
-<li>理解RFM各维度的含义</li>
-<li>掌握RFM评分方法</li>
-<li>能够根据RFM得分进行客户分层</li>
-<li>能为不同层级客户制定运营策略</li>
-</ul>
-
-<h3>📖 RFM指标详解</h3>
-<ul>
-<li><strong>R（Recency - 最近消费时间）</strong>：客户最近一次消费距离今天的天数。R越小越好，说明客户活跃度高，近期有互动。</li>
-<li><strong>F（Frequency - 消费频率）</strong>：一定时期内客户消费的次数。F越大越好，说明客户忠诚度高，重复购买意愿强。</li>
-<li><strong>M（Monetary - 消费金额）</strong>：一定时期内客户消费的总金额。M越大越好，说明客户价值高，贡献度高。</li>
-</ul>
-
-<h3>📊 RFM评分方法</h3>
-<ol>
-<li>将R、F、M分别分箱（通常5档），从差到好打分</li>
-<li>R：距离越近得分越高（5-4-3-2-1）</li>
-<li>F：频次越高得分越高（1-2-3-4-5）</li>
-<li>M：金额越高得分越高（1-2-3-4-5）</li>
-<li>计算RFM总分或组合评分</li>
-</ol>
-
-<h3>👥 客户分层与运营策略</h3>
-<table>
-<tr><th>客户类型</th><th>R</th><th>F</th><th>M</th><th>运营策略</th></tr>
-<tr><td>重要价值客户</td><td>高</td><td>高</td><td>高</td><td>VIP服务、专属优惠、新品体验</td></tr>
-<tr><td>重要发展客户</td><td>高</td><td>低</td><td>高</td><td>提升购买频次、会员权益、积分活动</td></tr>
-<tr><td>重要保持客户</td><td>低</td><td>高</td><td>高</td><td>召回唤醒、优惠券、短信提醒</td></tr>
-<tr><td>一般价值客户</td><td>高</td><td>低</td><td>低</td><td>培养习惯、新人礼包、引导复购</td></tr>
-<tr><td>流失风险客户</td><td>低</td><td>低</td><td>低</td><td>大力度召回、限时特惠、放弃挽留</td></tr>
-</table>
-
-<h3>💡 业务价值</h3>
-<ul>
-<li>识别高价值客户，提供差异化服务</li>
-<li>发现流失风险客户，及时干预挽回</li>
-<li>优化营销资源配置，提高ROI</li>
-<li>制定个性化运营策略，提升客户生命周期价值</li>
-</ul>`,
-          code: `import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-
-# 创建客户数据
-np.random.seed(42)
-n = 50
-today = datetime.now()
-data = {
-    '客户ID': range(1, n+1),
-    '最后消费日期': [today - timedelta(days=np.random.randint(1, 365)) for _ in range(n)],
-    '消费次数': np.random.randint(1, 30, n),
-    '累计金额': np.random.randint(300, 10000, n)
+// RFM评分函数
+function getSegment(r, f, m) {
+    if (r <= 10 && f >= 5 && m >= 2000) return "重要价值客户";
+    if (r <= 10 && m >= 2000) return "重要发展客户";
+    if (f >= 5 && m >= 2000) return "重要保持客户";
+    if (r <= 30 && f >= 3) return "一般价值客户";
+    return "流失风险客户";
 }
-df = pd.DataFrame(data)
 
-print("="*60)
-print("【原始客户数据】")
-print(df.head(10))
+for (let c of customersRFM) {
+    c.segment = getSegment(c.R, c.F, c.M);
+    console.log(\`客户\${c.id}: \${c.segment} (R=\${c.R}, F=\${c.F}, M=\${c.M})\`);
+}
 
-# 计算R值
-df['R'] = (today - df['最后消费日期']).dt.days
-
-# RFM评分
-df['R_score'] = pd.qcut(df['R'], 5, labels=[5,4,3,2,1]).astype(int)
-df['F_score'] = pd.qcut(df['消费次数'].rank(method='first'), 5, labels=[1,2,3,4,5]).astype(int)
-df['M_score'] = pd.qcut(df['累计金额'], 5, labels=[1,2,3,4,5]).astype(int)
-
-print("\\n" + "="*60)
-print("【RFM评分】")
-print(df[['客户ID', 'R', 'R_score', '消费次数', 'F_score', '累计金额', 'M_score']].head(10))
-
-# 客户分层函数
-def get_segment(row):
-    r, f, m = row['R_score'], row['F_score'], row['M_score']
-    if r >= 4 and f >= 4 and m >= 4:
-        return '👑 重要价值客户'
-    elif r >= 4 and m >= 4:
-        return '📈 重要发展客户'
-    elif f >= 4 and m >= 4:
-        return '💎 重要保持客户'
-    elif r >= 3 and f >= 3:
-        return '⭐ 一般价值客户'
-    else:
-        return '⚠️ 流失风险客户'
-
-df['客户分层'] = df.apply(get_segment, axis=1)
-
-print("\\n" + "="*60)
-print("【客户分层统计】")
-print(df['客户分层'].value_counts())
-
-print("\\n" + "="*60)
-print("【各层级客户RFM均值】")
-print(df.groupby('客户分层')[['R', '消费次数', '累计金额']].mean().round(1))
-
-# RFM总分
-df['RFM总分'] = df['R_score'] + df['F_score'] + df['M_score']
-print("\\n【RFM总分分布】")
-print(df['RFM总分'].value_counts().sort_index())`,
-          explanation: "1. 生成50个客户数据，包含最后消费日期、次数、金额；2. 计算R值（距离今天天数）；3. qcut分箱将R/F/M分为5档；4. R分越高表示越近（越小越好），F/M分越高表示越好；5. 根据RFM评分组合自定义客户分层；6. groupby查看各层级的均值特征；7. 计算RFM总分用于快速排序。" },
-        { id:6, name:"线性回归分析", duration:"45分钟", level:"进阶",
-          learn:`
-<h2>📈 第六章：线性回归分析</h2>
-<p>线性回归是预测连续变量的基础模型，广泛应用于销售预测、价格预测、趋势分析等场景。本课程将系统学习线性回归的原理和应用。</p>
-
-<h3>🎯 学习目标</h3>
-<ul>
-<li>理解线性回归的数学原理</li>
-<li>掌握最小二乘法估计参数</li>
-<li>学会评估回归模型性能</li>
-<li>能够解读回归系数</li>
-</ul>
-
-<h3>📖 模型原理</h3>
-<p>线性回归假设目标变量y与特征x存在线性关系：y = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ + ε</p>
-<ul>
-<li>β₀：截距，当所有特征为0时的预测值</li>
-<li>βᵢ：回归系数，特征每增加1单位对y的影响</li>
-<li>ε：误差项，实际值与预测值的差异</li>
-</ul>
-
-<h3>📊 参数估计</h3>
-<p>使用最小二乘法（OLS）估计参数，目标是最小化残差平方和：RSS = Σ(yᵢ - ŷᵢ)²。求解公式：β = (XᵀX)⁻¹Xᵀy</p>
-
-<h3>📉 模型评估指标</h3>
-<ul>
-<li><strong>R²（决定系数）</strong>：模型解释的变异比例，范围[0,1]，越接近1越好</li>
-<li><strong>调整R²</strong>：考虑特征数量的R²，防止过拟合</li>
-<li><strong>MSE（均方误差）</strong>：预测误差平方的平均值，越小越好</li>
-<li><strong>RMSE（均方根误差）</strong>：MSE的平方根，与原数据单位一致</li>
-<li><strong>MAE（平均绝对误差）</strong>：绝对误差的平均值，更稳健</li>
-</ul>
-
-<h3>⚠️ 假设条件</h3>
-<p>线性回归需要满足以下假设：线性关系、误差独立、误差同方差、误差正态分布、无多重共线性。</p>`,
-          code: `from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
-import numpy as np
-import pandas as pd
-
-np.random.seed(42)
-n = 200
-X = np.random.rand(n, 3)
-y = 2.5 + 3.2*X[:,0] + 1.8*X[:,1] - 0.5*X[:,2] + np.random.randn(n)*0.3
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-model = LinearRegression()
-model.fit(X_train, y_train)
-y_pred = model.predict(X_test)
-
-print("系数:", model.coef_)
-print("截距:", model.intercept_)
-print("R²:", r2_score(y_test, y_pred))
-print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))`,
-          explanation: "1. 生成200条模拟数据；2. train_test_split分割训练集和测试集；3. fit训练模型；4. predict预测；5. R²评估拟合度。",
+// 分层统计
+const segmentCount = {};
+for (let c of customersRFM) {
+    segmentCount[c.segment] = (segmentCount[c.segment] || 0) + 1;
+}
+console.log("客户分层统计:", segmentCount);`,
+          explanation: "1. 创建RFM数据；2. 定义分层规则；3. 统计各层客户数。",
           questions: [
-              { text:"线性回归适合预测什么类型？", options:["连续值","离散值","分类值"], correct:0, explanation:"线性回归输出连续数值。" }
+              { text:"RFM中R代表？", options:["最近消费","消费频率","消费金额"], correct:0, explanation:"R是Recency。" },
+              { text:"F代表什么？", options:["消费频率","最近消费","消费金额"], correct:0, explanation:"F是Frequency。" },
+              { text:"M代表什么？", options:["消费金额","最近消费","消费频率"], correct:0, explanation:"M是Monetary。" },
+              { text:"重要价值客户的特点是？", options:["R高F高M高","R低F高M高","R高F低M高"], correct:0, explanation:"三高是重要价值客户。" },
+              { text:"R越小表示？", options:["越活跃","越不活跃","金额越高"], correct:0, explanation:"R越小越近越活跃。" },
+              { text:"RFM评分通常分几档？", options:["5档","3档","10档"], correct:0, explanation:"通常分5档评分。" },
+              { text:"流失风险客户的特点是？", options:["R低F低M低","R高F高M高","R低F高M高"], correct:0, explanation:"三低是流失风险。" },
+              { text:"重要保持客户的特点是？", options:["R低F高M高","R高F低M高","R高F高M低"], correct:0, explanation:"最近不活跃但历史价值高。" },
+              { text:"RFM总分用途？", options:["客户排序","聚类分析","回归预测"], correct:0, explanation:"总分用于排序比较。" },
+              { text:"RFM模型属于？", options:["客户价值模型","预测模型","聚类模型"], correct:0, explanation:"RFM是客户价值模型。" }
+          ]},
+        { id:6, name:"线性回归分析", duration:"45分钟", level:"进阶",
+          learn: `<h2>📈 第六章：线性回归分析</h2><p>线性回归预测连续变量，假设y与x存在线性关系y = wx + b。</p>`,
+          code: `// 线性回归简化实现
+const dataPoints = [
+    { x: 1, y: 2.1 }, { x: 2, y: 3.9 }, { x: 3, y: 6.0 },
+    { x: 4, y: 7.8 }, { x: 5, y: 10.2 }, { x: 6, y: 11.9 }
+];
+console.log("训练数据:", dataPoints);
+
+// 计算回归系数 y = w*x + b
+let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+const n = dataPoints.length;
+for (let p of dataPoints) {
+    sumX += p.x;
+    sumY += p.y;
+    sumXY += p.x * p.y;
+    sumX2 += p.x * p.x;
+}
+const w = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+const b = (sumY - w * sumX) / n;
+console.log(\`回归方程: y = \${w.toFixed(2)}x + \${b.toFixed(2)}\`);
+
+// 预测x=7
+const predX7 = w * 7 + b;
+console.log(\`预测x=7: y = \${predX7.toFixed(2)}\`);
+
+// 计算R²
+let sst = 0, ssr = 0;
+const yMean = sumY / n;
+for (let p of dataPoints) {
+    sst += Math.pow(p.y - yMean, 2);
+    const pred = w * p.x + b;
+    ssr += Math.pow(p.y - pred, 2);
+}
+const r2 = 1 - (ssr / sst);
+console.log(\`R²决定系数: \${r2.toFixed(4)}\`);`,
+          explanation: "1. 使用最小二乘法计算回归系数；2. 预测新值；3. 计算R²评估拟合度。",
+          questions: [
+              { text:"线性回归预测什么类型？", options:["连续值","离散值","类别值"], correct:0, explanation:"预测连续数值。" },
+              { text:"最小二乘法最小化什么？", options:["残差平方和","绝对误差和","方差"], correct:0, explanation:"最小化RSS。" },
+              { text:"R²的取值范围？", options:["[0,1]","[-1,1]","[0,∞]"], correct:0, explanation:"越接近1越好。" },
+              { text:"回归系数w表示？", options:["斜率","截距","误差"], correct:0, explanation:"w表示x变化1单位y的变化。" },
+              { text:"MSE是什么？", options:["均方误差","平均绝对误差","均方根误差"], correct:0, explanation:"MSE是均方误差。" },
+              { text:"过拟合指？", options:["训练好测试差","训练差测试好","都差"], correct:0, explanation:"过拟合泛化能力差。" },
+              { text:"特征缩放用于？", options:["加快收敛","提高精度","减少过拟合"], correct:0, explanation:"使特征尺度一致。" },
+              { text:"线性回归假设？", options:["线性关系","非线性关系","无关系"], correct:0, explanation:"假设线性关系。" },
+              { text:"多重共线性指？", options:["特征相关","标签相关","样本相关"], correct:0, explanation:"特征间高度相关。" },
+              { text:"残差是？", options:["实际-预测","预测-实际","实际+预测"], correct:0, explanation:"残差=实际-预测。" }
           ]},
         { id:7, name:"随机森林预测", duration:"60分钟", level:"高级",
-          learn:`<h2>🌲 第七章：随机森林预测</h2><p>随机森林是集成学习算法，通过构建多棵决策树并取平均来预测。优点是抗过拟合、能处理非线性关系。</p><h3>原理</h3><p>Bagging + 随机特征选择，每棵树用不同样本子集训练。</p>`,
-          code: `from sklearn.ensemble import RandomForestRegressor\nimport numpy as np\n\nX = np.random.rand(200, 3)\ny = X[:,0]*2 + X[:,1]*3 + np.random.randn(200)*0.1\nrf = RandomForestRegressor(n_estimators=50)\nrf.fit(X, y)\nprint("R²:", rf.score(X, y))`,
-          explanation: "随机森林由多棵决策树组成，取平均预测。",
-          questions: [{ text:"随机森林属于什么算法？", options:["集成学习","聚类","关联规则"], correct:0, explanation:"随机森林是集成学习的一种。" }]},
+          learn: `<h2>🌲 第七章：随机森林预测</h2><p>随机森林是集成学习算法，通过多棵决策树投票/平均预测，抗过拟合能力强。</p>`,
+          code: `// 随机森林简单模拟
+console.log("随机森林模拟 - 多棵决策树投票");
+
+// 模拟3棵决策树的预测结果
+const tree1 = [85, 92, 78];
+const tree2 = [82, 90, 80];
+const tree3 = [87, 91, 76];
+const actual = [83, 91, 78];
+
+console.log("决策树1预测:", tree1);
+console.log("决策树2预测:", tree2);
+console.log("决策树3预测:", tree3);
+console.log("实际值:", actual);
+
+// 集成预测（平均）
+const ensemblePred = [];
+for (let i = 0; i < tree1.length; i++) {
+    const avg = (tree1[i] + tree2[i] + tree3[i]) / 3;
+    ensemblePred.push(avg);
+}
+console.log("集成预测(平均):", ensemblePred.map(p => p.toFixed(1)));
+
+// 计算误差
+let mse = 0;
+for (let i = 0; i < actual.length; i++) {
+    mse += Math.pow(actual[i] - ensemblePred[i], 2);
+}
+mse /= actual.length;
+console.log("集成模型MSE:", mse.toFixed(2));`,
+          explanation: "1. 模拟多棵决策树预测；2. 取平均作为最终预测；3. 计算MSE评估误差。",
+          questions: [
+              { text:"随机森林属于？", options:["集成学习","聚类","关联规则"], correct:0, explanation:"集成学习算法。" },
+              { text:"Bagging的核心思想？", options:["并行集成","串行集成","单模型"], correct:0, explanation:"Bootstrap聚合并行训练。" },
+              { text:"随机森林抗过拟合原因？", options:["多树平均","单树复杂","数据量大"], correct:0, explanation:"多棵树平均降低方差。" },
+              { text:"特征重要性可用来？", options:["特征选择","数据清洗","聚类"], correct:0, explanation:"筛选重要特征。" },
+              { text:"n_estimators参数代表？", options:["树的数量","树的深度","特征数量"], correct:0, explanation:"决策树的数量。" }
+          ]},
         { id:8, name:"时间序列分析", duration:"45分钟", level:"高级",
-          learn:`<h2>⏰ 第八章：时间序列分析</h2><p>时间序列分析揭示数据的趋势、季节性、周期性。常用方法包括移动平均、指数平滑、ARIMA模型。</p>`,
-          code: `import pandas as pd\n\nsales = [100,110,105,120,115,130,125,140]\ndf = pd.DataFrame({'销量': sales})\ndf['MA3'] = df['销量'].rolling(3).mean()\nprint(df)`,
-          explanation: "移动平均平滑短期波动，揭示趋势。",
-          questions: [{ text:"移动平均的作用？", options:["平滑数据","增加噪声","分类"], correct:0, explanation:"移动平均平滑短期波动。" }]},
+          learn: `<h2>⏰ 第八章：时间序列分析</h2><p>时间序列分析揭示数据的趋势、季节性、周期性。常用移动平均平滑数据。</p>`,
+          code: `// 时间序列移动平均
+const sales = [100, 110, 105, 120, 115, 130, 125, 140, 135, 150];
+console.log("原始销量:", sales);
+
+// 3期移动平均
+const ma3 = [];
+for (let i = 2; i < sales.length; i++) {
+    const avg = (sales[i-2] + sales[i-1] + sales[i]) / 3;
+    ma3.push(avg);
+}
+console.log("3期移动平均:", ma3.map(v => v.toFixed(1)));
+
+// 5期移动平均
+const ma5 = [];
+for (let i = 4; i < sales.length; i++) {
+    const avg = (sales[i-4] + sales[i-3] + sales[i-2] + sales[i-1] + sales[i]) / 5;
+    ma5.push(avg);
+}
+console.log("5期移动平均:", ma5.map(v => v.toFixed(1)));
+
+// 简单预测（最后3期平均）
+const last3 = sales.slice(-3);
+const nextPred = last3.reduce((a,b) => a + b, 0) / 3;
+console.log("下期预测:", nextPred.toFixed(1));`,
+          explanation: "1. 计算3期和5期移动平均；2. 用最近3期平均预测下期。",
+          questions: [
+              { text:"移动平均作用？", options:["平滑数据","增加噪声","分类"], correct:0, explanation:"平滑短期波动。" },
+              { text:"时间序列成分不包括？", options:["聚类","趋势","季节性"], correct:0, explanation:"聚类不是时间序列成分。" }
+          ]},
         { id:9, name:"异常检测", duration:"45分钟", level:"高级",
-          learn:`<h2>🚨 第九章：异常检测</h2><p>异常检测识别数据中的离群点，常用方法有Z-score、IQR、孤立森林等。</p>`,
-          code: `import numpy as np\nfrom scipy import stats\n\ndata = [10,12,13,12,11,14,13,100]\nz = np.abs(stats.zscore(data))\noutliers = [data[i] for i,z in enumerate(z) if z>2]\nprint("异常值:", outliers)`,
-          explanation: "Z-score超过2视为异常。",
-          questions: [{ text:"IQR法中IQR是什么？", options:["四分位距","标准差","均值"], correct:0, explanation:"IQR=Q3-Q1。" }]},
+          learn: `<h2>🚨 第九章：异常检测</h2><p>异常检测识别数据中的离群点，常用Z-score和IQR方法。</p>`,
+          code: `// 异常检测示例
+const data = [10, 12, 13, 12, 11, 14, 13, 100, 12, 11];
+console.log("原始数据:", data);
+
+// Z-score方法
+const mean = data.reduce((a,b) => a + b, 0) / data.length;
+const variance = data.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0) / data.length;
+const std = Math.sqrt(variance);
+
+const zScores = data.map(x => Math.abs((x - mean) / std));
+console.log("Z-score:", zScores.map(z => z.toFixed(2)));
+
+const outliers = data.filter((_, i) => zScores[i] > 2);
+console.log("异常值(Z>2):", outliers);
+
+// IQR方法
+const sorted = [...data].sort((a,b) => a - b);
+const q1 = sorted[Math.floor(sorted.length * 0.25)];
+const q3 = sorted[Math.floor(sorted.length * 0.75)];
+const iqr = q3 - q1;
+const lowerBound = q1 - 1.5 * iqr;
+const upperBound = q3 + 1.5 * iqr;
+console.log(\`IQR范围: [\${lowerBound}, \${upperBound}]\`);
+const iqrOutliers = data.filter(x => x < lowerBound || x > upperBound);
+console.log("IQR异常值:", iqrOutliers);`,
+          explanation: "1. 计算Z-score检测异常；2. 使用IQR方法检测；3. 对比两种方法结果。",
+          questions: [
+              { text:"Z-score>3视为？", options:["异常","正常","边界"], correct:0, explanation:"Z>3视为异常。" },
+              { text:"IQR代表什么？", options:["四分位距","标准差","均值"], correct:0, explanation:"IQR=Q3-Q1。" }
+          ]},
         { id:10, name:"全流程综合项目", duration:"60分钟", level:"高级",
-          learn:`<h2>🏆 第十章：全流程综合项目</h2><p>综合运用所有技能完成完整商业分析流程：问题定义→数据采集→数据清洗→分析建模→可视化→报告输出。</p>`,
-          code: `import pandas as pd\nimport numpy as np\n\ndata = {'月份':range(1,13), '销售额':np.random.randint(1000,5000,12)}\ndf = pd.DataFrame(data)\nprint("月度分析:", df.describe())`,
-          explanation: "完整流程包含清洗、分析、可视化、报告。",
-          questions: [{ text:"数据分析最后一步？", options:["报告输出","数据清洗","建模"], correct:0, explanation:"报告呈现结论。" }]}
+          learn: `<h2>🏆 第十章：全流程综合项目</h2><p>综合运用所有技能完成完整商业分析流程：清洗→分析→建模→报告。</p>`,
+          code: `// 综合项目：销售分析完整流程
+console.log("===== 完整数据分析流程 =====");
+
+// 1. 数据准备
+const salesData = [
+    { month: 1, sales: 1200, cost: 800 },
+    { month: 2, sales: 1350, cost: 850 },
+    { month: 3, sales: 1100, cost: 750 },
+    { month: 4, sales: 1500, cost: 900 },
+    { month: 5, sales: 1800, cost: 1050 },
+    { month: 6, sales: 2100, cost: 1200 }
+];
+console.log("1. 原始数据:", salesData);
+
+// 2. 数据清洗
+const cleanData = salesData.filter(d => d.sales > 0 && d.cost > 0);
+console.log("2. 清洗后:", cleanData);
+
+// 3. 计算利润
+const analysisData = cleanData.map(d => ({
+    ...d,
+    profit: d.sales - d.cost,
+    margin: ((d.sales - d.cost) / d.sales * 100).toFixed(1)
+}));
+console.log("3. 分析数据(含利润):", analysisData);
+
+// 4. 汇总统计
+const totalSales = analysisData.reduce((s, d) => s + d.sales, 0);
+const totalProfit = analysisData.reduce((s, d) => s + d.profit, 0);
+const avgMargin = (totalProfit / totalSales * 100).toFixed(1);
+console.log("4. 总销售额:", totalSales);
+console.log("   总利润:", totalProfit);
+console.log("   平均利润率:", avgMargin + "%");
+
+// 5. 结论报告
+console.log("\\n5. 分析结论:");
+console.log("   - 6月销售额最高，达到2100");
+console.log("   - 平均利润率:", avgMargin + "%");
+console.log("   - 建议: 加强旺季备货，优化成本控制");`,
+          explanation: "1. 数据准备；2. 数据清洗；3. 特征工程计算利润；4. 汇总统计；5. 输出分析结论。",
+          questions: [
+              { text:"数据分析第一步？", options:["问题定义","数据清洗","建模"], correct:0, explanation:"先定义问题再分析。" },
+              { text:"完整流程最后一步？", options:["报告输出","数据采集","建模"], correct:0, explanation:"报告呈现结论。" }
+          ]}
     ];
 
     let currentView = 'list';
@@ -887,7 +668,7 @@ print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))`,
         currentProject = project;
         currentMode = 'learn';
         const pid = project.id;
-        if(!quizState[pid]) quizState[pid] = { answers: new Array(project.questions.length).fill(null), idx:0, time:10*60, timer:null, started:false, showExplanation:false };
+        if(!quizState[pid]) quizState[pid] = { answers: new Array(project.questions.length).fill(null), idx:0, time:10*60, timer:null, started:false };
         
         document.getElementById('app').innerHTML = `
             <div class="container">
@@ -929,11 +710,11 @@ print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))`,
                 <div class="content-card">
                     <h2>💻 代码练习</h2>
                     <div class="code-editor">
-                        <div class="code-header"><span><i class="fas fa-terminal"></i> Python编辑器</span><div class="code-actions"><button id="runCode">▶ 运行代码</button><button id="copyCode">📋 复制代码</button></div></div>
-                        <textarea id="codeArea" rows="12">${currentProject.code}</textarea>
+                        <div class="code-header"><span><i class="fas fa-terminal"></i> JavaScript编辑器</span><div class="code-actions"><button id="runCode">▶ 运行代码</button><button id="copyCode">📋 复制代码</button></div></div>
+                        <textarea id="codeArea" rows="15">${currentProject.code}</textarea>
                         <div class="output-area"><strong>📤 运行结果：</strong><pre id="outputResult">点击"运行代码"按钮执行</pre></div>
                     </div>
-                    <div style="background:#e8f0e4; padding:1rem; border-radius:1rem; margin-top:1rem;"><strong>💡 代码解析</strong><br>${currentProject.explanation}</div>
+                    <div style="background:#e8f0e0; padding:1rem; border-radius:1rem; margin-top:1rem;"><strong>💡 代码解析</strong><br>${currentProject.explanation}</div>
                 </div>
             `;
             document.getElementById('runCode').onclick = () => {
@@ -962,14 +743,14 @@ print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))`,
             const questions = currentProject.questions;
             const isFinished = qs.answers.every(a=>a!==null);
             if(!qs.started) {
-                container.innerHTML = `<div class="quiz-area"><div class="timer" id="qt_${currentProject.id}">⏱️ 10:00</div><button id="startQuizBtn" style="background:#7CBA96; border:none; padding:0.6rem; border-radius:2rem; width:100%; color:white; cursor:pointer;">▶ 开始测验（${questions.length}道题）</button><div id="quizContent"></div></div>`;
+                container.innerHTML = `<div class="quiz-area"><div class="timer" id="qt_${currentProject.id}">⏱️ 10:00</div><button id="startQuizBtn" style="background:#7a9a6a; border:none; padding:0.6rem; border-radius:2rem; width:100%; color:white; cursor:pointer;">▶ 开始测验（${questions.length}道题）</button><div id="quizContent"></div></div>`;
                 document.getElementById('startQuizBtn').onclick = () => { startTimer(currentProject.id); renderModeContent(); };
                 return;
             }
             if(isFinished) {
                 const correct = qs.answers.filter((a,i)=>a===questions[i].correct).length;
-                container.innerHTML = `<div class="quiz-area"><div class="quiz-result">得分：${correct}/${questions.length}<br>${correct===questions.length?'🎉 完美通关！':'📚 继续努力！'}<button id="resetQuiz" style="background:#dbbcac; border:none; padding:0.4rem 1rem; border-radius:2rem; margin-top:0.8rem;">重新测验</button></div></div>`;
-                document.getElementById('resetQuiz')?.addEventListener('click',()=>{ stopTimer(currentProject.id); quizState[currentProject.id]={ answers:new Array(questions.length).fill(null), idx:0, time:10*60, timer:null, started:false, showExplanation:false }; renderModeContent(); });
+                container.innerHTML = `<div class="quiz-area"><div class="quiz-result">得分：${correct}/${questions.length}<br>${correct===questions.length?'🎉 完美通关！':'📚 继续努力！'}<button id="resetQuiz" style="background:#b0c0a8; border:none; padding:0.4rem 1rem; border-radius:2rem; margin-top:0.8rem; cursor:pointer;">重新测验</button></div></div>`;
+                document.getElementById('resetQuiz')?.addEventListener('click',()=>{ stopTimer(currentProject.id); quizState[currentProject.id]={ answers:new Array(questions.length).fill(null), idx:0, time:10*60, timer:null, started:false }; renderModeContent(); });
                 return;
             }
             const q = questions[qs.idx];
