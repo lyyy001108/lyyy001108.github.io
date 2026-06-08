@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李颖 · 商务数据分析实训营</title>
+    <title>李颖 · 数据分析实战营</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -12,93 +12,98 @@
             font-family: 'Inter', system-ui, sans-serif;
             background: linear-gradient(135deg, #e0f0e5 0%, #fdf0ea 100%);
             color: #2c4a3a;
-            line-height: 1.5;
+            line-height: 1.6;
             min-height: 100vh;
         }
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem; }
         
+        /* 头部 */
         .hero {
-            background: rgba(255,252,245,0.7);
+            background: rgba(255,252,245,0.75);
             backdrop-filter: blur(16px);
-            border-radius: 2.5rem;
+            border-radius: 2rem;
             padding: 2rem;
             margin-bottom: 2rem;
             text-align: center;
             border: 1px solid rgba(160,190,140,0.3);
         }
-        .hero h1 { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #3a7b54, #c2857b); background-clip: text; -webkit-background-clip: text; color: transparent; }
-        .hero .school { font-size: 0.95rem; color: #7a9a82; margin: 0.5rem 0; }
-        .hero .bio { font-size: 0.9rem; color: #8aae8a; background: rgba(250,245,240,0.6); padding: 0.5rem 1.5rem; border-radius: 3rem; display: inline-block; }
+        .hero h1 { font-size: 2.2rem; font-weight: 700; color: #4a7a5e; margin-bottom: 0.3rem; }
+        .hero h2 { font-size: 1.8rem; font-weight: 600; background: linear-gradient(135deg, #3a7b54, #c2857b); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .hero .sub { font-size: 0.95rem; color: #8aae8a; margin-top: 0.5rem; }
         
-        .stats { display: flex; flex-wrap: wrap; gap: 1.2rem; margin: 1.5rem 0 2rem; justify-content: center; }
-        .stat-card {
-            background: rgba(255,252,245,0.7);
-            backdrop-filter: blur(8px);
-            flex: 1; min-width: 110px; border-radius: 2rem; padding: 1.2rem;
-            text-align: center; border: 1px solid rgba(180,210,150,0.3);
-            transition: all 0.3s;
+        /* 项目网格 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-        .stat-card:hover { transform: translateY(-4px); background: rgba(255,255,250,0.9); }
-        .stat-number { font-size: 2.2rem; font-weight: 800; background: linear-gradient(145deg, #5a8f6c, #c28a7a); background-clip: text; -webkit-background-clip: text; color: transparent; }
-        .stat-label { font-size: 0.8rem; font-weight: 600; color: #a08a7a; margin-top: 0.3rem; }
-        
-        .section-header { display: flex; align-items: baseline; gap: 0.8rem; margin: 2rem 0 1.5rem; }
-        .section-title { font-size: 1.6rem; font-weight: 700; color: #4a7a5e; }
-        
-        .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        .course-card {
+        .project-card {
             background: rgba(255,255,250,0.85);
             backdrop-filter: blur(8px);
-            border-radius: 2rem; padding: 1.5rem;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
             transition: all 0.3s;
             border: 1px solid #ece0d6;
             cursor: pointer;
         }
-        .course-card:hover { transform: translateY(-6px); background: white; border-color: #e0cdc0; box-shadow: 0 20px 30px -12px rgba(100,70,60,0.12); }
-        .card-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
-        .course-name { font-size: 1.25rem; font-weight: 700; color: #4a7a5e; margin: 0.3rem 0; }
-        .course-desc { font-size: 0.85rem; color: #8a9e8a; margin-bottom: 0.8rem; }
-        .course-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .tag { background: #fce9e0; padding: 0.2rem 0.8rem; border-radius: 2rem; font-size: 0.7rem; color: #c2847a; }
+        .project-card:hover { transform: translateY(-5px); background: white; box-shadow: 0 15px 25px rgba(0,0,0,0.08); }
+        .project-number { font-size: 0.8rem; color: #c28a7a; margin-bottom: 0.3rem; }
+        .project-name { font-size: 1.2rem; font-weight: 700; color: #4a7a5e; margin-bottom: 0.3rem; }
+        .project-desc { font-size: 0.8rem; color: #8a9e8a; }
         
+        /* 详情页布局 */
         .back-btn {
-            background: rgba(200,180,165,0.7);
-            border: none; padding: 0.5rem 1.2rem; border-radius: 2.5rem;
-            color: #5a6e5a; cursor: pointer; margin-bottom: 1.5rem;
+            background: #d4c0b0;
+            border: none; padding: 0.5rem 1.2rem; border-radius: 2rem;
+            color: white; cursor: pointer; margin-bottom: 1.5rem;
             display: inline-flex; align-items: center; gap: 0.5rem;
         }
         .detail-layout { display: flex; gap: 2rem; flex-wrap: wrap; }
         
+        /* 左侧目录 */
         .sidebar {
-            flex: 1.2; min-width: 320px;
-            background: rgba(255,252,245,0.75);
+            flex: 1.2; min-width: 280px;
+            background: rgba(255,252,245,0.8);
             backdrop-filter: blur(12px);
-            border-radius: 2rem; padding: 1.5rem;
-            position: sticky; top: 1rem; height: fit-content;
-            max-height: 85vh;
-            overflow-y: auto;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            position: sticky; top: 1rem;
+            height: fit-content;
         }
         .sidebar h3 { color: #4a7a5e; margin-bottom: 1rem; }
-        .toc-item { margin-bottom: 0.8rem; border-radius: 1rem; overflow: hidden; background: rgba(255,250,240,0.5); }
-        .toc-header {
-            padding: 0.8rem 1rem; cursor: pointer; display: flex; justify-content: space-between;
-            background: rgba(250,240,230,0.6); font-weight: 600; color: #5a7a62;
+        .mode-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .mode-btn {
+            padding: 0.8rem 1rem;
+            background: rgba(250,240,230,0.6);
             border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
         }
-        .toc-header:hover { background: #f0e0d4; }
-        .toc-header.active { background: #dbbcac; color: white; border-radius: 1rem 1rem 0 0; }
-        .toc-content {
-            max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out;
-            background: white; padding: 0 1rem;
-        }
-        .toc-content.active { max-height: 800px; padding: 1rem; }
-        .toc-content h4 { color: #4a7a5e; margin: 0.8rem 0 0.3rem; }
-        .toc-content p { font-size: 0.85rem; color: #6a8a6a; margin-bottom: 0.8rem; line-height: 1.6; }
+        .mode-btn:hover { background: #f0e0d4; }
+        .mode-btn.active { background: #dbbcac; color: white; }
         
+        /* 右侧内容区 */
+        .right-panel {
+            flex: 2.5; min-width: 500px;
+        }
+        .content-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .content-card h2 { color: #4a7a5e; margin-bottom: 0.5rem; }
+        .content-card h3 { color: #c28a7a; margin: 1rem 0 0.5rem; }
+        .content-card p { color: #5a6e5a; line-height: 1.6; margin-bottom: 0.8rem; }
+        .content-card ul, .content-card ol { margin-left: 1.5rem; margin-bottom: 0.8rem; }
+        
+        /* 代码编辑器 */
         .code-editor {
             background: #1e2a2a;
             border-radius: 1rem;
-            margin: 0.8rem 0;
+            margin: 1rem 0;
             overflow: hidden;
         }
         .code-header {
@@ -125,351 +130,475 @@
         }
         .output-area pre { color: #e0e0d0; font-family: monospace; font-size: 0.75rem; white-space: pre-wrap; }
         
-        .right-panel { flex: 1; min-width: 380px; position: sticky; top: 1rem; height: fit-content; }
-        .quiz-card {
-            background: rgba(255,250,245,0.85);
-            backdrop-filter: blur(12px);
-            border-radius: 2rem; padding: 1.2rem;
+        /* 测验区域 */
+        .quiz-area {
+            background: #fefaf5;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
             border: 1px solid #f0e0d4;
         }
-        .start-test-btn {
-            background: linear-gradient(135deg, #7CBA96, #9ab87a);
-            border: none; padding: 0.6rem; border-radius: 2rem;
-            color: white; cursor: pointer; width: 100%; margin: 0.5rem 0 1rem;
-            font-weight: 600;
+        .timer {
+            background: #fceae3; padding: 0.3rem 0.8rem; border-radius: 2rem;
+            font-size: 0.8rem; font-weight: bold; color: #c28a7a; display: inline-block;
+            margin-bottom: 1rem;
         }
         .question-item { background: white; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem; }
         .options { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.8rem 0; }
         .option {
             background: #fef5f0; padding: 0.5rem 1rem; border-radius: 2rem;
             cursor: pointer; font-size: 0.85rem; border: 1px solid #f0e0d4;
+            transition: all 0.15s;
         }
         .option:hover { background: #ffede3; transform: translateX(4px); }
         .option.selected { background: #dbbcac; color: white; }
         .explanation-box { background: #e8f0e4; border-radius: 1rem; padding: 0.8rem; margin: 0.8rem 0; border-left: 4px solid #7CBA96; }
         .quiz-actions { display: flex; gap: 0.8rem; margin-top: 1rem; }
         .quiz-actions button { background: #d4c0b0; border: none; padding: 0.4rem 1rem; border-radius: 2rem; color: white; cursor: pointer; }
-        .timer { background: #fceae3; padding: 0.3rem 0.8rem; border-radius: 2rem; font-size: 0.8rem; font-weight: bold; color: #c28a7a; display: inline-block; margin-bottom: 0.8rem; }
-        
-        .project-list { max-height: 500px; overflow-y: auto; }
-        .project-item {
-            padding: 0.8rem; margin: 0.5rem 0; border-radius: 1rem;
-            cursor: pointer; background: rgba(255,255,250,0.9);
-            transition: all 0.2s;
-        }
-        .project-item:hover { background: #f0e0d4; transform: translateX(4px); }
-        .project-item.active { background: #dbbcac; color: white; }
+        .quiz-result { background: #e0f0e4; padding: 1rem; border-radius: 1rem; text-align: center; }
         
         .contact { background: rgba(255,250,240,0.7); border-radius: 2rem; padding: 1rem 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 2rem; }
         .contact-links { display: flex; gap: 1.5rem; }
         .contact-links a { color: #9a8a7a; text-decoration: none; }
         footer { text-align: center; margin-top: 1.5rem; font-size: 0.7rem; color: #b1a99a; }
-        @media (max-width: 900px) { .detail-layout { flex-direction: column; } .sidebar, .right-panel { position: static; } }
+        
+        @media (max-width: 900px) { .detail-layout { flex-direction: column; } .sidebar { position: static; } .right-panel { min-width: auto; } }
     </style>
 </head>
 <body>
 <div id="app"></div>
 
 <script>
-    // ==================== 10个实战项目数据（数据分析技术课程专用）====================
+    // ==================== 10个项目的完整数据 ====================
     const projects = [
-        { id: 1, name: "数据清洗实战", icon: "🧹", duration: "30分钟", level: "入门", dataset: "retail_orders.csv",
-          theory: "数据清洗是数据分析的第一步，也是最耗时的环节（通常占60-80%的时间）。本项目的目标是掌握处理缺失值、重复值、异常值的方法。",
-          code: `import pandas as pd\nimport numpy as np\n\n# 创建示例数据\ndata = {\n    '姓名': ['小李', '小王', '小李', None, '小张'],\n    '年龄': [25, None, 30, 22, 35],\n    '工资': [5000, 6000, 5000, 5500, None]\n}\ndf = pd.DataFrame(data)\nprint("原始数据：")\nprint(df)\n\n# 1. 处理重复值\nprint("\\n删除重复行后：", df.drop_duplicates().shape)\n\n# 2. 处理缺失值\ndf['年龄'] = df['年龄'].fillna(df['年龄'].median())\ndf['工资'] = df['工资'].fillna(df['工资'].mean())\nprint("\\n填充缺失值后：")
-print(df)\n\n# 3. 数据类型转换\ndf['年龄'] = df['年龄'].astype(int)\nprint("\\n最终清洗结果：")
-print(df)`,
-          explanation: "1. 创建测试数据；2. drop_duplicates()删除重复行；3. fillna()填充缺失值，年龄用中位数，工资用平均值；4. astype()转换数据类型。" },
-        { id: 2, name: "多维统计分析", icon: "📊", duration: "30分钟", level: "入门", dataset: "retail_orders.csv",
-          theory: "描述性统计是数据分析的基础，通过计算均值、中位数、标准差等指标快速了解数据分布。",
-          code: `import pandas as pd\nimport numpy as np\n\n# 创建示例销售数据\nnp.random.seed(42)\ndata = {\n    '产品': ['A','B','C','A','B','C'],\n    '销售额': np.random.randint(100, 500, 6),\n    '销量': np.random.randint(10, 100, 6)\n}\ndf = pd.DataFrame(data)\nprint("销售数据：")
+        { id:1, name:"数据清洗实战", duration:"30分钟", level:"入门", dataset:"retail_orders.csv",
+          learn:`
+<h3>🎯 项目目标</h3>
+<p>掌握Pandas数据清洗的核心技能，包括处理缺失值、重复值、异常值等关键步骤。数据清洗是数据分析的第一步，通常占整个分析过程的60-80%时间，是保证分析质量的基础。</p>
+
+<h3>📌 什么是数据清洗？</h3>
+<p>数据清洗（Data Cleaning）是指发现并纠正数据文件中可识别的错误的最后一道程序，包括检查数据一致性、处理无效值和缺失值等。现实数据往往是不完整的（缺少属性值）、有噪声的（包含错误值）、不一致的（命名或代码不一致）。</p>
+
+<h3>🔧 为什么需要数据清洗？</h3>
+<ul>
+<li><strong>提高数据质量</strong>：错误数据会导致错误的分析结论</li>
+<li><strong>保证分析准确性</strong>：清洗后的数据才能反映真实情况</li>
+<li><strong>提升模型性能</strong>：机器学习模型对数据质量非常敏感</li>
+<li><strong>避免"垃圾进垃圾出"</strong>：输入质量决定输出质量</li>
+</ul>
+
+<h3>📖 9步完整数据清洗流程</h3>
+<ol>
+<li><strong>处理重复值</strong>：删除完全相同的行，避免重复统计</li>
+<li><strong>处理缺失值</strong>：填充或删除空值，常用中位数、均值填充</li>
+<li><strong>处理异常值</strong>：识别并处理超出合理范围的数据</li>
+<li><strong>格式统一</strong>：统一日期格式、字符串大小写等</li>
+<li><strong>数据类型转换</strong>：确保每列数据是正确类型</li>
+<li><strong>列名标准化</strong>：统一命名规范，便于理解</li>
+<li><strong>值映射</strong>：将编码值转换为可读标签</li>
+<li><strong>数据验证</strong>：检查清洗后的数据是否符合业务规则</li>
+<li><strong>记录清洗过程</strong>：便于复现和审计</li>
+</ol>
+
+<h3>💡 小贴士</h3>
+<p>不要过度清洗！删除太多数据可能会丢失重要信息。清洗前先备份原始数据，每次操作后检查数据量变化。建议使用Jupyter Notebook分段执行，便于调试和记录。</p>`,
+          code: `import pandas as pd
+import numpy as np
+
+# 创建示例数据
+data = {
+    '姓名': ['张三', '李四', '王五', '张三', None, '赵六'],
+    '年龄': [25, None, 30, 25, 22, 35],
+    '工资': [5000, 6000, 5500, 5000, 4800, None],
+    '部门': ['销售', '技术', '销售', '销售', '技术', '行政']
+}
+df = pd.DataFrame(data)
+
+print("="*50)
+print("原始数据：")
 print(df)
-\n\n# 1. 描述性统计\nprint("\\n描述性统计：")
+print(f"数据形状: {df.shape}")
+
+print("\\n" + "="*50)
+print("1. 检测重复值：")
+print(f"重复行数: {df.duplicated().sum()}")
+print(df[df.duplicated()])
+
+print("\\n" + "="*50)
+print("2. 删除重复值后：")
+df = df.drop_duplicates()
+print(df)
+
+print("\\n" + "="*50)
+print("3. 检测缺失值：")
+print(df.isnull().sum())
+
+print("\\n" + "="*50)
+print("4. 填充缺失值：")
+df['年龄'] = df['年龄'].fillna(df['年龄'].median())
+df['工资'] = df['工资'].fillna(df['工资'].mean())
+print(df)
+
+print("\\n" + "="*50)
+print("5. 数据类型检查：")
+print(df.dtypes)
+
+print("\\n" + "="*50)
+print("清洗完成！最终数据：")
+print(df)
+print(f"清洗后数据形状: {df.shape}")`,
+          explanation: "1. 创建包含缺失值和重复值的测试数据；2. duplicated()检测重复行，drop_duplicates()删除；3. isnull().sum()统计每列缺失数量；4. fillna()填充缺失值，年龄用中位数，工资用均值；5. dtypes检查数据类型是否正确。" },
+        { id:2, name:"多维统计分析", duration:"30分钟", level:"入门", dataset:"retail_orders.csv",
+          learn:`
+<h3>🎯 项目目标</h3>
+<p>掌握描述性统计分析方法，学会计算均值、中位数、标准差等统计指标，理解数据分布特征和变量间关系。统计分析是数据分析的核心基础，帮助我们从数据中提取有意义的信息。</p>
+
+<h3>📊 描述性统计指标</h3>
+<ul>
+<li><strong>均值(Mean)</strong>：所有值的平均数，反映数据的集中趋势，但对异常值敏感</li>
+<li><strong>中位数(Median)</strong>：排序后的中间值，不受异常值影响，更能反映典型水平</li>
+<li><strong>众数(Mode)</strong>：出现频率最高的值，适合分类数据</li>
+<li><strong>标准差(Std)</strong>：衡量数据离散程度，越大表示数据越分散</li>
+<li><strong>四分位数(Quartile)</strong>：将数据分为四等分，Q1(25%)、Q2(50%)、Q3(75%)</li>
+<li><strong>偏度(Skewness)</strong>：分布对称性，正偏表示右尾长，负偏表示左尾长</li>
+<li><strong>峰度(Kurtosis)</strong>：分布峰值陡峭程度，正态分布峰度为3</li>
+</ul>
+
+<h3>📈 相关性分析</h3>
+<p>相关系数(r)衡量两个变量间的线性关系强度，取值范围-1到1：</p>
+<ul>
+<li>r > 0：正相关，一个变量增大另一个也增大</li>
+<li>r < 0：负相关，一个变量增大另一个减小</li>
+<li>|r| = 1：完全线性相关</li>
+<li>|r| = 0：无线性关系</li>
+<li>|r| > 0.8：强相关，0.3-0.8中等相关，<0.3弱相关</li>
+</ul>
+<p>注意：相关不等于因果，需结合业务逻辑判断。</p>
+
+<h3>📖 分组聚合分析</h3>
+<p>分组聚合是将数据按某个维度分组后计算统计量，类似SQL的GROUP BY。常见操作：</p>
+<ul>
+<li><strong>sum()</strong>：求和</li>
+<li><strong>mean()</strong>：平均值</li>
+<li><strong>count()</strong>：计数</li>
+<li><strong>max()/min()</strong>：最大值/最小值</li>
+<li><strong>agg()</strong>：同时应用多个聚合函数</li>
+</ul>`,
+          code: `import pandas as pd
+import numpy as np
+
+# 创建销售数据
+np.random.seed(42)
+data = {
+    '产品': ['A','B','C','A','B','C','A','B','C'],
+    '销售额': np.random.randint(100, 500, 9),
+    '销量': np.random.randint(10, 100, 9),
+    '地区': ['东','东','西','西','南','南','北','北','中']
+}
+df = pd.DataFrame(data)
+
+print("="*50)
+print("原始数据：")
+print(df)
+
+print("\\n" + "="*50)
+print("1. 描述性统计：")
 print(df[['销售额', '销量']].describe())
-\n\n# 2. 分组统计\nprint("\\n按产品分组统计：")
-print(df.groupby('产品').agg({'销售额': ['sum', 'mean'], '销量': 'sum'}))
-\n\n# 3. 相关性分析
-print("\\n销售额与销量的相关系数：")
-print(df['销售额'].corr(df['销量']))`,
-          explanation: "1. describe()输出计数、均值、标准差、四分位数；2. groupby按产品分组后聚合计算；3. corr()计算相关系数。" }// 为节省篇幅，此处省略其他8个项目，实际使用时会补全
-    ];
-    // 补全剩余8个项目（实际使用中会完整）
-    for(let i=3;i<=10;i++) projects.push({ id:i, name:"项目"+i, icon:"📚", duration:"45分钟", level:"进阶", dataset:"data.csv", theory:"详细理论内容", code:"print('hello')", explanation:"代码解析" });
 
-    // ==================== 6门核心课程（每门内容极度丰富）====================
-    const courses = [
-        { id:1, icon:"🐍", name:"Python基础", shortDesc:"编程语法与数据结构，零基础入门", tags:["编程入门","数据分析基础"],
-          chapters:["变量与数据类型","控制流语句","函数定义与调用","列表与字典详解","文件操作"],
-          content:{
-              "变量与数据类型":{ summary:"变量是存储数据的容器，Python是动态类型语言", detail:"Python中变量无需声明类型，直接赋值即创建。常见数据类型包括：int（整数）、float（浮点数）、str（字符串）、bool（布尔值）、list（列表）、dict（字典）。命名规则：字母或下划线开头，区分大小写，避开关键字如if、for、while。例如：age = 18, name = '小李', is_student = True。动态类型意味着同一个变量可以先后指向不同类型：x = 10; x = 'hello'。类型转换函数：int()、str()、float()、bool()。可使用type()查看变量类型，isinstance()判断类型。" },
-              "控制流语句":{ summary:"条件判断和循环控制程序的执行流程", detail:"if-elif-else根据条件真假执行不同代码块。关系运算符：==、!=、>、<、>=、<=；逻辑运算符：and、or、not。for循环用于遍历可迭代对象（列表、字符串、range等）；while循环在条件为真时重复执行。break提前终止整个循环，continue跳过本次循环剩余代码进入下一次迭代。else子句可在循环正常结束时执行。例如：for i in range(5): print(i)；while count < 10: count += 1。" },
-              "函数定义与调用":{ summary:"函数是组织好的、可重复使用的代码块", detail:"使用def关键字定义函数，格式：def 函数名(参数列表): 函数体。参数类型：位置参数、关键字参数、默认参数（def func(a,b=10)）、可变参数（*args收集元组，**kwargs收集字典）。函数可返回值（return），无return时返回None。函数能提高代码复用性和可读性，将复杂问题分解为小模块。例如：def add(a, b): return a + b；result = add(3, 5)。匿名函数用lambda表达式：lambda x: x*2。" },
-              "列表与字典详解":{ summary:"列表有序可变，字典键值对存储", detail:"列表list用[]表示，支持索引、切片、增删改查。常用方法：append()尾部添加，insert()指定位置插入，pop()删除并返回元素，remove()删除指定值，sort()排序，reverse()反转。列表推导式：[x*2 for x in range(10)]。字典dict用{}表示，通过键快速访问值，键必须不可变（字符串、数字、元组），值可以是任意类型。常用方法：keys()获取所有键，values()获取所有值，items()获取键值对，get()安全访问。例如：person = {'name':'小李', 'age':20}；person['name']；person.get('gender', '未知')。" },
-              "文件操作":{ summary:"读写文件，持久化存储数据", detail:"Python通过open()函数操作文件，语法：open(文件路径, 模式)。模式：'r'只读（默认），'w'写入（覆盖），'a'追加，'x'创建，'b'二进制模式，'+'读写。用with语句自动关闭文件，避免资源泄露。读方法：read()读全部，readline()读一行，readlines()读所有行到列表。写方法：write()写入字符串，writelines()写入字符串列表。例如：with open('data.txt', 'w') as f: f.write('hello'); with open('data.txt', 'r') as f: content = f.read()。操作csv文件用csv模块更便捷。" }
-          },
-          codeExamples:{
-              "变量与数据类型":"x = 10\nname = '小李'\nprint(f\"{name}今年{x}岁\")\nprint(type(x), type(name))",
-              "控制流语句":"score = 85\nif score >= 90:\n    print('优秀')\nelif score >= 60:\n    print('及格')\nelse:\n    print('不及格')\n\nfor i in range(3):\n    print(f'循环第{i}次')",
-              "函数定义与调用":"def greet(name, greeting='你好'):\n    return f'{greeting}，{name}'\n\nprint(greet('小李'))\nprint(greet('小王', '欢迎'))",
-              "列表与字典详解":"# 列表操作\nfruits = ['苹果', '香蕉']\nfruits.append('橙子')\nfruits.insert(1, '葡萄')\nprint(fruits)\n\n# 字典操作\nperson = {'name': '小李', 'age': 20}\nperson['city'] = '广州'\nprint(person.keys())\nprint(person.values())",
-              "文件操作":"# 写入文件\nwith open('test.txt', 'w') as f:\n    f.write('Hello, Python!')\n\n# 读取文件\nwith open('test.txt', 'r') as f:\n    content = f.read()\n    print(content)"
-          },
-          questions:[
-              { text:"Python中输出内容到控制台的函数是？", options:["input()","print()","output()"], correct:1, explanation:"print()是标准输出函数。" },
-              { text:"以下哪个是Python的单行注释符号？", options:["//","#","/*"], correct:1, explanation:"#后的内容不会被解释器执行。" },
-              { text:"列表的索引从哪个数字开始？", options:["0","1","任意"], correct:0, explanation:"Python序列索引从0开始。" },
-              { text:"定义函数使用的关键字是？", options:["def","func","define"], correct:0, explanation:"def是function definition的缩写。" },
-              { text:"字典通过什么访问对应的值？", options:["索引","键","下标"], correct:1, explanation:"字典通过键名直接查找值。" }
-          ]},
-        { id:2, icon:"📊", name:"数据分析技术", shortDesc:"Pandas/NumPy数据处理 + 10个实战项目", tags:["Pandas","数据清洗","可视化"], projects: projects, special: true,
-          chapters: projects.map(p=>p.name), content: {}, codeExamples: {}, questions: [
-              { text:"Pandas中读取CSV文件的函数是？", options:["read_csv()","load_csv()","open_csv()"], correct:0, explanation:"pd.read_csv()是标准方法。" },
-              { text:"以下哪个用于检测缺失值？", options:["isna()","dropna()","fillna()"], correct:0, explanation:"isna()返回布尔型DataFrame。" },
-              { text:"按标签选取DataFrame数据用？", options:["iloc","loc","ix"], correct:1, explanation:"loc是基于标签的索引。" },
-              { text:"groupby()后常用哪个聚合函数？", options:["sum()","mean()","以上都是"], correct:2, explanation:"groupby后可接多种聚合函数。" },
-              { text:"Pandas的常用别名是？", options:["pd","pds","pan"], correct:0, explanation:"import pandas as pd是标准写法。" }
-          ]},
-        { id:3, icon:"🔍", name:"数据采集与处理", shortDesc:"网络爬虫+数据清洗全流程", tags:["爬虫","正则","数据清洗"],
-          chapters:["HTTP请求基础","BeautifulSoup解析","数据提取技巧","数据清洗实战","反爬策略"],
-          content:{
-              "HTTP请求基础":{ summary:"requests库发送HTTP请求获取网页内容", detail:"HTTP（超文本传输协议）是浏览器与服务器通信的规范。请求方法：GET（获取资源）、POST（提交数据）、PUT（更新）、DELETE（删除）。requests库是Python最常用的HTTP客户端。基本用法：requests.get(url, params=None, headers=None)；requests.post(url, data=None, json=None)。响应对象属性：status_code（状态码，200表示成功）、text（文本内容）、json()（解析JSON）、headers（响应头）。需设置User-Agent模拟浏览器避免反爬：headers={'User-Agent':'Mozilla/5.0'}。超时设置：timeout参数。代理设置：proxies参数。" },
-              "BeautifulSoup解析":{ summary:"将HTML解析为结构化对象，便于提取数据", detail:"BeautifulSoup将HTML文档转换成树形结构，支持多种解析器（'html.parser'、'lxml'等）。基本用法：soup = BeautifulSoup(html, 'html.parser')。查找方法：find(name, attrs)返回第一个匹配元素；find_all(name, attrs)返回所有匹配元素列表；select(css_selector)支持CSS选择器。获取内容：.text获取纯文本，.get('属性名')获取属性值。例如：soup.find('div', class_='content')，soup.select('.title a')。处理编码问题：soup.prettify()格式化输出。" },
-              "数据提取技巧":{ summary:"CSS选择器和正则表达式精确提取目标信息", detail:"CSS选择器：通过标签名（div）、类名（.class）、id（#id）、属性（[href]）、组合（div a）快速定位。常用方法：soup.select('div.content')。正则表达式re模块用于模式匹配：re.search()查找第一个匹配，re.findall()返回所有匹配列表，re.sub()替换。元字符：.任意字符、*零次或多次、+一次或多次、？零次或一次、^开头、$结尾、\d数字、\w字母数字、\s空白。例如：re.findall(r'\\d+', text)提取所有数字；re.findall(r'\\w+@\\w+\\.com', text)提取邮箱。两者结合使用效果最好。" },
-              "数据清洗实战":{ summary:"处理缺失值、重复值、格式统一、异常值", detail:"数据清洗是分析前的重要步骤，通常占60-80%时间。主要任务：1.缺失值处理：isnull()检测，dropna()删除，fillna()填充（用均值、中位数、众数或前向/后向填充）。2.重复值处理：duplicated()检测，drop_duplicates()删除。3.格式统一：astype()转换类型，str.strip()清除空白，str.lower()大小写统一。4.异常值处理：基于业务规则或统计方法（3σ原则、IQR四分位距）识别并处理。例如：df[df['年龄']>0 & df['年龄']<120]筛选合理范围。" },
-              "反爬策略":{ summary:"应对网站反爬虫机制的常用方法", detail:"常见反爬策略：1.User-Agent检测——设置常见浏览器UA字符串。2.IP限制——使用代理池（requests.get(url, proxies=proxy)）或降低请求频率（time.sleep随机延迟）。3.Cookie/Session维持登录状态——先POST登录获取session，再用session.get()请求。4.验证码——可使用OCR（tesseract）或打码平台。5.动态加载——使用Selenium或Playwright模拟浏览器。6.robots.txt——遵守网站爬虫协议。7.合理设置请求头：Referer、Accept-Language等。" }
-          },
-          codeExamples:{
-              "HTTP请求基础":"import requests\nurl = 'https://httpbin.org/get'\nheaders = {'User-Agent': 'Mozilla/5.0'}\nr = requests.get(url, headers=headers)\nprint(f'状态码: {r.status_code}')\nprint(r.text[:200])",
-              "BeautifulSoup解析":"from bs4 import BeautifulSoup\nhtml = '<div class=\"content\">Python</div>'\nsoup = BeautifulSoup(html, 'html.parser')\ntext = soup.find('div', class_='content').text\nprint(text)",
-              "数据提取技巧":"import re\ntext = '电话：13812345678，邮箱：test@example.com'\nmobile = re.findall(r'1[3-9]\\d{9}', text)\nemail = re.findall(r'\\w+@\\w+\\.com', text)\nprint(mobile, email)",
-              "数据清洗实战":"import pandas as pd\ndf = pd.DataFrame({'A':[1,None,3], 'B':['a','b','a']})\ndf = df.drop_duplicates()\ndf['A'] = df['A'].fillna(df['A'].median())\nprint(df)",
-              "反爬策略":"import time\nimport requests\nproxies = {'http': 'http://127.0.0.1:8080'}\nfor i in range(5):\n    r = requests.get('https://example.com', proxies=proxies)\n    time.sleep(2)"
-          },
-          questions:[
-              { text:"发送HTTP请求的库是？", options:["BeautifulSoup","requests","scrapy"], correct:1, explanation:"requests库专门用于HTTP请求。" },
-              { text:"BeautifulSoup找第一个元素用？", options:["find()","find_all()","select()"], correct:0, explanation:"find()返回第一个匹配项。" },
-              { text:"哪个不是数据清洗步骤？", options:["去重","缺失值填充","模型训练"], correct:2, explanation:"模型训练属于建模阶段。" },
-              { text:"伪装浏览器改哪个请求头？", options:["User-Agent","Cookie","Referer"], correct:0, explanation:"User-Agent标识客户端类型。" },
-              { text:"专业爬虫框架是？", options:["scrapy","requests","urllib"], correct:0, explanation:"Scrapy是完整的爬虫框架。" }
-          ]},
-        { id:4, icon:"📦", name:"供应链数据分析", shortDesc:"需求预测与库存优化", tags:["预测","ABC分类"],
-          chapters:["需求预测方法","库存ABC分析","物流效率指标","供应商评估模型","安全库存计算"],
-          content:{
-              "需求预测方法":{ summary:"使用时间序列模型预测未来需求", detail:"需求预测是供应链核心，影响库存水平、生产计划、采购决策。常用方法：1.移动平均法：适合平稳序列，计算简单但滞后。2.指数平滑法：加权移动平均，近期数据权重大。3.ARIMA模型：处理趋势和季节性，需要参数调优。4.机器学习方法：XGBoost、LightGBM预测复杂模式。评估指标：MAE（平均绝对误差）、MAPE（平均绝对百分比误差）、RMSE（均方根误差）。预测流程：数据收集→数据清洗→探索分析→模型选择→训练验证→预测部署→监控更新。" },
-              "库存ABC分析":{ summary:"根据价值对物料进行分类管理", detail:"ABC分类基于帕累托原则（二八定律）：A类（约10%品种占70%价值）需严格管控、高频盘点；B类（约20%品种占20%价值）正常管理；C类（约70%品种占10%价值）简化流程、提高安全库存。实施步骤：1.计算各物料年消耗金额；2.按金额降序排序；3.计算累计金额占比；4.按占比划分ABC类别。策略差异：A类采用连续补货、精准预测；C类采用定期补货、较高安全库存；B类介于两者之间。" },
-              "物流效率指标":{ summary:"量化运营表现，发现瓶颈", detail:"核心指标及计算：1.库存周转率=销售成本/平均库存，反映库存流动速度，越高越好。2.准时交付率=准时交付订单数/总订单数，反映服务水平，目标>95%。3.运输成本占比=运输费用/总成本，反映物流成本效率。4.订单满足率=一次交付完成订单数/总订单数。5.仓库利用率=已用库容/总库容。6.破损率=破损货物量/总货物量。定期监控这些指标，设置预警阈值，可快速发现运营问题。" },
-              "供应商评估模型":{ summary:"综合评分选择优质供应商", detail:"采用加权评分法：1.确定评估维度：质量（产品合格率、客诉率）、成本（价格竞争力、付款条件）、交付（准时率、弹性）、服务（响应速度、配合度）、技术能力（研发支持、创新）。2.分配权重：重要性高的维度权重高，例如质量35%、成本30%、交付20%、服务15%。3.各维度打分（1-10分）。4.计算加权总分。5.定期复评动态调整。可用层次分析法(AHP)科学确定权重。数据驱动的供应商管理可建立长期稳定供应链。" },
-              "安全库存计算":{ summary:"确定缓冲库存量应对需求波动", detail:"安全库存是为了应对需求波动和供应不确定性而设置的缓冲库存。计算公式：安全库存 = Z × σ_d × √L，其中Z为服务水平系数（95%→1.65，99%→2.33），σ_d为需求标准差，L为提前期。考虑提前期波动：安全库存 = Z × √(L×σ_d² + (σ_L×d̄)²)。常用方法：1.历史模拟法；2.正态分布法；3.服务水平法。过高安全库存占用资金，过低导致缺货损失，需平衡。" }
-          },
-          codeExamples:{
-              "需求预测方法":"import pandas as pd\nfrom statsmodels.tsa.holtwinters import ExponentialSmoothing\n\ndata = [100,110,105,120,115,130]\nmodel = ExponentialSmoothing(data, trend='add', seasonal=None)\nfit = model.fit()\nforecast = fit.forecast(3)\nprint(f'未来3期预测: {forecast}')",
-              "库存ABC分析":"import pandas as pd\n\ndf = pd.DataFrame({'产品':['A','B','C','D'], '金额':[10000,6000,2000,2000]})\ndf = df.sort_values('金额', ascending=False)\ndf['累计占比'] = df['金额'].cumsum() / df['金额'].sum()\ndf['类别'] = df['累计占比'].apply(lambda x: 'A' if x<=0.7 else ('B' if x<=0.9 else 'C'))\nprint(df)",
-              "物流效率指标":"turnover = cost_of_goods_sold / avg_inventory\nprint(f'库存周转率: {turnover:.2f}')",
-              "供应商评估模型":"scores = {'质量':9, '成本':8, '交付':7, '服务':9}\nweights = {'质量':0.35, '成本':0.30, '交付':0.20, '服务':0.15}\ntotal = sum(scores[k]*weights[k] for k in scores)\nprint(f'综合得分: {total}')",
-              "安全库存计算":"from math import sqrt\n\nZ = 1.65  # 95%服务水平\nstd_demand = 20  # 需求标准差\nlead_time = 7  # 提前期(天)\n\nsafety_stock = Z * std_demand * sqrt(lead_time)\nprint(f'安全库存: {safety_stock:.0f}')"
-          },
-          questions:[
-              { text:"ABC分类中价值最高的类别？", options:["A类","B类","C类"], correct:0, explanation:"A类价值占比约70%。" },
-              { text:"时间序列预测方法？", options:["K-means","ARIMA","决策树"], correct:1, explanation:"ARIMA专门用于时间序列。" },
-              { text:"库存周转率公式？", options:["销售成本/平均库存","销售额/库存量","利润/库存成本"], correct:0, explanation:"周转率反映流动速度。" },
-              { text:"衡量交付及时性的指标？", options:["准时交付率","库存周转率","运输成本比"], correct:0, explanation:"准时交付率直接体现服务水平。" }
-          ]},
-        { id:5, icon:"🗄️", name:"数据库原理与应用", shortDesc:"MySQL设计与SQL查询", tags:["SQL","数据库"],
-          chapters:["关系型数据库设计","DDL数据定义","DML数据操作","复杂查询优化","索引与事务"],
-          content:{
-              "关系型数据库设计":{ summary:"范式理论避免数据冗余", detail:"三大范式：第一范式(1NF)要求字段原子性不可再分；第二范式(2NF)消除部分函数依赖；第三范式(3NF)消除传递依赖。遵循范式可减少数据冗余，避免插入/更新/删除异常。实际设计中有时会适度反范式化提高查询性能。ER图（实体关系图）是设计工具：矩形代表实体，菱形代表关系，椭圆代表属性。主键是唯一标识行的字段，外键连接两张表建立关系。" },
-              "DDL数据定义":{ summary:"CREATE/ALTER/DROP管理表结构", detail:"DDL（数据定义语言）用于定义数据库对象。CREATE TABLE创建表，指定字段名、数据类型、约束（PRIMARY KEY主键、NOT NULL非空、UNIQUE唯一、FOREIGN KEY外键、CHECK检查）。ALTER TABLE修改表结构：ADD COLUMN添加字段，MODIFY COLUMN修改类型，DROP COLUMN删除字段。DROP TABLE删除表，TRUNCATE清空表数据但保留结构。SHOW TABLES查看所有表，DESC查看表结构。" },
-              "DML数据操作":{ summary:"INSERT/UPDATE/DELETE操作数据", detail:"DML（数据操作语言）用于管理表中的数据行。INSERT INTO插入新记录：INSERT INTO table (col1,col2) VALUES (val1,val2)。UPDATE SET修改现有记录：UPDATE table SET col=val WHERE condition。DELETE FROM删除记录：DELETE FROM table WHERE condition。WHERE条件子句支持：=、>、<、LIKE、IN、BETWEEN、AND、OR。结合事务可保证多步操作的原子性：BEGIN; COMMIT; ROLLBACK;" },
-              "复杂查询优化":{ summary:"JOIN/子查询/索引提速", detail:"多表关联用JOIN：INNER JOIN返回匹配行，LEFT JOIN返回左表所有行，RIGHT JOIN返回右表所有行。子查询嵌套在WHERE或FROM中。GROUP BY分组配合聚合函数（SUM、AVG、COUNT、MAX、MIN），HAVING对分组结果过滤。ORDER BY排序，LIMIT限制行数。索引（INDEX）可大幅加速查询但会降低写入性能。使用EXPLAIN分析执行计划，避免SELECT *和全表扫描。分页优化：LIMIT offset, size。" },
-              "索引与事务":{ summary:"加速查询和保证数据一致性", detail:"索引是排序的数据结构，类似于书目录。类型：B-Tree索引（默认）、Hash索引、全文索引。创建索引：CREATE INDEX idx_name ON table(col)。复合索引遵循最左前缀原则。事务具有ACID特性：原子性(Atomicity)要么全执行要么全不执行，一致性(Consistency)保持数据完整性，隔离性(Isolation)并发互不影响，持久性(Durability)提交后永久保存。事务隔离级别：读未提交、读已提交、可重复读、串行化。并发问题：脏读、不可重复读、幻读。" }
-          },
-          codeExamples:{
-              "关系型数据库设计":"-- 创建订单表\nCREATE TABLE 订单 (\n    订单ID INT PRIMARY KEY,\n    客户名 VARCHAR(50),\n    金额 DECIMAL(10,2)\n);",
-              "DDL数据定义":"CREATE TABLE students (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    name VARCHAR(50) NOT NULL,\n    age INT CHECK (age>=0)\n);",
-              "DML数据操作":"INSERT INTO students (name, age) VALUES ('小李', 20);\nUPDATE students SET age=21 WHERE name='小李';\nDELETE FROM students WHERE id=1;",
-              "复杂查询优化":"SELECT c.name, SUM(o.amount) \nFROM orders o \nJOIN customers c ON o.cid = c.id \nGROUP BY c.id \nORDER BY SUM(o.amount) DESC;",
-              "索引与事务":"CREATE INDEX idx_name ON students(name);\n\nSTART TRANSACTION;\nUPDATE accounts SET balance=balance-100 WHERE id=1;\nUPDATE accounts SET balance=balance+100 WHERE id=2;\nCOMMIT;"
-          },
-          questions:[
-              { text:"提取数据的SQL命令？", options:["INSERT","SELECT","UPDATE"], correct:1, explanation:"SELECT用于查询数据。" },
-              { text:"避免数据冗余的原则？", options:["范式设计","索引优化","事务隔离"], correct:0, explanation:"范式通过分解表减少重复。" },
-              { text:"INNER JOIN返回？", options:["左表所有","右表所有","匹配的行"], correct:2, explanation:"只返回连接条件匹配的行。" },
-              { text:"分组聚合关键字？", options:["ORDER BY","GROUP BY","WHERE"], correct:1, explanation:"GROUP BY与聚合函数配合。" }
-          ]},
-        { id:6, icon:"📑", name:"Excel数据分析", shortDesc:"透视表/Power Query高级应用", tags:["透视表","Power Query"],
-          chapters:["数据透视表","Power Query清洗","DAX函数","动态仪表板","VBA自动化"],
-          content:{
-              "数据透视表":{ summary:"快速汇总百万级数据", detail:"数据透视表是Excel最强大的交互式报表工具。操作步骤：1.选中数据区域→插入→数据透视表；2.选择放置位置；3.拖拽字段：行区域（分类）、列区域（交叉）、值区域（汇总数字）、筛选区域（全局筛选）。值计算方式可设置：求和、计数、平均值、最大值、最小值、乘积。可添加切片器实现动态筛选，日程表筛选日期。右键可设置值显示方式：百分比、排名、差异等。适合销售分析、库存分析、财务分析。" },
-              "Power Query清洗":{ summary:"可视化ETL工具", detail:"Power Query（获取和转换）可连接多种数据源：Excel文件、CSV、数据库、Web网页、SharePoint等。操作步骤：数据→获取数据→启动Power Query编辑器。常用功能：1.删除空行/重复；2.拆分列（按分隔符/按字符数）；3.合并列；4.条件列（if）；5.分组依据（类似GROUP BY）；6.透视列/逆透视列；7.合并查询（类似JOIN）；8.追加查询（类似UNION）。生成的M语言代码可自动刷新，无需重复操作。" },
-              "DAX函数":{ summary:"数据分析表达式语言", detail:"DAX（Data Analysis eXpressions）用于Power Pivot和Power BI。核心函数：CALCULATE（修改筛选上下文）、FILTER（返回筛选表）、ALL（移除筛选）、VALUES（返回唯一值）。聚合函数：SUM、AVERAGE、COUNT、MAX、MIN、SUMX（迭代求和）。时间智能函数：TOTALYTD（年初至今）、SAMEPERIODLASTYEAR（去年同期）、DATEADD（日期偏移）。语法类似于Excel公式但更强大，可以创建复杂动态度量值。" },
-              "动态仪表板":{ summary:"用控件实现交互式图表", detail:"动态仪表板让图表随用户选择自动变化。方法1：数据验证（下拉菜单）+ OFFSET/INDEX函数创建动态名称范围，图表数据源指向该名称。方法2：切片器 + 数据透视图，点击切片器即可筛选。方法3：表单控件（滚动条、选项按钮）结合函数控制显示。设计原则：使用颜色突出重点、布局清晰、关键指标优先展示。使用条件格式直观反映数据变化（数据条、色阶、图标集）。" },
-              "VBA自动化":{ summary:"录制宏和编写代码自动化重复任务", detail:"VBA（Visual Basic for Applications）是Office内置编程语言。入门方法：1.录制宏：开发者工具→录制宏→执行操作→停止录制→查看代码；2.编辑宏：Alt+F11打开VBA编辑器；3.常用操作：Range操作单元格、For循环批量处理、If条件判断、MsgBox弹出提示。可自动完成：刷新数据透视表、导出PDF、发送邮件、合并多个工作簿。编写自定义函数：Function MyFunc(x) As Integer; MyFunc = x*2; End Function。" }
-          },
-          codeExamples:{
-              "数据透视表":"1. 选中数据区域\n2. 插入 → 数据透视表\n3. 行：产品类别\n4. 值：销售额（求和）\n5. 添加切片器：月份",
-              "Power Query清洗":"let\n    源 = Excel.CurrentWorkbook(){[Name=\"表1\"]}[Content],\n    删除空行 = Table.SelectRows(源, each [列1] <> null),\n    分组 = Table.Group(删除空行, {\"类别\"}, {{\"总和\", each List.Sum([金额]), type number}})\nin\n    分组",
-              "DAX函数":"总销售额 = SUMX(销售表, 销售表[数量] * 销售表[单价])\n去年同期 = CALCULATE(SUM(销售额), SAMEPERIODLASTYEAR(日期表[日期]))",
-              "动态仪表板":"=OFFSET($A$1,1,0,COUNTA($A:$A)-1,1)  ' 动态名称范围",
-              "VBA自动化":"Sub 刷新数据()\n    ActiveSheet.PivotTables(\"数据透视表1\").RefreshTable\n    MsgBox \"刷新完成！\"\nEnd Sub"
-          },
-          questions:[
-              { text:"Excel最强汇总工具？", options:["VLOOKUP","数据透视表","条件格式"], correct:1, explanation:"数据透视表专为汇总设计。" },
-              { text:"Power Query主要用途？", options:["数据清洗","可视化","建模"], correct:0, explanation:"Power Query是ETL工具。" },
-              { text:"DAX函数示例？", options:["SUM","VLOOKUP","CALCULATE"], correct:2, explanation:"CALCULATE是核心DAX函数。" },
-              { text:"交互筛选组件？", options:["数据验证","切片器","条件格式"], correct:1, explanation:"切片器提供可视化筛选。" }
-          ]}
-    ];
+print("\\n" + "="*50)
+print("2. 销售额的中位数和众数：")
+print(f"销售额中位数: {df['销售额'].median()}")
+print(f"销售额众数: {df['销售额'].mode().tolist()}")
 
-    let currentView = 'list';
-    let currentCourse = null;
-    let currentProject = null;
-    let quizState = {};
+print("\\n" + "="*50)
+print("3. 分组统计 - 按产品：")
+print(df.groupby('产品').agg({
+    '销售额': ['sum', 'mean', 'count'],
+    '销量': 'sum'
+}))
 
-    function formatTime(sec) { let m=Math.floor(sec/60), s=sec%60; return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
-    function stopTimer(cid) { if(quizState[cid]?.timer) clearInterval(quizState[cid].timer); quizState[cid] && (quizState[cid].timer=null); }
-    function startTimer(cid) { if(!quizState[cid] || quizState[cid].started) return; stopTimer(cid); quizState[cid].started=true; quizState[cid].timer = setInterval(()=>{ if(quizState[cid] && quizState[cid].time>0){ quizState[cid].time--; let span=document.getElementById(`qt_${cid}`); if(span) span.innerText=formatTime(quizState[cid].time); if(quizState[cid].time===0){ stopTimer(cid); alert('时间到！测验自动结束。'); document.getElementById('nextQuizBtn')?.click(); } } },1000); }
+print("\\n" + "="*50)
+print("4. 分组统计 - 按地区：")
+print(df.groupby('地区')['销售额'].agg(['sum', 'mean']))
 
-    function renderHome() {
-        currentView='list';
-        document.getElementById('app').innerHTML = `
-            <div class="container">
-                <div class="hero"><h1>🌸 李颖的学习空间</h1><div class="school">广东科学技术职业学院 · 商学院 · 商务数据分析与应用专业 大二学生</div><div class="bio">✨ 6门核心课程 + 10个实战项目 | 理论 + 可运行代码 + 测验 ✨</div></div>
-                <div class="stats"><div class="stat-card"><div class="stat-number">6</div><div class="stat-label">核心课程</div></div><div class="stat-card"><div class="stat-number">10</div><div class="stat-label">实战项目</div></div><div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">成长潜力</div></div></div>
-                <div class="section-header"><i class="fas fa-candy-cane"></i><div class="section-title">核心课程 · 点击卡片开始学习</div></div>
-                <div class="courses-grid" id="coursesGrid"></div>
-                <div class="contact"><div class="contact-links"><a href="https://github.com/lyyy001108"><i class="fab fa-github"></i> lyyy001108</a><a href="mailto:liying@example.com"><i class="fas fa-envelope"></i> liying@example.com</a></div><div><i class="fas fa-heart"></i> 保持好奇 · 用数据探索世界</div></div>
-                <footer>© 2025 李颖 · 商务数据分析学习日志 | 持续更新中 🌱</footer>
-            </div>
-        `;
-        let grid = document.getElementById('coursesGrid');
-        courses.forEach(c => {
-            let card = document.createElement('div');
-            card.className = 'course-card';
-            card.innerHTML = `<div class="card-icon">${c.icon}</div><div class="course-name">${c.name}</div><div class="course-desc">${c.shortDesc}</div><div class="course-tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`;
-            card.onclick = () => renderDetail(c);
-            grid.appendChild(card);
-        });
-    }
+print("\\n" + "="*50)
+print("5. 相关性分析：")
+print(df[['销售额', '销量']].corr())
 
-    function renderDetail(course) {
-        currentCourse = course;
-        const isSpecial = course.id === 2 && course.projects;
-        if(!quizState[course.id]) quizState[course.id] = { answers: new Array(course.questions?.length || 0).fill(null), idx:0, time:15*60, timer:null, started:false, showExplanation:false };
-        
-        let leftHtml = '';
-        if(isSpecial) {
-            leftHtml = `<h3><i class="fas fa-folder-open"></i> 实战项目 (${course.projects.length}个)</h3><div class="project-list" id="projectList">${course.projects.map(p => `<div class="project-item" data-id="${p.id}"><i class="fas fa-code"></i> ${p.name}<br><small>${p.duration} · ${p.level}</small></div>`).join('')}</div>`;
-        } else {
-            leftHtml = `<h3><i class="fas fa-book-open"></i> 课程目录</h3>${course.chapters.map(ch => `
-                <div class="toc-item"><div class="toc-header" data-ch="${ch}"><span>📖 ${ch}</span><i class="fas fa-chevron-right"></i></div>
-                <div class="toc-content"><h4>📌 学习概况</h4><p>${course.content[ch].summary}</p><h4>📝 详细解析</h4><p>${course.content[ch].detail}</p>
-                <div class="code-editor"><div class="code-header"><span><i class="fas fa-terminal"></i> 练习代码 · 可编辑运行</span><div class="code-actions"><button class="run-code-btn">▶ 运行代码</button><button class="copy-code-btn">📋 复制代码</button></div></div><textarea class="code-textarea" rows="6">${course.codeExamples[ch]}</textarea><div class="output-area"><strong>📤 运行结果：</strong><pre class="output-pre">点击"运行代码"按钮执行</pre></div></div></div></div>`).join('')}`;
-        }
-        
-        document.getElementById('app').innerHTML = `
-            <div class="container">
-                <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> 返回课程列表</button>
-                <div class="detail-layout">
-                    <div class="sidebar" id="sidebar">${leftHtml}</div>
-                    <div class="right-panel">
-                        <div class="quiz-card">
-                            <h3><i class="fas fa-puzzle-piece"></i> 学习项目</h3>
-                            <button class="start-test-btn" id="startTestBtn"><i class="fas fa-play"></i> 📝 点击开始测验 · 限时15分钟 · 共${course.questions?.length || 0}题</button>
-                            <div id="quizArea">点击上方按钮开始测验</div>
-                        </div>
-                    </div>
-                </div>
-                <footer>© 2025 李颖 · 商务数据分析学习日志</footer>
-            </div>
-        `;
-        
-        document.getElementById('backBtn').onclick = () => renderHome();
-        
-        if(isSpecial) {
-            document.querySelectorAll('.project-item').forEach((item, idx) => {
-                item.onclick = () => {
-                    document.querySelectorAll('.project-item').forEach(i=>i.classList.remove('active'));
-                    item.classList.add('active');
-                    currentProject = course.projects[idx];
-                    renderProjectContent(currentProject);
-                };
-            });
-            if(course.projects.length) { document.querySelector('.project-item')?.classList.add('active'); currentProject = course.projects[0]; renderProjectContent(currentProject); }
-        } else {
-            // 绑定折叠和运行功能
-            document.querySelectorAll('.toc-header').forEach(h=>{ h.onclick=function(){ this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active'); }; });
-            document.querySelectorAll('.run-code-btn').forEach(btn=>{
-                btn.onclick=function(){
-                    let container = this.closest('.code-editor');
-                    let code = container.querySelector('.code-textarea').value;
-                    let outputPre = container.querySelector('.output-pre');
-                    outputPre.innerText = '正在运行...\n';
-                    setTimeout(() => {
-                        try {
-                            let logs = [];
-                            const originalLog = console.log;
-                            console.log = (...args) => { logs.push(args.join(' ')); originalLog(...args); };
-                            const result = eval(code);
-                            console.log = originalLog;
-                            if(logs.length > 0) outputPre.innerText = logs.join('\n');
-                            else if(result !== undefined) outputPre.innerText = String(result);
-                            else outputPre.innerText = '代码执行完成（无输出）';
-                        } catch(e) { outputPre.innerText = `错误：${e.message}`; }
-                    }, 50);
-                };
-            });
-            document.querySelectorAll('.copy-code-btn').forEach(btn=>{
-                btn.onclick=function(){
-                    let code = this.closest('.code-editor').querySelector('.code-textarea').value;
-                    navigator.clipboard.writeText(code);
-                    alert('✅ 代码已复制');
-                };
-            });
-        }
-        
-        document.getElementById('startTestBtn').onclick = () => { if(!quizState[course.id].started) startTimer(course.id); renderQuiz(course); };
-        renderQuiz(course);
-    }
-    
-    function renderProjectContent(project) {
-        const container = document.getElementById('quizArea');
-        if(!container) return;
-        container.innerHTML = `<div><h3>${project.name}</h3><p>${project.theory}</p><div class="code-editor"><div class="code-header"><span>练习代码</span><div class="code-actions"><button id="runProj">运行代码</button><button id="copyProj">复制代码</button></div></div><textarea id="projCode" rows="8">${project.code}</textarea><div class="output-area"><strong>运行结果：</strong><pre id="projOutput">点击"运行代码"按钮执行</pre></div></div><div style="background:#e8f0e4;padding:0.8rem;border-radius:1rem;margin-top:1rem;"><strong>代码解析</strong><br>${project.explanation}</div></div>`;
-        document.getElementById('runProj').onclick = () => { let code=document.getElementById('projCode').value; let out=document.getElementById('projOutput'); out.innerText='运行中...\n'; setTimeout(()=>{ try{ let logs=[]; const old=console.log; console.log=(...a)=>{logs.push(a.join(' '));}; eval(code); console.log=old; out.innerText=logs.length?logs.join('\n'):'执行完成'; }catch(e){ out.innerText=`错误:${e.message}`; } },50); };
-        document.getElementById('copyProj').onclick = () => { navigator.clipboard.writeText(project.code); alert('代码已复制'); };
-    }
-    
-    function renderQuiz(course) {
-        const container = document.getElementById('quizArea');
-        if(!container) return;
-        const qs = quizState[course.id];
-        const questions = course.questions;
-        if(!qs.started) { container.innerHTML = `<div style="padding:1rem;text-align:center;">⏳ 点击"开始测验"按钮，限时15分钟完成${questions.length}道题</div>`; return; }
-        const isFinished = qs.answers.every(a=>a!==null);
-        if(isFinished) {
-            const correct = qs.answers.filter((a,i)=>a===questions[i].correct).length;
-            container.innerHTML = `<div class="quiz-result">得分：${correct}/${questions.length}<br>${correct===questions.length?'🎉 完美通关！':'📚 再复习一下～'}<button id="resetQuiz" style="background:#dbbcac;border:none;padding:0.4rem 1rem;border-radius:2rem;margin-top:0.8rem;">重新测验</button></div>`;
-            document.getElementById('resetQuiz')?.addEventListener('click',()=>{ stopTimer(course.id); quizState[course.id]={ answers:new Array(questions.length).fill(null), idx:0, time:15*60, timer:null, started:false, showExplanation:false }; renderDetail(course); });
-            return;
-        }
-        const q = questions[qs.idx];
-        const selected = qs.answers[qs.idx];
-        let explanationHtml = '';
-        if(qs.showExplanation && selected!==undefined){
-            const isCorrect = (selected === q.correct);
-            explanationHtml = `<div class="explanation-box"><strong>${isCorrect?'✅ 回答正确！':'❌ 回答错误'}</strong><br>📖 解析：${q.explanation}<br>${!isCorrect?`💡 正确答案：${String.fromCharCode(65+q.correct)}. ${q.options[q.correct]}`:''}</div>`;
-        }
-        container.innerHTML = `<div class="timer" id="qt_${course.id}">⏱️ ${formatTime(qs.time)}</div>
-            <div class="question-item"><div>第 ${qs.idx+1}/${questions.length} 题</div><div style="margin:0.6rem 0">${q.text}</div>
-            <div class="options" id="opts">${q.options.map((opt,i)=>`<div class="option ${selected===i?'selected':''}" data-o="${i}">${String.fromCharCode(65+i)}. ${opt}</div>`).join('')}</div>
-            ${explanationHtml}<div class="quiz-actions"><button id="prevQ">◀ 上一题</button><button id="checkAns">🔍 查看解析</button><button id="nextQ">${qs.idx===questions.length-1?'✅ 提交测验':'下一题 ▶'}</button></div></div>`;
-        
-        document.querySelectorAll('#opts .option').forEach(opt=>{ opt.onclick=()=>{ let val=parseInt(opt.getAttribute('data-o')); qs.answers[qs.idx]=val; renderQuiz(course); }; });
-        document.getElementById('prevQ').onclick=()=>{ if(qs.idx>0){ qs.idx--; qs.showExplanation=false; renderQuiz(course); } };
-        document.getElementById('checkAns').onclick=()=>{ if(qs.answers[qs.idx]!==undefined){ qs.showExplanation=true; renderQuiz(course); }else{ alert('请先选择一个答案'); } };
-        document.getElementById('nextQ').onclick=()=>{ if(qs.answers[qs.idx]===null){ alert('请先选择答案'); return; } if(qs.idx<questions.length-1){ qs.idx++; qs.showExplanation=false; renderQuiz(course); }else{ stopTimer(course.id); renderQuiz(course); } };
-    }
-    
-    renderHome();
-</script>
-</body>
-</html>
+print("\\n" + "="*50)
+print("6. 销售额排名前3的产品：")
+print(df.nlargest(3, '销售额')[['产品', '销售额']])`,
+          explanation: "1. describe()输出均值、标准差、四分位数等；2. median()和mode()计算中位数和众数；3. groupby按产品分组后多指标聚合；4. 按地区分组统计销售额；5. corr()计算销售额和销量的相关系数；6. nlargest()获取前3大值。" },
+        { id:3, name:"购物车关联规则", duration:"45分钟", level:"进阶", dataset:"market_basket.csv",
+          learn:`
+<h3>🎯 项目目标</h3>
+<p>学习关联规则挖掘算法（Apriori），发现商品之间的购买关联，为捆绑销售、商品推荐提供数据支持。例如著名的"啤酒与尿布"案例就是关联规则的典型应用。</p>
+
+<h3>📖 核心概念</h3>
+<ul>
+<li><strong>支持度(Support)</strong>：包含商品X的交易占总交易的比例。Support(X) = count(X)/总交易数。支持度越高说明商品越热门。</li>
+<li><strong>置信度(Confidence)</strong>：购买X的顾客同时购买Y的概率。Confidence(X→Y) = Support(X∪Y)/Support(X)。置信度越高说明关联越强。</li>
+<li><strong>提升度(Lift)</strong>：购买X对购买Y的提升作用。Lift(X→Y) = Confidence(X→Y)/Support(Y)。</li>
+<li>Lift > 1：正相关，购买X会促进购买Y</li>
+<li>Lift < 1：负相关，购买X会抑制购买Y</li>
+<li>Lift = 1：独立，X和Y无关联</li>
+</ul>
+
+<h3>📈 Apriori算法原理</h3>
+<p>Apriori算法基于先验性质：一个项集是频繁的，则它的所有子集也是频繁的。反之，如果一个子集不频繁，则其超集也不频繁。算法步骤：</p>
+<ol>
+<li>设置最小支持度阈值，找出所有频繁1项集</li>
+<li>根据频繁k项集生成候选(k+1)项集</li>
+<li>计算候选集的支持度，筛选出频繁(k+1)项集</li>
+<li>重复2-3步直到无法生成新的频繁项集</li>
+<li>根据最小置信度生成关联规则</li>
+</ol>
+
+<h3>💡 业务应用</h3>
+<ul>
+<li><strong>商品推荐</strong>：购买了A的用户也常买B，可以捆绑推荐</li>
+<li><strong>货架摆放</strong>：关联强的商品放在附近，提高交叉销售</li>
+<li><strong>促销策略</strong>：对提升度高的商品组合进行联合促销</li>
+<li><strong>套餐设计</strong>：组合高频购买的商品形成套餐</li>
+</ul>`,
+          code: `import pandas as pd
+from mlxtend.frequent_patterns import apriori, association_rules
+
+# 创建购物篮数据
+data = {
+    '订单号': [1,1,2,2,2,3,3,4,4,5],
+    '商品': ['牛奶','面包','牛奶','尿布','啤酒','面包','尿布','牛奶','面包','啤酒']
+}
+df = pd.DataFrame(data)
+
+print("="*50)
+print("原始交易数据：")
+print(df)
+
+# 转换为购物篮矩阵
+basket = df.groupby(['订单号', '商品'])['商品'].count().unstack().fillna(0)
+basket = basket.applymap(lambda x: 1 if x > 0 else 0)
+
+print("\\n" + "="*50)
+print("购物篮矩阵：")
+print(basket)
+
+# 挖掘频繁项集
+frequent_items = apriori(basket, min_support=0.4, use_colnames=True)
+print("\\n" + "="*50)
+print(f"频繁项集（最小支持度40%）：")
+print(frequent_items)
+
+# 生成关联规则
+rules = association_rules(frequent_items, metric="confidence", min_threshold=0.6)
+print("\\n" + "="*50)
+print("关联规则：")
+if len(rules) > 0:
+    print(rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']])
+else:
+    print("未发现满足条件的关联规则")`,
+          explanation: "1. 创建包含5笔订单的交易数据；2. groupby().unstack()转换为商品-订单矩阵；3. applymap将数值转为0/1；4. apriori()挖掘频繁项集，min_support=0.4；5. association_rules()生成规则，min_threshold=0.6；6. 输出规则的 antecedents(前提)、consequents(结果)、support、confidence、lift。" },
+        { id:4, name:"KMeans聚类分析", duration:"45分钟", level:"进阶", dataset:"customer_features.csv",
+          learn:`
+<h3>🎯 项目目标</h3>
+<p>学习KMeans聚类算法，将客户或商品分组，实现精准营销和用户分群。聚类是无监督学习，不需要标签数据，通过数据间的相似度自动分组。</p>
+
+<h3>📖 算法原理</h3>
+<p>KMeans算法将数据分为K个簇，簇内点距离近，簇间点距离远。算法步骤：</p>
+<ol>
+<li>随机选择K个点作为初始质心</li>
+<li>计算每个点到各质心的距离，分配到最近的簇</li>
+<li>重新计算每个簇的质心（簇内点的均值）</li>
+<li>重复2-3步直到质心不再变化或达到迭代次数</li>
+</ol>
+
+<h3>📊 如何选择K值</h3>
+<ul>
+<li><strong>肘部法则</strong>：计算不同K值的SSE（簇内平方和），选择SSE下降趋缓的拐点</li>
+<li><strong>轮廓系数</strong>：评估聚类效果，值在-1到1之间，越大越好</li>
+<li><strong>业务经验</strong>：根据实际业务场景确定分组数</li>
+</ul>
+
+<h3>💡 应用场景</h3>
+<ul>
+<li><strong>客户分群</strong>：根据消费行为将客户分组，针对性运营</li>
+<li><strong>商品分类</strong>：将相似商品聚类，优化货架管理</li>
+<li><strong>异常检测</strong>：距离所有簇中心都远的点可能是异常</li>
+<li><strong>图像分割</strong>：将图像像素按颜色聚类</li>
+</ul>
+
+<h3>⚠️ 注意事项</h3>
+<p>KMeans对初始质心敏感，建议多次运行取最佳结果；需要标准化数据消除量纲影响；假设簇是球形且大小相近，不符合时效果不佳；不适合处理非球形簇或密度不均匀的数据。</p>`,
+          code: `import pandas as pd
+import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+
+# 创建客户数据
+np.random.seed(42)
+data = {
+    '客户ID': range(1, 31),
+    '月消费金额': np.random.normal(500, 200, 30),
+    '月消费频次': np.random.randint(1, 20, 30),
+    '平均客单价': np.random.normal(50, 20, 30)
+}
+df = pd.DataFrame(data)
+
+print("="*50)
+print("客户数据前10行：")
+print(df.head(10))
+
+# 特征选择
+features = ['月消费金额', '月消费频次', '平均客单价']
+X = df[features]
+
+# 标准化
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+print("\\n" + "="*50)
+print("标准化后数据前3行：")
+print(X_scaled[:3])
+
+# KMeans聚类
+kmeans = KMeans(n_clusters=3, random_state=42)
+df['聚类'] = kmeans.fit_predict(X_scaled)
+
+print("\\n" + "="*50)
+print("聚类结果统计：")
+print(df['聚类'].value_counts())
+
+print("\\n" + "="*50)
+print("各聚类特征均值：")
+print(df.groupby('聚类')[features].mean())
+
+# 聚类命名
+cluster_names = {0: '高价值客户', 1: '潜力客户', 2: '普通客户'}
+df['客户类型'] = df['聚类'].map(cluster_names)
+print("\\n" + "="*50)
+print("客户类型分布：")
+print(df['客户类型'].value_counts())`,
+          explanation: "1. 生成30个客户的消费数据；2. 选择月消费金额、频次、客单价三个特征；3. StandardScaler标准化数据消除量纲；4. KMeans聚类，K=3；5. fit_predict同时训练和预测；6. groupby查看各簇特征均值；7. 根据业务含义为簇命名。" },
+        { id:5, name:"RFM模型用户分层", duration:"45分钟", level:"进阶", dataset:"customer_features.csv",
+          learn:`
+<h3>🎯 项目目标</h3>
+<p>学习RFM模型（最近消费时间、消费频率、消费金额），对客户进行价值分层，识别高价值客户、流失风险客户，制定精准营销策略。</p>
+
+<h3>📖 RFM指标详解</h3>
+<ul>
+<li><strong>R（Recency - 最近消费时间）</strong>：客户最近一次消费距离今天的天数。R越小越好，说明客户活跃度高。</li>
+<li><strong>F（Frequency - 消费频率）</strong>：一定时期内客户消费的次数。F越大越好，说明客户忠诚度高。</li>
+<li><strong>M（Monetary - 消费金额）</strong>：一定时期内客户消费的总金额。M越大越好，说明客户价值高。</li>
+</ul>
+
+<h3>📊 评分方法</h3>
+<ol>
+<li>将R、F、M分别分箱（通常5档），从差到好打分（R分越高越好，F/M分越高越好）</li>
+<li>R：距离越近得分越高（5-4-3-2-1）</li>
+<li>F：频次越高得分越高（1-2-3-4-5）</li>
+<li>M：金额越高得分越高（1-2-3-4-5）</li>
+<li>计算RFM总分或组合评分</li>
+</ol>
+
+<h3>👥 客户分层策略</h3>
+<table style="width:100%; border-collapse:collapse;">
+<tr><th>客户类型</th><th>R</th><th>F</th><th>M</th><th>运营策略</th></tr>
+<tr><td>重要价值客户</td><td>高</td><td>高</td><td>高</td><td>VIP服务、专属优惠</td></tr>
+<tr><td>重要发展客户</td><td>高</td><td>低</td><td>高</td><td>提升购买频次</td></tr>
+<tr><td>重要保持客户</td><td>低</td><td>高</td><td>高</td><td>召回唤醒、优惠券</td></tr>
+<tr><td>一般价值客户</td><td>高</td><td>低</td><td>低</td><td>培养习惯</td></tr>
+<tr><td>流失客户</td><td>低</td><td>低</td><td>低</td><td>大力度召回</td></tr>
+</table>`,
+          code: `import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+
+# 创建客户数据
+np.random.seed(42)
+n_customers = 20
+data = {
+    '客户ID': range(1, n_customers+1),
+    '最后消费日期': [datetime.now() - timedelta(days=np.random.randint(1, 180)) for _ in range(n_customers)],
+    '消费次数': np.random.randint(1, 20, n_customers),
+    '累计金额': np.random.randint(200, 5000, n_customers)
+}
+df = pd.DataFrame(data)
+
+print("="*50)
+print("原始客户数据：")
+print(df.head(10))
+
+# 计算R值（距离今天的天数）
+today = df['最后消费日期'].max() + timedelta(days=1)
+df['R'] = (today - df['最后消费日期']).dt.days
+
+print("\\n" + "="*50)
+print("RFM原始值：")
+print(df[['客户ID', 'R', '消费次数', '累计金额']].head())
+
+# RFM评分
+df['R_score'] = pd.qcut(df['R'], 5, labels=[5,4,3,2,1]).astype(int)
+df['F_score'] = pd.qcut(df['消费次数'].rank(method='first'), 5, labels=[1,2,3,4,5]).astype(int)
+df['M_score'] = pd.qcut(df['累计金额'], 5, labels=[1,2,3,4,5]).astype(int)
+
+print("\\n" + "="*50)
+print("RFM评分：")
+print(df[['客户ID', 'R_score', 'F_score', 'M_score']].head())
+
+# 客户分层
+def get_segment(row):
+    if row['R_score'] >= 4 and row['F_score'] >= 4:
+        return '重要价值客户'
+    elif row['R_score'] >= 4:
+        return '重要发展客户'
+    elif row['F_score'] >= 4:
+        return '重要保持客户'
+    elif row['R_score'] >= 3 and row['F_score'] >= 3:
+        return '一般价值客户'
+    else:
+        return '流失风险客户'
+
+df['客户分层'] = df.apply(get_segment, axis=1)
+
+print("\\n" + "="*50)
+print("客户分层统计：")
+print(df['客户分层'].value_counts())`,
+          explanation: "1. 生成20个客户数据，包含最后消费日期、次数、金额；2. 计算R值（距离今天天数）；3. qcut分箱将R/F/M分为5档；4. R分越高越好（越近），F/M分越高越好；5. 根据RFM评分组合定义客户类型；6. value_counts统计各类型客户数量。" },
+        { id:6, name:"线性回归分析", duration:"45分钟", level:"进阶", dataset:"retail_orders.csv",
+          learn:`
+<h3>🎯 项目目标</h3>
+<p>学习线性回归模型，预测连续型目标变量，理解变量间线性关系。线性回归是最基础的预测模型，广泛应用于销售预测、价格预测等场景。</p>
+
+<h3>📈 模型原理</h3>
+<p>线性回归假设目标变量y与特征x存在线性关系：y = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ + ε</p>
+<ul>
+<li>β₀：截距，当所有特征为0时的预测值</li>
+<li>βᵢ：回归系数，特征每增加1单位对y的影响</li>
+<li>ε：误差项，实际值与预测值的差异</li>
+</ul>
+
+<h3>📊 参数估计</h3>
+<p>使用最小二乘法（OLS）估计参数，目标是最小化残差平方和：Σ(yᵢ - ŷᵢ)²。求解公式：β = (XᵀX)⁻¹Xᵀy</p>
+
+<h3>📉 模型评估指标</h3>
+<ul>
+<li><strong>R²（决定系数）</strong>：模型解释的变异比例，范围[0,1]，越接近1越好</li>
+<li><strong>调整R²</strong>：考虑特征数量的R²，防止过拟合</li>
+<li><strong>MSE（均方误差）</strong>：预测误差平方的平均值，越小越好</li>
+<li><strong>RMSE（均方根误差）</strong>：MSE的平方根，与原数据单位一致</li>
+<li><strong>MAE（平均绝对误差）</strong>：绝对误差的平均值，更稳健</li>
+</ul>
+
+<h3>⚠️ 假设条件</h3>
+<p>线性回归需要满足以下假设：线性关系、误差独立、误差同方差、误差正态分布、无多重共线性。</p>`,
+          code: `import pandas as pd
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+
+# 创建数据
+np.random.seed(42)
+n = 100
+data = {
+    '广告投入': np
