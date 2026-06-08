@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(145deg, #b8d5c5 0%, #f0d8d0 100%);
+            background: linear-gradient(145deg, #d4e8da 0%, #fce8e0 100%);
             color: #2a5a3a;
             line-height: 1.7;
             min-height: 100vh;
@@ -18,41 +18,39 @@
         
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem; }
         
-        /* 玻璃拟态头部 */
         .hero {
-            background: rgba(255, 250, 245, 0.35);
+            background: rgba(255, 250, 245, 0.5);
             backdrop-filter: blur(16px);
             border-radius: 2.5rem;
             padding: 2rem;
             margin-bottom: 2rem;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
         }
-        .hero h1 { font-size: 2.2rem; font-weight: 700; background: linear-gradient(135deg, #3a7a5a, #c87a6a); background-clip: text; -webkit-background-clip: text; color: transparent; }
-        .hero h2 { font-size: 1.6rem; font-weight: 600; color: #5a8a6a; margin-top: 0.3rem; }
-        .hero .school { font-size: 0.9rem; color: #7a9a7a; margin-top: 0.8rem; }
+        .hero h1 { font-size: 2.2rem; font-weight: 700; background: linear-gradient(135deg, #3a8a5a, #e88a7a); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .hero h2 { font-size: 1.6rem; font-weight: 600; color: #5a9a6a; margin-top: 0.3rem; }
+        .hero .school { font-size: 0.9rem; color: #8aaa7a; margin-top: 0.8rem; }
         
-        /* 玻璃卡片网格 */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin: 2rem 0; }
         .project-card {
-            background: rgba(255, 252, 248, 0.35);
+            background: rgba(255, 252, 248, 0.45);
             backdrop-filter: blur(12px);
             border-radius: 1.8rem;
             padding: 1.5rem;
             transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             cursor: pointer;
         }
-        .project-card:hover { transform: translateY(-6px); background: rgba(255, 255, 255, 0.5); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        .project-number { font-size: 0.8rem; color: #c87a6a; font-weight: 600; margin-bottom: 0.3rem; }
-        .project-name { font-size: 1.3rem; font-weight: 700; color: #3a6a4a; margin-bottom: 0.5rem; }
-        .project-meta { display: flex; gap: 1rem; margin-top: 0.8rem; font-size: 0.7rem; color: #8a7a6a; }
+        .project-card:hover { transform: translateY(-6px); background: rgba(255, 255, 255, 0.6); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .project-number { font-size: 0.8rem; color: #e88a7a; font-weight: 600; margin-bottom: 0.3rem; }
+        .project-name { font-size: 1.3rem; font-weight: 700; color: #3a7a4a; margin-bottom: 0.5rem; }
+        .project-meta { display: flex; gap: 1rem; margin-top: 0.8rem; font-size: 0.7rem; color: #9a8a7a; }
         
         .back-btn {
-            background: rgba(200, 216, 190, 0.6);
+            background: rgba(200, 216, 190, 0.5);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.4);
             padding: 0.5rem 1.3rem;
             border-radius: 2rem;
             color: #4a6a4a;
@@ -62,90 +60,76 @@
             align-items: center;
             gap: 0.5rem;
             font-weight: 600;
-            transition: all 0.2s;
         }
         .back-btn:hover { background: rgba(200, 216, 190, 0.8); transform: translateX(-3px); }
         
         .detail-layout { display: flex; gap: 2rem; flex-wrap: wrap; }
         
-        /* 玻璃侧边栏 */
         .sidebar {
             flex: 1; min-width: 260px;
-            background: rgba(255, 250, 245, 0.4);
+            background: rgba(255, 250, 245, 0.45);
             backdrop-filter: blur(12px);
             border-radius: 1.8rem;
             padding: 1.3rem;
             position: sticky; top: 1rem;
             height: fit-content;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
-        .sidebar h3 { color: #4a7a5a; margin-bottom: 1rem; }
+        .sidebar h3 { color: #4a8a5a; margin-bottom: 1rem; }
         .mode-list { display: flex; flex-direction: column; gap: 0.8rem; }
         .mode-btn {
             padding: 0.8rem;
             background: rgba(235, 225, 215, 0.5);
-            backdrop-filter: blur(4px);
             border-radius: 1rem;
             cursor: pointer;
             text-align: center;
             font-weight: 600;
             color: #4a6a4a;
-            transition: all 0.2s;
             border: 1px solid rgba(255,255,255,0.3);
         }
         .mode-btn:hover { background: rgba(200, 180, 170, 0.6); }
-        .mode-btn.active { background: #c8b8a8; color: white; }
+        .mode-btn.active { background: #d4b8a8; color: white; }
         
         .right-panel { flex: 2.5; min-width: 520px; }
         
-        /* 玻璃内容卡片 */
         .content-card {
-            background: rgba(255, 254, 252, 0.45);
+            background: rgba(255, 254, 252, 0.5);
             backdrop-filter: blur(12px);
             border-radius: 1.8rem;
             padding: 1.8rem;
             margin-bottom: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
-        .content-card h2 { color: #3a6a4a; margin-bottom: 0.5rem; font-size: 1.5rem; }
-        .content-card h3 { color: #c87a6a; margin: 1rem 0 0.5rem; font-size: 1.2rem; border-left: 4px solid #c87a6a; padding-left: 0.8rem; }
+        .content-card h2 { color: #3a7a4a; margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .content-card h3 { color: #e88a7a; margin: 1rem 0 0.5rem; font-size: 1.2rem; border-left: 4px solid #e88a7a; padding-left: 0.8rem; }
         .content-card p { color: #3a5a3a; line-height: 1.8; margin-bottom: 0.6rem; }
         .content-card ul, .content-card ol { margin-left: 1.5rem; margin-bottom: 0.8rem; }
-        .content-card li { margin: 0.3rem 0; }
-        .content-card table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-        .content-card th, .content-card td { border: 1px solid rgba(200, 200, 180, 0.6); padding: 0.6rem; text-align: left; }
-        .content-card th { background: rgba(240, 232, 224, 0.6); }
         
-        /* 玻璃代码编辑器 */
-        .code-editor { background: rgba(26, 42, 34, 0.7); backdrop-filter: blur(8px); border-radius: 1rem; margin: 1rem 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); }
-        .code-header { background: rgba(42, 58, 50, 0.7); padding: 0.5rem 1rem; display: flex; justify-content: space-between; }
-        .code-actions button { background: #c8b8a8; border: none; padding: 0.2rem 0.8rem; border-radius: 1rem; color: white; cursor: pointer; }
+        .code-editor { background: rgba(26, 42, 34, 0.6); backdrop-filter: blur(8px); border-radius: 1rem; margin: 1rem 0; overflow: hidden; }
+        .code-header { background: rgba(42, 58, 50, 0.6); padding: 0.5rem 1rem; display: flex; justify-content: space-between; }
+        .code-actions button { background: #d4b8a8; border: none; padding: 0.2rem 0.8rem; border-radius: 1rem; color: white; cursor: pointer; }
         textarea { width: 100%; background: rgba(26, 42, 34, 0.8); color: #d0e8d0; font-family: monospace; font-size: 0.85rem; padding: 1rem; border: none; outline: none; resize: vertical; }
         .output-area { background: rgba(42, 58, 50, 0.5); padding: 0.8rem; border-radius: 0.8rem; margin-top: 0.5rem; }
         .output-area pre { color: #c8e0c8; font-family: monospace; white-space: pre-wrap; }
         
-        /* 玻璃测验区 */
-        .quiz-area { background: rgba(255, 248, 242, 0.45); backdrop-filter: blur(12px); border-radius: 1.5rem; padding: 1.2rem; border: 1px solid rgba(255,255,255,0.4); }
-        .timer { background: rgba(240, 232, 224, 0.6); padding: 0.3rem 0.8rem; border-radius: 2rem; font-size: 0.8rem; font-weight: bold; color: #c87a6a; display: inline-block; margin-bottom: 1rem; }
-        .question-item { background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(4px); border-radius: 1rem; padding: 1rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.3); }
-        .question-text { font-size: 1rem; margin-bottom: 0.8rem; }
+        .quiz-area { background: rgba(255, 248, 242, 0.5); backdrop-filter: blur(12px); border-radius: 1.5rem; padding: 1.2rem; border: 1px solid rgba(255,255,255,0.5); }
+        .timer { background: rgba(240, 232, 224, 0.6); padding: 0.3rem 0.8rem; border-radius: 2rem; font-size: 0.8rem; font-weight: bold; color: #e88a7a; display: inline-block; margin-bottom: 1rem; }
+        .question-item { background: rgba(255, 255, 255, 0.5); border-radius: 1rem; padding: 1rem; margin-bottom: 1rem; }
         .options { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.8rem 0; }
         .option {
             background: rgba(254, 248, 242, 0.7); padding: 0.5rem 1rem; border-radius: 2rem;
             cursor: pointer; font-size: 0.9rem; border: 1px solid rgba(238, 221, 208, 0.5);
-            transition: all 0.15s;
         }
         .option:hover { background: rgba(240, 232, 224, 0.9); transform: translateX(4px); }
         .option.selected { background: #c8d8be; color: white; }
-        .explanation-box { background: rgba(232, 240, 224, 0.7); backdrop-filter: blur(4px); border-radius: 1rem; padding: 0.8rem; margin: 0.8rem 0; border-left: 4px solid #a8c898; }
+        .explanation-box { background: rgba(232, 240, 224, 0.7); border-radius: 1rem; padding: 0.8rem; margin: 0.8rem 0; border-left: 4px solid #a8c898; }
         .quiz-actions { display: flex; gap: 1rem; margin-top: 1rem; justify-content: space-between; }
-        .quiz-actions button { background: rgba(200, 216, 190, 0.7); border: none; padding: 0.4rem 1rem; border-radius: 2rem; color: #4a6a4a; cursor: pointer; font-weight: 500; }
-        .quiz-actions button:hover { background: rgba(180, 196, 170, 0.9); }
+        .quiz-actions button { background: rgba(200, 216, 190, 0.7); border: none; padding: 0.4rem 1rem; border-radius: 2rem; color: #4a6a4a; cursor: pointer; }
         .quiz-result { background: rgba(232, 240, 224, 0.7); padding: 1rem; border-radius: 1rem; text-align: center; }
         
-        .contact { background: rgba(255, 250, 245, 0.4); backdrop-filter: blur(12px); border-radius: 2rem; padding: 1rem 2rem; display: flex; justify-content: space-between; margin-top: 2rem; flex-wrap: wrap; gap: 1rem; border: 1px solid rgba(255,255,255,0.4); }
+        .contact { background: rgba(255, 250, 245, 0.45); backdrop-filter: blur(12px); border-radius: 2rem; padding: 1rem 2rem; display: flex; justify-content: space-between; margin-top: 2rem; flex-wrap: wrap; gap: 1rem; border: 1px solid rgba(255,255,255,0.5); }
         .contact-links { display: flex; gap: 1.5rem; }
-        .contact-links a { color: #7a8a6a; text-decoration: none; }
+        .contact-links a { color: #8aaa7a; text-decoration: none; }
         footer { text-align: center; margin-top: 1.5rem; font-size: 0.7rem; color: #9aaa8a; }
         @media (max-width: 900px) { .detail-layout { flex-direction: column; } .sidebar { position: static; } .right-panel { min-width: auto; } }
     </style>
@@ -154,43 +138,42 @@
 <div id="app"></div>
 
 <script>
-    // ==================== 10个项目完整数据（每章内容极其丰富） ====================
+    // ==================== 10个项目完整数据（每章10道测验题） ====================
     const projects = [
         { id:1, name:"数据清洗实战", duration:"30分钟", level:"入门",
-          learn: `<h2>📖 第一章：数据清洗实战</h2><p>数据清洗是数据分析的第一步，也是最耗时的环节，通常占整个分析过程的60%～80%。</p><h3>🎯 学习目标</h3><ul><li>掌握处理缺失值的多种方法（删除、填充、插值）</li><li>掌握重复值的检测与删除</li><li>掌握异常值的识别与处理</li></ul><h3>📌 什么是数据清洗？</h3><p>数据清洗是指发现并纠正数据文件中可识别的错误的最后一道程序，包括检查数据一致性、处理无效值和缺失值等。</p><h3>🔧 9步数据清洗流程</h3><table><tr><th>步骤</th><th>操作</th><th>方法</th></tr><tr><td>1</td><td>处理重复值</td><td>drop_duplicates()</td></tr><tr><td>2</td><td>处理缺失值</td><td>fillna() / dropna()</td></tr><tr><td>3</td><td>处理异常值</td><td>业务规则筛选</td></tr></table>`,
+          learn: `<h2>📖 第一章：数据清洗实战</h2><p>数据清洗是数据分析的第一步，也是最耗时的环节，通常占整个分析过程的60%～80%。</p><h3>🎯 学习目标</h3><ul><li>掌握处理缺失值的多种方法（删除、填充、插值）</li><li>掌握重复值的检测与删除</li><li>掌握异常值的识别与处理</li></ul><h3>📌 什么是数据清洗？</h3><p>数据清洗是指发现并纠正数据文件中可识别的错误的最后一道程序。</p><h3>🔧 9步数据清洗流程</h3><ul><li>1.处理重复值 - drop_duplicates()</li><li>2.处理缺失值 - fillna() / dropna()</li><li>3.处理异常值 - 业务规则筛选</li><li>4.格式统一 - str.strip()</li><li>5.数据类型转换 - astype()</li><li>6.列名标准化 - rename()</li><li>7.值映射 - map() / replace()</li><li>8.数据验证 - 条件筛选</li><li>9.记录清洗过程</li></ul>`,
           code: `const data = [
     { name: '张三', age: 25, salary: 5000 },
     { name: '李四', age: null, salary: 6000 },
     { name: '王五', age: 30, salary: 5500 },
-    { name: '张三', age: 25, salary: 5000 },
-    { name: null, age: 22, salary: 4800 }
+    { name: '张三', age: 25, salary: 5000 }
 ];
 console.log("原始数据:", data);
 const uniqueData = [];
 const seen = new Set();
 for (let item of data) {
     const key = (item.name || '') + '|' + (item.age || '');
-    if (!seen.has(key) && item.name !== null) {
+    if (!seen.has(key)) {
         seen.add(key);
         uniqueData.push(item);
     }
 }
-console.log("去重后:", uniqueData);
-const ages = uniqueData.filter(d => d.age !== null).map(d => d.age);
-ages.sort((a,b) => a-b);
-const medianAge = ages[Math.floor(ages.length/2)];
-for (let item of uniqueData) {
-    if (item.age === null) item.age = medianAge;
-}
-console.log("填充后:", uniqueData);`,
-          explanation: "去重+中位数填充缺失值",
+console.log("去重后:", uniqueData);`,
+          explanation: "使用Set去重，过滤重复数据。",
           questions: [
               { text:"数据清洗通常占分析过程的多少比例？", options:["20-30%","40-50%","60-80%"], correct:2, explanation:"数据清洗耗时最多，占60%～80%。" },
               { text:"drop_duplicates()方法的作用是？", options:["删除重复行","删除缺失行","填充缺失值"], correct:0, explanation:"drop_duplicates()删除重复行。" },
-              { text:"fillna()方法用于？", options:["填充缺失值","删除缺失值","检测缺失值"], correct:0, explanation:"fillna()填充缺失值。" }
+              { text:"fillna()方法用于？", options:["填充缺失值","删除缺失值","检测缺失值"], correct:0, explanation:"fillna()填充缺失值。" },
+              { text:"数据清洗的目的是？", options:["提高数据质量","增加数据量","加快计算"], correct:0, explanation:"主要目的是提高数据质量。" },
+              { text:"处理缺失值时，什么情况下适合用删除？", options:["缺失比例很小","缺失比例很大","数据量很小"], correct:0, explanation:"缺失比例小时删除影响不大。" },
+              { text:"astype()方法用于？", options:["数据类型转换","删除重复","填充缺失"], correct:0, explanation:"astype()转换数据类型。" },
+              { text:"str.strip()方法的作用是？", options:["去除首尾空格","转换为大写","拆分字符串"], correct:0, explanation:"strip()去除字符串首尾空格。" },
+              { text:"duplicated()方法返回什么？", options:["布尔序列","数值序列","DataFrame"], correct:0, explanation:"duplicated()返回布尔型Series。" },
+              { text:"处理异常值的常用方法是？", options:["业务规则筛选","随机删除","保留所有"], correct:0, explanation:"根据业务规则筛选合理范围。" },
+              { text:"数据清洗中，IQR方法用于？", options:["异常检测","缺失填充","去重"], correct:0, explanation:"IQR用于检测异常值。" }
           ]},
         { id:2, name:"多维统计分析", duration:"30分钟", level:"入门",
-          learn: `<h2>📊 第二章：多维统计分析</h2><p>描述性统计是数据分析的基础，通过均值、中位数、标准差等指标了解数据分布。</p><h3>📊 统计指标</h3><ul><li>均值：算术平均数，对异常值敏感</li><li>中位数：排序后中间值，不受异常值影响</li><li>标准差：衡量数据离散程度</li></ul>`,
+          learn: `<h2>📊 第二章：多维统计分析</h2><p>描述性统计是数据分析的基础，通过均值、中位数、标准差等指标了解数据分布。</p><h3>📊 统计指标</h3><ul><li>均值：算术平均数，对异常值敏感</li><li>中位数：排序后中间值，不受异常值影响</li><li>标准差：衡量数据离散程度</li><li>相关系数：衡量变量间线性关系</li></ul>`,
           code: `const scores = [85, 92, 78, 88, 95, 76, 89, 91, 84, 87];
 console.log("成绩数据:", scores);
 const sum = scores.reduce((a,b) => a + b, 0);
@@ -199,16 +182,22 @@ console.log("均值:", mean.toFixed(2));
 const sorted = [...scores].sort((a,b) => a - b);
 const median = sorted.length % 2 === 0 ? (sorted[sorted.length/2-1] + sorted[sorted.length/2]) / 2 : sorted[Math.floor(sorted.length/2)];
 console.log("中位数:", median);`,
-          explanation: "计算均值和标准差",
+          explanation: "计算均值和标准差，理解数据集中趋势。",
           questions: [
               { text:"受异常值影响最大的指标是？", options:["均值","中位数","众数"], correct:0, explanation:"均值对所有值敏感。" },
               { text:"中位数的特点是？", options:["不受异常值影响","受异常值影响","等于均值"], correct:0, explanation:"中位数对异常值不敏感。" },
-              { text:"标准差衡量什么？", options:["离散程度","集中趋势","分布形状"], correct:0, explanation:"标准差表示数据波动大小。" }
+              { text:"标准差衡量什么？", options:["离散程度","集中趋势","分布形状"], correct:0, explanation:"标准差表示数据波动大小。" },
+              { text:"相关系数范围是？", options:["[-1,1]","[0,1]","(-∞,+∞)"], correct:0, explanation:"相关系数-1到1。" },
+              { text:"r=0.9表示什么？", options:["强正相关","强负相关","无相关"], correct:0, explanation:"|r|>0.8为强相关。" },
+              { text:"groupby()用于？", options:["分组聚合","排序","筛选"], correct:0, explanation:"groupby()分组聚合。" },
+              { text:"describe()返回什么？", options:["统计指标","原始数据","排序结果"], correct:0, explanation:"describe()输出统计指标。" },
+              { text:"四分位数Q2代表？", options:["中位数","最小值","最大值"], correct:0, explanation:"Q2就是中位数。" },
+              { text:"偏度>0表示？", options:["右偏","左偏","对称"], correct:0, explanation:"正偏表示右尾长。" },
+              { text:"以下哪个不是描述性统计？", options:["聚类系数","方差","峰度"], correct:0, explanation:"聚类系数不是描述性统计。" }
           ]},
         { id:3, name:"购物车关联规则", duration:"45分钟", level:"进阶",
-          learn: `<h2>🛒 第三章：购物车关联规则</h2><p>关联规则挖掘发现商品之间的购买关联，支持度、置信度、提升度是核心指标。</p>`,
+          learn: `<h2>🛒 第三章：购物车关联规则</h2><p>关联规则挖掘发现商品之间的购买关联，支持度、置信度、提升度是核心指标。</p><h3>📖 核心概念</h3><ul><li>支持度：包含X的交易比例</li><li>置信度：买X同时买Y的概率</li><li>提升度：正相关/负相关/独立</li></ul>`,
           code: `const transactions = [['牛奶','面包','尿布'],['牛奶','尿布','啤酒'],['面包','尿布'],['牛奶','面包','啤酒'],['牛奶','面包','尿布','啤酒']];
-console.log("总订单数:", transactions.length);
 const itemCount = {};
 for (let trans of transactions) {
     for (let item of trans) {
@@ -219,50 +208,79 @@ for (let [item, count] of Object.entries(itemCount)) {
     const support = count / transactions.length;
     console.log(\`\${item} 支持度: \${support.toFixed(2)}\`);
 }`,
-          explanation: "计算商品支持度",
+          explanation: "计算每个商品的支持度，支持度越高商品越热门。",
           questions: [
               { text:"提升度>1表示？", options:["正相关","负相关","独立"], correct:0, explanation:"Lift>1表示正相关。" },
               { text:"支持度的公式？", options:["count(X)/总交易数","count(X∪Y)/count(X)","count(X∪Y)/总交易数"], correct:0, explanation:"支持度=包含X的交易数/总交易数。" },
-              { text:"置信度的公式？", options:["Support(X∪Y)/Support(X)","Support(X)/Support(Y)","Support(X∪Y)"], correct:0, explanation:"置信度=同时包含X和Y/包含X。" }
+              { text:"置信度的公式？", options:["Support(X∪Y)/Support(X)","Support(X)/Support(Y)","Support(X∪Y)"], correct:0, explanation:"置信度=同时包含X和Y/包含X。" },
+              { text:"Apriori算法的核心思想？", options:["先验性质","后验概率","随机采样"], correct:0, explanation:"先验性质：频繁项集的子集也是频繁的。" },
+              { text:"啤酒与尿布案例说明？", options:["关联规则","聚类","回归"], correct:0, explanation:"关联规则经典案例。" },
+              { text:"最小支持度设置过高会导致？", options:["规则太少","规则太多","无影响"], correct:0, explanation:"支持度高规则少。" },
+              { text:"提升度Lift<1表示？", options:["负相关","正相关","独立"], correct:0, explanation:"Lift<1表示负相关。" },
+              { text:"购物篮分析目的是？", options:["发现商品关联","预测销量","分类客户"], correct:0, explanation:"发现商品购买关联。" },
+              { text:"关联规则中，置信度越高表示？", options:["关联越强","关联越弱","无关联"], correct:0, explanation:"置信度越高说明X→Y可能性越大。" },
+              { text:"以下哪个不是关联规则应用？", options:["价格预测","商品推荐","货架摆放"], correct:0, explanation:"价格预测是回归问题。" }
           ]},
         { id:4, name:"KMeans聚类分析", duration:"45分钟", level:"进阶",
-          learn: `<h2>🔍 第四章：KMeans聚类分析</h2><p>KMeans是无监督学习算法，将相似数据点分组，用于客户分群、商品分类。</p>`,
+          learn: `<h2>🔍 第四章：KMeans聚类分析</h2><p>KMeans是无监督学习算法，将相似数据点分组，用于客户分群、商品分类。</p><h3>📖 算法步骤</h3><ol><li>随机选择K个初始质心</li><li>计算点到质心的距离，分配到最近簇</li><li>重新计算质心（簇内均值）</li><li>重复直到收敛</li></ol>`,
           code: `const customers = [[100,5],[120,6],[90,4],[50,2],[60,3],[55,2],[10,1],[15,1],[8,1]];
 function distance(a,b) { return Math.sqrt(Math.pow(a[0]-b[0],2)+Math.pow(a[1]-b[1],2)); }
 const centroids = [[customers[0][0],customers[0][1]],[customers[8][0],customers[8][1]]];
 console.log("初始中心:", centroids);`,
-          explanation: "KMeans聚类示例",
+          explanation: "KMeans聚类示例，计算点间距离。",
           questions: [
               { text:"KMeans属于什么学习？", options:["无监督","监督","强化"], correct:0, explanation:"KMeans不需要标签。" },
               { text:"选择K值的方法？", options:["肘部法则","梯度下降","反向传播"], correct:0, explanation:"肘部法则选择K值。" },
-              { text:"为什么需要标准化？", options:["消除量纲","提高精度","减少噪声"], correct:0, explanation:"标准化使特征可比。" }
+              { text:"为什么需要标准化？", options:["消除量纲","提高精度","减少噪声"], correct:0, explanation:"标准化使特征可比。" },
+              { text:"KMeans中SSE代表？", options:["簇内平方和","簇间平方和","总平方和"], correct:0, explanation:"SSE衡量簇内距离。" },
+              { text:"轮廓系数范围？", options:["[-1,1]","[0,1]","[0,∞]"], correct:0, explanation:"越接近1越好。" },
+              { text:"KMeans对什么敏感？", options:["初始质心","数据量","迭代次数"], correct:0, explanation:"不同初始质心结果不同。" },
+              { text:"欧氏距离用于？", options:["点间距离","概率计算","相关性"], correct:0, explanation:"欧氏距离是距离度量。" },
+              { text:"聚类后如何分析？", options:["groupby均值","corr","describe"], correct:0, explanation:"查看各簇均值差异。" },
+              { text:"KMeans假设簇形状？", options:["球形","任意形状","线形"], correct:0, explanation:"假设簇是球形。" },
+              { text:"以下哪个不是KMeans应用？", options:["线性回归","客户分群","图像压缩"], correct:0, explanation:"线性回归不是聚类。" }
           ]},
         { id:5, name:"RFM模型用户分层", duration:"45分钟", level:"进阶",
-          learn: `<h2>👥 第五章：RFM模型用户分层</h2><p>RFM通过最近消费(R)、频率(F)、金额(M)对客户分层。</p>`,
+          learn: `<h2>👥 第五章：RFM模型用户分层</h2><p>RFM通过最近消费(R)、频率(F)、金额(M)对客户分层。</p><h3>📊 RFM指标</h3><ul><li>R：最近消费时间，越小越活跃</li><li>F：消费频率，越大越忠诚</li><li>M：消费金额，越大价值越高</li></ul>`,
           code: `const customersRFM = [{ id:1,R:5,F:10,M:5000 },{ id:2,R:30,F:3,M:800 },{ id:3,R:90,F:1,M:100 }];
 function getSegment(r,f,m) {
     if (r<=10 && f>=5 && m>=2000) return "重要价值客户";
-    return "普通客户";
+    if (r<=30 && f>=3) return "一般价值客户";
+    return "流失风险客户";
 }
-for (let c of customersRFM) { c.segment = getSegment(c.R,c.F,c.M); console.log(\`客户\${c.id}: \${c.segment}\`); }`,
-          explanation: "RFM客户分层",
+for (let c of customersRFM) { console.log(\`客户\${c.id}: \${getSegment(c.R,c.F,c.M)}\`); }`,
+          explanation: "RFM客户分层规则。",
           questions: [
               { text:"RFM中R代表？", options:["最近消费","消费频率","消费金额"], correct:0, explanation:"R是Recency。" },
+              { text:"F代表什么？", options:["消费频率","最近消费","消费金额"], correct:0, explanation:"F是Frequency。" },
+              { text:"M代表什么？", options:["消费金额","最近消费","消费频率"], correct:0, explanation:"M是Monetary。" },
               { text:"重要价值客户的特点是？", options:["R高F高M高","R低F高M高","R高F低M高"], correct:0, explanation:"三高是重要价值客户。" },
-              { text:"R越小表示？", options:["越活跃","越不活跃","金额越高"], correct:0, explanation:"R越小越近越活跃。" }
+              { text:"R越小表示？", options:["越活跃","越不活跃","金额越高"], correct:0, explanation:"R越小越近越活跃。" },
+              { text:"RFM评分通常分几档？", options:["5档","3档","10档"], correct:0, explanation:"通常分5档评分。" },
+              { text:"流失风险客户的特点是？", options:["R低F低M低","R高F高M高","R低F高M高"], correct:0, explanation:"三低是流失风险。" },
+              { text:"重要保持客户的特点是？", options:["R低F高M高","R高F低M高","R高F高M低"], correct:0, explanation:"最近不活跃但历史价值高。" },
+              { text:"RFM总分用途？", options:["客户排序","聚类分析","回归预测"], correct:0, explanation:"总分用于排序比较。" },
+              { text:"RFM模型属于？", options:["客户价值模型","预测模型","聚类模型"], correct:0, explanation:"RFM是客户价值模型。" }
           ]},
         { id:6, name:"线性回归分析", duration:"45分钟", level:"进阶",
-          learn: `<h2>📈 第六章：线性回归分析</h2><p>线性回归预测连续变量，y = β₀ + β₁x₁ + ... + ε。</p>`,
+          learn: `<h2>📈 第六章：线性回归分析</h2><p>线性回归预测连续变量，y = β₀ + β₁x₁ + ... + ε。</p><h3>📊 评估指标</h3><ul><li>R²：决定系数，越接近1越好</li><li>MSE：均方误差，越小越好</li></ul>`,
           code: `const dataPoints = [{x:1,y:2.1},{x:2,y:3.9},{x:3,y:6.0},{x:4,y:7.8},{x:5,y:10.2}];
 let sumX=0,sumY=0,sumXY=0,sumX2=0;
 for (let p of dataPoints) { sumX+=p.x; sumY+=p.y; sumXY+=p.x*p.y; sumX2+=p.x*p.x; }
 const n=dataPoints.length, w=(n*sumXY-sumX*sumY)/(n*sumX2-sumX*sumX), b=(sumY-w*sumX)/n;
 console.log(\`回归方程: y = \${w.toFixed(2)}x + \${b.toFixed(2)}\`);`,
-          explanation: "最小二乘法求回归方程",
+          explanation: "最小二乘法求回归方程。",
           questions: [
               { text:"线性回归预测什么类型？", options:["连续值","离散值","类别值"], correct:0, explanation:"预测连续数值。" },
-              { text:"R²的取值范围？", options:["[0,1]","[-1,1]","[0,∞]"], correct:0, explanation:"越接近1拟合越好。" },
-              { text:"回归系数w表示？", options:["斜率","截距","误差"], correct:0, explanation:"w表示x变化1单位y的变化。" }
+              { text:"最小二乘法最小化什么？", options:["残差平方和","绝对误差和","方差"], correct:0, explanation:"最小化RSS。" },
+              { text:"R²的取值范围？", options:["[0,1]","[-1,1]","[0,∞]"], correct:0, explanation:"越接近1越好。" },
+              { text:"回归系数w表示？", options:["斜率","截距","误差"], correct:0, explanation:"w表示x变化1单位y的变化。" },
+              { text:"MSE是什么？", options:["均方误差","平均绝对误差","均方根误差"], correct:0, explanation:"MSE是均方误差。" },
+              { text:"过拟合指？", options:["训练好测试差","训练差测试好","都差"], correct:0, explanation:"过拟合泛化能力差。" },
+              { text:"特征缩放用于？", options:["加快收敛","提高精度","减少过拟合"], correct:0, explanation:"使特征尺度一致。" },
+              { text:"线性回归假设？", options:["线性关系","非线性关系","无关系"], correct:0, explanation:"假设线性关系。" },
+              { text:"多重共线性指？", options:["特征相关","标签相关","样本相关"], correct:0, explanation:"特征间高度相关。" },
+              { text:"残差是？", options:["实际-预测","预测-实际","实际+预测"], correct:0, explanation:"残差=实际-预测。" }
           ]},
         { id:7, name:"随机森林预测", duration:"60分钟", level:"高级",
           learn: `<h2>🌲 第七章：随机森林预测</h2><p>随机森林是集成学习算法，多棵决策树平均预测，抗过拟合。</p>`,
@@ -270,53 +288,83 @@ console.log(\`回归方程: y = \${w.toFixed(2)}x + \${b.toFixed(2)}\`);`,
 const ensemblePred = [];
 for (let i=0;i<tree1.length;i++) ensemblePred.push((tree1[i]+tree2[i]+tree3[i])/3);
 console.log("集成预测:", ensemblePred.map(p=>p.toFixed(1)));`,
-          explanation: "多棵树平均预测",
+          explanation: "多棵树平均预测。",
           questions: [
               { text:"随机森林属于？", options:["集成学习","聚类","关联规则"], correct:0, explanation:"集成学习算法。" },
-              { text:"Bagging的核心思想？", options:["并行集成","串行集成","单模型"], correct:0, explanation:"Bootstrap聚合并行训练。" }
+              { text:"Bagging的核心思想？", options:["并行集成","串行集成","单模型"], correct:0, explanation:"Bootstrap聚合并行训练。" },
+              { text:"随机森林抗过拟合原因？", options:["多树平均","单树复杂","数据量大"], correct:0, explanation:"多棵树平均降低方差。" },
+              { text:"特征重要性可用来？", options:["特征选择","数据清洗","聚类"], correct:0, explanation:"筛选重要特征。" },
+              { text:"n_estimators参数代表？", options:["树的数量","树的深度","特征数量"], correct:0, explanation:"决策树的数量。" },
+              { text:"随机森林能处理什么关系？", options:["非线性","线性","仅线性"], correct:0, explanation:"能处理非线性关系。" },
+              { text:"Boosting与Bagging区别？", options:["串行vs并行","并行vs串行","无区别"], correct:0, explanation:"Boosting串行，Bagging并行。" },
+              { text:"随机森林输出特征重要性的依据？", options:["不纯度减少","树深度","样本量"], correct:0, explanation:"基于不纯度减少的总和。" },
+              { text:"随机森林中每棵树的训练集如何获得？", options:["Bootstrap采样","全部数据","随机分配"], correct:0, explanation:"自助采样有放回抽取。" },
+              { text:"随机森林的随机性体现在？", options:["样本和特征","仅样本","仅特征"], correct:0, explanation:"样本和特征都随机选择。" }
           ]},
         { id:8, name:"时间序列分析", duration:"45分钟", level:"高级",
           learn: `<h2>⏰ 第八章：时间序列分析</h2><p>移动平均平滑短期波动，MA₃ = (xₜ₋₂+xₜ₋₁+xₜ)/3</p>`,
           code: `const sales = [100,110,105,120,115,130,125,140,135,150];
-console.log("原始销量:", sales);
 const ma3 = [];
 for (let i=2;i<sales.length;i++) ma3.push((sales[i-2]+sales[i-1]+sales[i])/3);
 console.log("3期移动平均:", ma3.map(v=>v.toFixed(1)));
 const last3 = sales.slice(-3);
 const nextPred = last3.reduce((a,b)=>a+b,0)/3;
 console.log("下期预测:", nextPred.toFixed(1));`,
-          explanation: "移动平均预测",
+          explanation: "移动平均预测。",
           questions: [
               { text:"移动平均作用？", options:["平滑数据","增加噪声","分类"], correct:0, explanation:"平滑短期波动。" },
-              { text:"ARIMA模型中的I代表？", options:["差分","自回归","移动平均"], correct:0, explanation:"I表示差分使序列平稳。" }
+              { text:"时间序列成分不包括？", options:["聚类","趋势","季节性"], correct:0, explanation:"聚类不是时间序列成分。" },
+              { text:"ARIMA模型中的I代表？", options:["差分","自回归","移动平均"], correct:0, explanation:"I表示差分使序列平稳。" },
+              { text:"指数平滑中α越大表示？", options:["对近期越敏感","对远期越敏感","无影响"], correct:0, explanation:"α越大近期权重越大。" },
+              { text:"时间序列分解不包括？", options:["偏度","趋势","季节性"], correct:0, explanation:"偏度不是分解成分。" },
+              { text:"ARIMA模型中的AR代表？", options:["自回归","差分","移动平均"], correct:0, explanation:"AR是自回归。" },
+              { text:"ARIMA模型中的MA代表？", options:["移动平均","自回归","差分"], correct:0, explanation:"MA是移动平均。" },
+              { text:"使时间序列平稳的常用方法是？", options:["差分","标准化","归一化"], correct:0, explanation:"差分去除趋势和季节性。" },
+              { text:"移动平均窗口越大，曲线越？", options:["平滑","波动大","不变"], correct:0, explanation:"窗口越大越平滑。" },
+              { text:"时间序列预测的常用模型是？", options:["ARIMA","KMeans","决策树"], correct:0, explanation:"ARIMA是经典时间序列模型。" }
           ]},
         { id:9, name:"异常检测", duration:"45分钟", level:"高级",
           learn: `<h2>🚨 第九章：异常检测</h2><p>Z-score = (x-μ)/σ，|Z|>2为可疑异常。</p>`,
           code: `const data = [10,12,13,12,11,14,13,100,12,11];
-console.log("原始数据:", data);
 const mean = data.reduce((a,b)=>a+b,0)/data.length;
 const variance = data.reduce((acc,val)=>acc+Math.pow(val-mean,2),0)/data.length;
 const std = Math.sqrt(variance);
 const zScores = data.map(x=>Math.abs((x-mean)/std));
 const outliers = data.filter((_,i)=>zScores[i]>2);
 console.log("异常值(Z>2):", outliers);`,
-          explanation: "Z-score检测异常",
+          explanation: "Z-score检测异常。",
           questions: [
               { text:"Z-score>3视为？", options:["异常","正常","边界"], correct:0, explanation:"Z>3视为异常。" },
-              { text:"IQR代表什么？", options:["四分位距","标准差","均值"], correct:0, explanation:"IQR=Q3-Q1。" }
+              { text:"IQR代表什么？", options:["四分位距","标准差","均值"], correct:0, explanation:"IQR=Q3-Q1。" },
+              { text:"IQR方法中异常值判断标准？", options:["超出1.5倍IQR","超出3倍IQR","超出1倍IQR"], correct:0, explanation:"超出[Q1-1.5IQR, Q3+1.5IQR]为异常。" },
+              { text:"Z-score方法适用于什么分布？", options:["正态分布","均匀分布","二项分布"], correct:0, explanation:"假设数据服从正态分布。" },
+              { text:"孤立森林适用于？", options:["高维数据","低维数据","小数据"], correct:0, explanation:"适合高维异常检测。" },
+              { text:"异常处理策略不包括？", options:["保留所有","删除","替换"], correct:0, explanation:"异常值通常需要处理。" },
+              { text:"箱线图中异常点用IQR表示？", options:["超出1.5倍IQR","超出1倍IQR","超出2倍IQR"], correct:0, explanation:"箱线图用1.5倍IQR。" },
+              { text:"异常检测的目的是？", options:["发现离群点","分类数据","聚类数据"], correct:0, explanation:"识别异常值。" },
+              { text:"哪种方法对偏态数据更稳健？", options:["IQR","Z-score","均值"], correct:0, explanation:"IQR不受极端值影响。" },
+              { text:"异常值可能是？", options:["数据错误","正常波动","以上都是"], correct:2, explanation:"异常值可能是错误也可能是稀有事件。" }
           ]},
         { id:10, name:"全流程综合项目", duration:"60分钟", level:"高级",
-          learn: `<h2>🏆 第十章：全流程综合项目</h2><p>完整商业分析流程：清洗→分析→建模→报告。</p>`,
+          learn: `<h2>🏆 第十章：全流程综合项目</h2><p>完整商业分析流程：清洗→分析→建模→报告。</p><h3>📋 分析步骤</h3><ol><li>问题定义</li><li>数据采集</li><li>数据清洗</li><li>探索性分析</li><li>建模评估</li><li>报告输出</li></ol>`,
           code: `const salesData = [{month:1,sales:1200,cost:800},{month:2,sales:1350,cost:850},{month:3,sales:1100,cost:750},{month:4,sales:1500,cost:900},{month:5,sales:1800,cost:1050},{month:6,sales:2100,cost:1200}];
 const analysisData = salesData.map(d => ({...d, profit: d.sales-d.cost}));
 const totalSales = analysisData.reduce((s,d)=>s+d.sales,0);
 const totalProfit = analysisData.reduce((s,d)=>s+d.profit,0);
 console.log("总销售额:", totalSales);
 console.log("总利润:", totalProfit);`,
-          explanation: "完整分析流程",
+          explanation: "完整分析流程。",
           questions: [
               { text:"数据分析第一步？", options:["问题定义","数据清洗","建模"], correct:0, explanation:"先定义问题再分析。" },
-              { text:"完整流程最后一步？", options:["报告输出","数据采集","建模"], correct:0, explanation:"报告呈现结论。" }
+              { text:"完整流程最后一步？", options:["报告输出","数据采集","建模"], correct:0, explanation:"报告呈现结论。" },
+              { text:"探索性分析不包括？", options:["模型训练","描述性统计","可视化"], correct:0, explanation:"模型训练是建模阶段。" },
+              { text:"分析报告应该包含？", options:["结论与建议","只放图表","只有代码"], correct:0, explanation:"需要给出可落地的建议。" },
+              { text:"数据清洗在哪个阶段？", options:["预处理","建模","报告"], correct:0, explanation:"清洗在建模之前。" },
+              { text:"以下哪个是可视化工具？", options:["Matplotlib","Pandas","NumPy"], correct:0, explanation:"Matplotlib是可视化库。" },
+              { text:"数据分析的核心价值是？", options:["支持决策","收集数据","存储数据"], correct:0, explanation:"辅助业务决策。" },
+              { text:"描述性分析回答什么问题？", options:["发生了什么","为什么发生","将要发生"], correct:0, explanation:"描述性分析总结过去。" },
+              { text:"诊断性分析回答？", options:["为什么发生","发生了什么","将要发生"], correct:0, explanation:"寻找原因。" },
+              { text:"预测性分析回答？", options:["将要发生","发生了什么","为什么发生"], correct:0, explanation:"预测未来趋势。" }
           ]}
     ];
 
@@ -443,7 +491,7 @@ console.log("总利润:", totalProfit);`,
             }
             const q = questions[qs.idx];
             const selected = qs.answers[qs.idx];
-            // 关键：只有选择了答案才显示解析，否则只显示提示
+            // 关键：只有选择了答案才显示解析
             let expHtml = '';
             if(selected !== undefined){
                 const isCorrect = (selected === q.correct);
